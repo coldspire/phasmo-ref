@@ -3,9 +3,19 @@
   "version": "0.0.1",
   "description": "A quick reference for Phasmophobia.",
   "main": "index.js",
-  "scripts": { },
+  "scripts": {
+    "prepare": "husky install"
+  },
   "keywords": [],
   "author": "Owen Anderson",
   "license": "Unlicense",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "2.8.7"
+  },
+  "lint-staged": {
+    "*.{js,css,md,html}": "prettier --write"
+  }
 }
