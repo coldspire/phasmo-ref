@@ -6,7 +6,61 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    TODO
-    <script type="module" src="scripts/index.mjs"></script>
+<header>
+    <h1>Phasmophobia Quick Reference</h1>
+    <p>Using Phasmophobia version v0.8.3.1</p>
+</header>
+<nav>
+    <h2>Navigation</h2>
+    <ul>
+        <li>
+            Ghosts
+        </li>
+        <li>
+            Tarot cards
+        </li>
+        <li>
+            Good questions to vocalize
+        </li>
+    </ul>
+</nav>
+<main>
+    <section class="select-a-ghost">
+        <h2>👻 Select-a-Ghost</h2>
+        <label>
+            Ghost
+            <select id="ghost-selection">
+                <option>Spirit</option>
+                <option>Revenant</option>
+            </select>
+        </label>
+    </section>
+    <section>
+        <h2>Ghostly Info</h2>
+        <dl>
+            <dt>Hunts at sanity</dt>
+            <dd>50%</dd>
+        </dl>
+        <dl>
+            <dt>Evidence</dt>
+            <dd>
+                <ul>
+                    <li>Ghost Orb</li>
+                    <li>Fingerprints</li>
+                    <li>DOTS</li>
+                </ul>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Unique notes</dt>
+            <dd>
+                <ul>
+                    <li>Smudge-sticking near a Spirit causes 180-second (3-minute) hunt reprieve</li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
+</main>
+<script type="module" src="scripts/index.mjs"></script>
 </body>
 </html>
