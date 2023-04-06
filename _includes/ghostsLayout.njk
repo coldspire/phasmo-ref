@@ -1,0 +1,12 @@
+---
+layout: baseLayout
+---
+<h2>Ghosts</h2>
+<nav>
+    <ul>
+        {%- for ghost in ghosts %}
+            <li><a href="{{ ghost.name }}.html">{{ ghost.name }}</a></li>
+        {% endfor -%}
+    </ul>
+</nav>
+{{ content | safe }}

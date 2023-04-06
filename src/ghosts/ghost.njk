@@ -9,15 +9,15 @@ permalink: "ghosts/{{ ghost.name | slugify }}.html"
 
 title: Ghost
 ---
-<h2>{{ ghost.name }}</h2>
+<h3>{{ ghost.name }}</h3>
 <p>Hunts at sanity threshold: {{ ghost.huntSanityThreshold }}</p>
-<h3>Evidence</h3>
+<h4>Evidence</h4>
 <ul>
     {%- for evidence in ghost.evidence %}
         <li>{{ evidence }}</li>
     {% endfor -%}
 </ul>
-<h3>Unique</h3>
+<h4>Unique</h4>
 <ul>
     {%- for unique in ghost.uniqueInfo %}
         <li>{{ unique }}</li>
