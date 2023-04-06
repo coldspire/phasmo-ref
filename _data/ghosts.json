@@ -1,6 +1,6 @@
 [
     {
-        "name": "Spirit",
+        "name": "spirit",
         "huntSanityThreshold": 50,
         "evidence": [
             "EMF level 5",
@@ -12,7 +12,7 @@
         ]
     },
     {
-        "name": "Deogen",
+        "name": "deogen",
         "huntSanityThreshold": 40,
         "evidence": [
             "DOTS",

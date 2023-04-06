@@ -5,7 +5,7 @@ layout: baseLayout
 <nav>
     <ul>
         {%- for ghost in ghosts %}
-            <li><a href="{{ ghost.name }}.html">{{ ghost.name }}</a></li>
+            <li><a href="{{ ghost.name }}.html" class="ghost-name">{{ ghost.name }}</a></li>
         {% endfor -%}
     </ul>
 </nav>
