@@ -1,0 +1,11 @@
+---
+layout: baseLayout.njk
+title: Ghosts
+---
+<nav>
+    <ul>
+        {%- for ghost in ghosts %}
+            <li><a href="{{ ghost.name }}.html">{{ ghost.name }}</a></li>
+        {% endfor -%}
+    </ul>
+</nav>
