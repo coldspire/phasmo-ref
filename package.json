@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run eleventy",
-    "clean": "npx rimraf _site",
+    "clean": "npx rimraf dist",
+    "clean-start": "npm run clean && npm run start",
     "eleventy": "eleventy",
     "prepare": "husky install",
     "serve": "eleventy --serve",
