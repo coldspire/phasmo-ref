@@ -4,16 +4,24 @@
   "description": "A quick reference for Phasmophobia.",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install"
+    "build": "npm run eleventy",
+    "clean": "npx rimraf _site",
+    "eleventy": "eleventy",
+    "prepare": "husky install",
+    "serve": "eleventy --serve",
+    "start": "npm run serve"
   },
   "keywords": [],
   "author": "Owen Anderson",
   "license": "Unlicense",
   "private": true,
   "devDependencies": {
+    "@11ty/eleventy": "2.0.1",
+    "clean-css": "5.3.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
-    "prettier": "2.8.7"
+    "prettier": "2.8.7",
+    "rimraf": "4.4.1"
   },
   "lint-staged": {
     "*.{js,css,md,html}": "prettier --write"
