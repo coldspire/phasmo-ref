@@ -2,4 +2,11 @@
 layout: baseLayout
 ---
 <h2>Tarot cards</h2>
-<p>TODO</p>
+{%- for card in tarot %}
+<ul>
+    <li>{{ card.name }}</li>
+    <li>{{ card.effect }}</li>
+    <li>{{ card.burnColor }}</li>
+    <li>{{ card.drawChance }}</li>
+</ul>
+{% endfor -%}

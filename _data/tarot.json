@@ -1,0 +1,14 @@
+[
+  {
+    "name": "the tower",
+    "effect": "Causes interaction and doubles ghost activity for 20 seconds",
+    "burnColor": "blue",
+    "drawChance": 20
+  },
+  {
+    "name": "the wheel of fortune",
+    "effect": "25% sanity gain if burns green; 25% sanity loss if burns red",
+    "burnColor": "Green or red",
+    "drawChance": 20
+  }
+]
