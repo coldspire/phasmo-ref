@@ -2,7 +2,7 @@
 permalink: bundle.css
 ---
 {% set css %}
-    {% include "styles/reset.css" %}
-    {% include "styles/index.css" %}
+    {% include "./styles/reset.css" %}
+    {% include "./styles/index.css" %}
 {% endset %}
 {{ css | cssmin | safe }}
