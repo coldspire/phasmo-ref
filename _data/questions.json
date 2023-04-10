@@ -1,0 +1,125 @@
+{
+  "spiritBox": [
+    {
+      "question": "What do you want?",
+      "type": "aggression"
+    },
+    {
+      "question": "Why are you here?",
+      "type": "aggression"
+    },
+    {
+      "question": "Are you friendly/dangerous?",
+      "type": "aggression"
+    },
+    {
+      "question": "Where are you?",
+      "type": "location"
+    },
+    {
+      "question": "Give us a sign.",
+      "type": "location"
+    },
+    {
+      "question": "Are you here/close?",
+      "type": "location"
+    },
+    {
+      "question": "Are you old/young?",
+      "type": "age"
+    },
+    {
+      "question": "What is your age?",
+      "type": "age"
+    }
+  ],
+  "ouija": [
+    {
+      "question": "Where are you?",
+      "response": "Name of the room that the ghost is currently in",
+      "sanityDrain": "50%"
+    },
+    {
+      "question": "Are you here?",
+      "response": "Whether the ghost is in the same room as the Ouija board and player",
+      "sanityDrain": "20%"
+    },
+    {
+      "question": "Where is the bone?",
+      "response": "Name of the room where the bone is located",
+      "sanityDrain": "50%",
+      "notes": [
+        "A bug may cause this question not to work"
+      ]
+    },
+    {
+      "question": "(Do you want to play) hide and seek?",
+      "response": "Board counts down from 5; at 0, a cursed hunt begins",
+      "sanityDrain": "None"
+    },
+    {
+      "question": "How many people/ghosts are in this room? Are we alone?",
+      "response": "A number is given, though how it is calculated is unknown",
+      "sanityDrain": "20%",
+      "notes": [
+        "Response is at least partially a function of the number of people in the room"
+      ]
+    },
+    {
+      "question": "Do you respond to everyone?",
+      "response": "Yes or no",
+      "sanityDrain": "20%",
+      "notes": [
+        "Basically says whether the Spirit Box needs to be used by a single person alone"
+      ]
+    },
+    {
+      "question": "How old are you? What is your age?",
+      "response": "A number from 2—90 (or so – not verified)",
+      "sanityDrain": "20%"
+    },
+    {
+      "question": "How long have you been dead?",
+      "response": "A number from 50—1000",
+      "sanityDrain": "5%"
+    },
+    {
+      "question": "What is my sanity?",
+      "response": "Healthy (>80%); Good (60—80); Average (40—60); Bad (20—40); Awful (<20)",
+      "sanityDrain": "5%"
+    },
+    {
+      "question": "How insane/crazy am I?",
+      "response": "Not very (>50%); Very (25—50); Insane (<25)",
+      "sanityDrain": "5%"
+    },
+    {
+      "question": "Am I insane?",
+      "response": "No (>90%); Maybe (20—90); Yes (<20)",
+      "sanityDrain": "5%"
+    },
+    {
+      "question": "How did you die?",
+      "response": "Method is given (seven potential responses)",
+      "sanityDrain": "5%"
+    },
+    {
+      "question": "How do you feel?",
+      "response": "Feeling is given (seven potential responses)",
+      "sanityDrain": ""
+    },
+    {
+      "question": "Why are you here? What do you want?",
+      "response": "Reason is given (ten potential responses)",
+      "sanityDrain": "5%"
+    },
+    {
+      "question": "Knock, knock",
+      "response": "Who's there",
+      "sanityDrain": "5%",
+      "notes": [
+        "Other jokes can be made – see references"
+      ]
+    }
+  ]
+}
