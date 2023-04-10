@@ -43,8 +43,8 @@ const ghosts = [
     huntSanityThreshold: 50,
     evidence: [
       Evidence.Dots.shortName,
-      Evidence.Orb.shortName,
       Evidence.Fingerprints.shortName,
+      Evidence.Orb.shortName,
     ],
     uniqueInfo: [
       "Using a parabolic mic has a 33%-chance of hearing a unique Banshee shriek",
@@ -56,9 +56,9 @@ const ghosts = [
     name: "demon",
     huntSanityThreshold: 70,
     evidence: [
-      Evidence.Writing.shortName,
       Evidence.Fingerprints.shortName,
       Evidence.Freezing.shortName,
+      Evidence.Writing.shortName,
     ],
     uniqueInfo: [
       "Has an ability to start a hunt regardless of player sanity average",
