@@ -2,4 +2,27 @@
 layout: baseLayout
 ---
 <h2>Questions to ask</h2>
-<p>TODO</p>
+<h3>Spirit Box / General</h3>
+<ul>
+    {% for spiritQ in questions.spiritBox %}
+        <li>"{{ spiritQ.question }}" ({{ spiritQ.type }})</li>
+    {% endfor %}
+</ul>
+
+<h3>Ouija Board</h3>
+{% for ouijaQ in questions.ouija %}
+    <ul>
+        <li>"{{ ouijaQ.question }}"</li>
+        <li>Responds with: {{ ouijaQ.response }}</li>
+        <li>Sanity drain: {{ ouijaQ.sanityDrain }}</li>
+        {% if ouijaQ.notes.length > 0 %}
+            <li>Also note:
+                <ul>
+                    {% for note in ouijaQ.notes %}
+                        <li>{{ note }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+    </ul>
+{% endfor %}
