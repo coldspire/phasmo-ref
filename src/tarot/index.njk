@@ -2,4 +2,25 @@
 layout: baseLayout
 ---
 <h2>Tarot cards</h2>
-<p>TODO</p>
+{%- for card in tarot %}
+<ul>
+    <li>
+        {% if card.hasThePrefix %}
+        the
+        {% endif %}
+        <b>{{ card.name }}</b>
+    </li>
+    <li>{{ card.effect }}</li>
+    <li>{{ card.burnColor }}</li>
+    <li>{{ card.drawChance }}</li>
+    {% if card.notes.length > 0 %}
+    <li> Also note:
+        <ul>
+            {% for note in card.notes %}
+                <li>{{ note }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+</ul>
+{% endfor -%}
