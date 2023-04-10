@@ -1,14 +1,88 @@
 [
   {
     "name": "the tower",
-    "effect": "Causes interaction and doubles ghost activity for 20 seconds",
+    "effect": "Causes interaction",
     "burnColor": "blue",
-    "drawChance": 20
+    "drawChance": "20%",
+    "notes": [
+      "Doubles ghost activity for 20 seconds"
+    ]
   },
   {
     "name": "the wheel of fortune",
     "effect": "25% sanity gain if burns green; 25% sanity loss if burns red",
-    "burnColor": "Green or red",
-    "drawChance": 20
+    "burnColor": "green or red",
+    "drawChance": "20%",
+    "notes": []
+  },
+  {
+    "name": "the sun",
+    "effect": "Refill sanity to 100%",
+    "burnColor": "yellow",
+    "drawChance": "5%",
+    "notes": [
+      "Decreases hunt chances"
+    ]
+  },
+  {
+    "name": "the moon",
+    "effect": "Drop sanity to 0%",
+    "burnColor": "white",
+    "drawChance": "5%",
+    "notes": [
+      "Increases hunt chances"
+    ]
+  },
+  {
+    "name": "the devil",
+    "effect": "Triggers a ghost event",
+    "burnColor": "pink",
+    "drawChance": "10%",
+    "notes": [
+      "Ghost event is directed at player nearest to the ghost"
+    ]
+  },
+  {
+    "name": "the hermit",
+    "effect": "Teleports and traps ghost in favorite room for 60 seconds",
+    "burnColor": "cyan",
+    "drawChance": "10%",
+    "notes": [
+      "No effect on hunts"
+    ]
+  },
+  {
+    "name": "the high priestess",
+    "effect": "Revive a random dead player",
+    "burnColor": "light yellow",
+    "drawChance": "2%",
+    "notes": [
+      "If no-one is dead, the respawn is banked (limit one)",
+      "Playing solo means you gain an extra life",
+      "The same player cannot be revived twice"
+    ]
+  },
+  {
+    "name": "the hanged man",
+    "effect": "Instant death of the card-drawer",
+    "burnColor": "none",
+    "drawChance": "1%",
+    "notes": []
+  },
+  {
+    "name": "death",
+    "effect": "Starts a cursed hunt",
+    "burnColor": "dark purple",
+    "drawChance": "10%",
+    "notes": []
+  },
+  {
+    "name": "the fool",
+    "effect": "No effect",
+    "burnColor": "light purple",
+    "drawChance": "17% normally; 100% during a hunt",
+    "notes": [
+      "A drawn card turns into the Fool when burning"
+    ]
   }
 ]
