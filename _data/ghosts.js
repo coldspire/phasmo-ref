@@ -41,11 +41,7 @@ const ghosts = [
   {
     name: "banshee",
     huntSanityThreshold: 50,
-    evidence: [
-      Evidence.Dots.shortName,
-      Evidence.Fingerprints.shortName,
-      Evidence.Orb.shortName,
-    ],
+    evidence: [Evidence.Dots, Evidence.Fingerprints, Evidence.Orb],
     uniqueInfo: [
       "Using a parabolic mic has a 33%-chance of hearing a unique Banshee shriek",
       "Targets one player at a time; will hunt that player, and sanity-check applies only to target (not average)",
@@ -55,11 +51,7 @@ const ghosts = [
   {
     name: "demon",
     huntSanityThreshold: 70,
-    evidence: [
-      Evidence.Fingerprints.shortName,
-      Evidence.Freezing.shortName,
-      Evidence.Writing.shortName,
-    ],
+    evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Writing],
     uniqueInfo: [
       "Has an ability to start a hunt regardless of player sanity average",
       "Below-sanity-threshold hunts can still occur and are separate from ability-triggered hunts",
@@ -71,11 +63,7 @@ const ghosts = [
   {
     name: "deogen",
     huntSanityThreshold: 40,
-    evidence: [
-      Evidence.Dots.shortName,
-      Evidence.SpiritBox.shortName,
-      Evidence.Writing.shortName,
-    ],
+    evidence: [Evidence.Dots, Evidence.SpiritBox, Evidence.Writing],
     uniqueInfo: [
       "Above-average interactivity with DOTS and ghost writing",
       'Spirit Box usage within a meter has 33%-chance of heavy, "bull-like" breathing',
@@ -86,11 +74,7 @@ const ghosts = [
   {
     name: "goryo",
     huntSanityThreshold: 50,
-    evidence: [
-      Evidence.Dots.shortName,
-      Evidence.Emf.shortName,
-      Evidence.Fingerprints.shortName,
-    ],
+    evidence: [Evidence.Dots, Evidence.Emf, Evidence.Fingerprints],
     uniqueInfo: [
       "DOTS interaction appears only through a video feed",
       "Doesn't roam far from its favorite room",
@@ -100,11 +84,7 @@ const ghosts = [
   {
     name: "spirit",
     huntSanityThreshold: 50,
-    evidence: [
-      Evidence.Emf.shortName,
-      Evidence.SpiritBox.shortName,
-      Evidence.Writing.shortName,
-    ],
+    evidence: [Evidence.Emf, Evidence.SpiritBox, Evidence.Writing],
     uniqueInfo: [
       "When smudged, a Spirit won't start a non-cursed hunt for 3 minutes (instead of the normal 90 seconds)",
     ],
