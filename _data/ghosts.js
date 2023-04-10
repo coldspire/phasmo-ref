@@ -82,6 +82,27 @@ const ghosts = [
     ],
   },
   {
+    name: "hantu",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Orb],
+    uniqueInfo: [
+      "The colder the room, the faster it moves (so be careful around the favorite room)",
+      "Can't turn on the fuse box; twice as likely to turn off the fuse box",
+      "When visible and breaker is off, cold breath is visible when Hantu is visible",
+      "Same evidence may also point to a Mimic. Check Spirit Box to rule out Mimic",
+    ],
+  },
+  {
+    name: "jinn",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Freezing],
+    uniqueInfo: [
+      "Cannot turn off a breaker through interactions",
+      "Ability lowers sanity of players in same room/3-meter distance by 25%; fuse box will give EMF 2/5",
+      "During hunt, very fast if all conditions are met: fuse box is on, Jinn has line-of-sight, and is further than 3 meters away",
+    ],
+  },
+  {
     name: "spirit",
     huntSanityThreshold: 50,
     evidence: [Evidence.Emf, Evidence.SpiritBox, Evidence.Writing],
