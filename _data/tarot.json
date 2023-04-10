@@ -1,6 +1,7 @@
 [
   {
-    "name": "the tower",
+    "name": "tower",
+    "hasThePrefix": true,
     "effect": "Causes interaction",
     "burnColor": "blue",
     "drawChance": "1 in 5 (20%)",
@@ -9,14 +10,16 @@
     ]
   },
   {
-    "name": "the wheel of fortune",
+    "name": "wheel of fortune",
+    "hasThePrefix": true,
     "effect": "25% sanity gain if burns green; 25% sanity loss if burns red",
     "burnColor": "green or red",
     "drawChance": "1 in 5 (20%)",
     "notes": []
   },
   {
-    "name": "the sun",
+    "name": "sun",
+    "hasThePrefix": true,
     "effect": "Refill sanity to 100%",
     "burnColor": "yellow",
     "drawChance": "1 in 20 (5%)",
@@ -25,7 +28,8 @@
     ]
   },
   {
-    "name": "the moon",
+    "name": "moon",
+    "hasThePrefix": true,
     "effect": "Drop sanity to 0%",
     "burnColor": "white",
     "drawChance": "1 in 20 (5%)",
@@ -34,7 +38,8 @@
     ]
   },
   {
-    "name": "the devil",
+    "name": "devil",
+    "hasThePrefix": true,
     "effect": "Triggers a ghost event",
     "burnColor": "pink",
     "drawChance": "1 in 10 (10%)",
@@ -43,7 +48,8 @@
     ]
   },
   {
-    "name": "the hermit",
+    "name": "hermit",
+    "hasThePrefix": true,
     "effect": "Teleports and traps ghost in favorite room for 60 seconds",
     "burnColor": "cyan",
     "drawChance": "1 in 10 (10%)",
@@ -52,7 +58,8 @@
     ]
   },
   {
-    "name": "the high priestess",
+    "name": "high priestess",
+    "hasThePrefix": true,
     "effect": "Revive a random dead player",
     "burnColor": "light yellow",
     "drawChance": "1 in 50 (2%)",
@@ -63,20 +70,23 @@
     ]
   },
   {
-    "name": "the hanged man",
+    "name": "hanged man",
+    "hasThePrefix": true,
     "effect": "Instant death of the card-drawer",
     "burnColor": "none",
     "drawChance": "1 in 100 (1%)"
   },
   {
     "name": "death",
+    "hasThePrefix": false,
     "effect": "Starts a cursed hunt",
     "burnColor": "dark purple",
     "drawChance": "1 in 10 (10%)",
     "notes": []
   },
   {
-    "name": "the fool",
+    "name": "fool",
+    "hasThePrefix": true,
     "effect": "No effect",
     "burnColor": "light purple",
     "drawChance": "1 in 17 normally; always during a hunt",

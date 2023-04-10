@@ -4,7 +4,12 @@ layout: baseLayout
 <h2>Tarot cards</h2>
 {%- for card in tarot %}
 <ul>
-    <li>{{ card.name }}</li>
+    <li>
+        {% if card.hasThePrefix %}
+        the
+        {% endif %}
+        <b>{{ card.name }}</b>
+    </li>
     <li>{{ card.effect }}</li>
     <li>{{ card.burnColor }}</li>
     <li>{{ card.drawChance }}</li>
