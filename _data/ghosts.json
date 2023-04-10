@@ -1,14 +1,32 @@
 [
     {
-        "name": "spirit",
+        "name": "banshee",
         "huntSanityThreshold": 50,
         "evidence": [
-            "EMF level 5",
-            "Spirit Box",
-            "Ghost writing"
+            "DOTS",
+            "Ghost orb",
+            "Fingerprints"
         ],
         "uniqueInfo": [
-            "When smudge-sticked, a Spirit won't start a non-cursed hunt for 3 minutes (instead of the normal 90 seconds)"
+            "Using a parabolic mic has a 33%-chance of hearing a unique Banshee shriek",
+            "Targets one player at a time; will hunt that player, and sanity-check applies only to target (not average)",
+            "Performs more singing events than normal"
+        ]
+    },
+    {
+        "name": "demon",
+        "huntSanityThreshold": 70,
+        "evidence": [
+            "Ghost writing",
+            "Fingerprints",
+            "Freezing temperatures"
+        ],
+        "uniqueInfo": [
+            "Has an ability to start a hunt regardless of player sanity average",
+            "Below-sanity-threshold hunts can still occur and are separate from ability-triggered hunts",
+            "Cooldown time between hunts is 20 seconds, instead of the normal 25 seconds",
+            "Smudging a Demon prevents hunts for only 60 seconds, instead of the normal 90 seconds",
+            "Crucifix has a 5-meter effective radius, instead of the normal 3 meters"
         ]
     },
     {
@@ -24,6 +42,32 @@
             "Spirit Box usage within a meter has 33%-chance of heavy, \"bull-like\" breathing",
             "During hunt, has line-of-sight to all players and does not need to roam",
             "During hunt, moves very slowly when near a player"
+        ]
+    },
+    {
+        "name": "goryo",
+        "huntSanityThreshold": 50,
+        "evidence": [
+            "DOTS",
+            "EMF level 5",
+            "Fingerprints"
+        ],
+        "uniqueInfo": [
+            "DOTS interaction appears only through a video feed",
+            "Doesn't roam far from its favorite room",
+            "Cannot change favorite rooms on any difficulty (though the Monkey Paw can force a change)"
+        ]
+    },
+    {
+        "name": "spirit",
+        "huntSanityThreshold": 50,
+        "evidence": [
+            "EMF level 5",
+            "Spirit Box",
+            "Ghost writing"
+        ],
+        "uniqueInfo": [
+            "When smudged, a Spirit won't start a non-cursed hunt for 3 minutes (instead of the normal 90 seconds)"
         ]
     }
 ]
