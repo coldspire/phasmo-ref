@@ -35,7 +35,7 @@ const Evidence = {
 
 /**
  * The master list of ghosts.
- * @type { {name: string, huntSanityThreshold: number, evidence: Evidence[], uniqueInfo: string[] }[] }
+ * @type { {name: string, huntSanityThreshold: (number|string[]), evidence: Evidence[], uniqueInfo: string[] }[] }
  */
 const ghosts = [
   {
@@ -50,10 +50,12 @@ const ghosts = [
   },
   {
     name: "demon",
-    huntSanityThreshold: 70,
+    huntSanityThreshold: [
+      "70% for normal hunts",
+      "Can use ability to hunt regardless of sanity threshold",
+    ],
     evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Writing],
     uniqueInfo: [
-      "Has an ability to start a hunt regardless of player sanity average",
       "Below-sanity-threshold hunts can still occur and are separate from ability-triggered hunts",
       "Cooldown time between hunts is 20 seconds, instead of the normal 25 seconds",
       "Smudging a Demon prevents hunts for only 60 seconds, instead of the normal 90 seconds",
@@ -100,6 +102,20 @@ const ghosts = [
       "Cannot turn off a breaker through interactions",
       "Ability lowers sanity of players in same room/3-meter distance by 25%; fuse box will give EMF 2/5",
       "During hunt, very fast if all conditions are met: fuse box is on, Jinn has line-of-sight, and is further than 3 meters away",
+    ],
+  },
+  {
+    name: "mare",
+    huntSanityThreshold: [
+      "60% if lights off in ghost's current room",
+      "40% if lights on in ghost's current room",
+    ],
+    evidence: [Evidence.Writing, Evidence.Orb, Evidence.SpiritBox],
+    uniqueInfo: [
+      "More likely to turn off lights; cannot turn lights on",
+      "Ability: May turn off a light (or television, or computer) almost immediately if a light is turned on within 4 meters (cooldown: 10 seconds)",
+      "When roaming, prefers unlit rooms",
+      "Non-electrical sources of light (flashlights, candles, etc.) do not affect the Mare",
     ],
   },
   {
