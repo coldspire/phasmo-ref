@@ -119,6 +119,48 @@ const ghosts = [
     ],
   },
   {
+    name: "moroi",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Freezing, Evidence.SpiritBox, Evidence.Writing],
+    uniqueInfo: [
+      "Ability: Curses a player through Spirit Box interaction or parabolic-mic whispers",
+      "A cursed player when not in a lit area (either by candle or lamp) has increased passive sanity drain. Sanity pills cure the curse",
+      "During a hunt, a Moroi's speed is a function of how low the target's sanity is",
+      "Smudging baffles the Moroi for 12 seconds instead of the normal six seconds",
+    ],
+  },
+  {
+    name: "myling",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Writing],
+    uniqueInfo: [
+      "Produces more whispers when using the parabolic mic",
+      "Quieter during a hunt -- footsteps will be audible only within the range where electrical malfunctions too (12 meters)",
+    ],
+  },
+  {
+    name: "obake",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Orb],
+    uniqueInfo: [
+      "Less chance of fingerprints (75% instead of 100%)",
+      "May leave unique fingerprints: six-fingered handprint; two fingers on a light switch; five fingers on a keyboard and prison cell door",
+      "Can use ability to cut fingerprint-duration time in half. Can be used several times in succession",
+      "During a hunt, has a 1-in-15 chance to shapeshift into another ghost of the same gender. Returns to original form after shapeshift",
+      "During a hunt, going from standing to crawling (or vice versa) counts as a shapeshift",
+    ],
+  },
+  {
+    name: "oni",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Dots, Evidence.Emf, Evidence.Freezing],
+    uniqueInfo: [
+      "Causes more interactions than normal and more when people are in the ghost room",
+      "During an event: won't send an airball; prefers showing full form during event; causes double sanity drain on player collision",
+      "During a hunt, is more visible (flickers out less) than other ghosts",
+    ],
+  },
+  {
     name: "spirit",
     huntSanityThreshold: 50,
     evidence: [Evidence.Emf, Evidence.SpiritBox, Evidence.Writing],
