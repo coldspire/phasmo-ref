@@ -161,6 +161,78 @@ const ghosts = [
     ],
   },
   {
+    name: "onryo",
+    huntSanityThreshold: [
+      "60% normally",
+      "Every third flame blown out (can be prevented by normal methods, e.g. a crucifix)",
+    ],
+    evidence: [Evidence.Freezing, Evidence.Orb, Evidence.SpiritBox],
+    uniqueInfo: [
+      "Can't hunt until all flames in the area (candle, flashlight, campfires) are out",
+      "When attempting to hunt and a flame is in the area, the flame is blown out and the hunt fails",
+      "Under 60% sanity, the frequency of blown-out flames increases due to the ghost attempting to hunt",
+      "Flames blown out during a hunt count towards the three-flame counter",
+      "The more players die, the faster candles are blown out",
+    ],
+  },
+  {
+    name: "phantom",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Dots, Evidence.Fingerprints, Evidence.SpiritBox],
+    uniqueInfo: [
+      "If photo of ghost is taken during a hunt, the ghost will be invisible in the photo",
+      "If photo is taken during an event: ghost will disappear, electronics work again, heartbeat sound stops, but event sound continues",
+      "Ability: May pick a player and teleport to it, instead of a normal roam (causes an EMF-2)",
+      "Within 10 meters (roughly the range where a heartbeat is heard), event or hunt, causes extra 0.5%/second sanity drain",
+      "During hunt, flashes every 1-2 seconds, instead of every 0.3-1 seconds",
+    ],
+  },
+  {
+    name: "poltergeist",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Fingerprints, Evidence.Writing, Evidence.SpiritBox],
+    uniqueInfo: [
+      "Throws items more often and with more force",
+      "Ability allows it to throw multiple items at once (EMF-2; items are EMF-3). Causes sanity drain equal to number of items thrown times two",
+      "During a hunt, throws an item every 0.5 seconds",
+    ],
+  },
+  {
+    name: "raiju",
+    huntSanityThreshold: [
+      "50% normally",
+      "65% when near at least one piece of electronic equipment",
+    ],
+    evidence: [Evidence.Dots, Evidence.Emf, Evidence.Orb],
+    uniqueInfo: [
+      "During hunt or event, interferes with electronics at greater distance (15m, instead of 10m)",
+      "During a hunt, being within 6m/8m/10m (for small/med/large maps) of electronic equipment causes extra speed (2.5m/s)",
+      "The following do not affect a Raiju: head-mounted cameras; video/photo cameras if thrown (not placed); motion/sound sensors and DOTS if thrown; inventory objects (unless flashlights are on); anything electrical not brought from the van",
+    ],
+  },
+  {
+    name: "revenant",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Freezing, Evidence.Orb, Evidence.Writing],
+    uniqueInfo: [
+      "During a hunt, moves very slowly (1m/s) when no players detected",
+      "During a hunt, moves twice as fast (3m/s) when a player is detected and is near-impossible to run from",
+      "The Revenant moves fast until it reaches the point where it last saw a player",
+    ],
+  },
+  {
+    name: "shade",
+    huntSanityThreshold: ["35% normally", "Never if any players in ghost room"],
+    evidence: [Evidence.Emf, Evidence.Freezing, Evidence.Writing],
+    uniqueInfo: [
+      "Less likely to do interactions",
+      "A player in the room prevents interactions and hunts, regardless of sanity",
+      "Smaller average sanity means more likely to perform events",
+      "During events, higher chance of being an airball; if appears, higher chance of appearing as a shadow",
+      "If appears because of a cursed possession, has a chance to appear as a black shadow instead of full form",
+    ],
+  },
+  {
     name: "spirit",
     huntSanityThreshold: 50,
     evidence: [Evidence.Emf, Evidence.SpiritBox, Evidence.Writing],
