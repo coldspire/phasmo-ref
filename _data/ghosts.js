@@ -23,6 +23,10 @@ const Evidence = {
     name: "Ghost orb",
     shortName: "Orb",
   },
+  FakeOrb: {
+    name: "Fake ghost orb (from Mimic)",
+    shortName: "Fake orb",
+  },
   SpiritBox: {
     name: "Spirit Box",
     shortName: "Spirit Box",
@@ -238,6 +242,84 @@ const ghosts = [
     evidence: [Evidence.Emf, Evidence.SpiritBox, Evidence.Writing],
     uniqueInfo: [
       "When smudged, a Spirit won't start a non-cursed hunt for 3 minutes (instead of the normal 90 seconds)",
+      "",
+    ],
+  },
+  {
+    name: "thaye",
+    huntSanityThreshold: [
+      "75% at start (before aging)",
+      "Reduces by -6% per year aged",
+    ],
+    evidence: [Evidence.Dots, Evidence.Orb, Evidence.Writing],
+    uniqueInfo: [
+      `Appears on ${Evidence.Dots.shortName} and ${Evidence.Writing.shortName} more often`,
+      "Ability attempts to age every 1-2 minutes; if a player is in the room, the Thaye will age; else it waits another 30 seconds to try again",
+      "Can age up to ten times per contract",
+      "Speed is fast when young (2.75 m/s); slows to as low as 1 m/s when aging",
+    ],
+  },
+  {
+    name: "the mimic",
+    huntSanityThreshold: [
+      "Inherits threshold and abilities of currently-mimicked ghost",
+    ],
+    evidence: [
+      Evidence.Fingerprints,
+      Evidence.Freezing,
+      Evidence.SpiritBox,
+      Evidence.FakeOrb,
+    ],
+    uniqueInfo: [
+      "Mimics: interaction/event rates and preferences, hunt thresholds and movement speeds, and abilities",
+      "If the mimicked ghost has features that modify the same evidence used to find a Mimic, the Mimic will copy the feature (e.g. the Obake's six-fingered handprint)",
+      "Changes mimicked ghost type every 30-120 seconds, but not during hunts",
+      "If a Thaye is mimicked, a random age is selected",
+    ],
+  },
+  {
+    name: "the twins",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Emf, Evidence.Freezing, Evidence.SpiritBox],
+    uniqueInfo: [
+      "Ability allow it to perform two interactions within 16 meters (25% of EMF-5), which can make it difficult to tell the favorite room",
+      "When initiating hunt, 50% chance to start at current location (with lower movement speed), and 50% chance to start near the last interaction (faster speed)",
+      "Despite the name, two hunts cannot start simultaneously",
+      "A crucifix check applies to where the ghost is actually standing, even if it wanted to hunt near an interaction",
+    ],
+  },
+  {
+    name: "wraith",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Dots, Evidence.Emf, Evidence.SpiritBox],
+    uniqueInfo: [
+      "Never steps in salt or leaves UV footprints, though its appearance doesn't float and it still makes footstep sounds",
+      "When not hunting, its ability gives it a chance to teleport near a player (EMF-2; 25% change of EMF-5) before continuing normal behavior",
+      "Placing salt in a summoning circle and summoning the ghost is a good way to spot (or rule out) a Wraith",
+    ],
+  },
+  {
+    name: "yokai",
+    huntSanityThreshold: [
+      "50% normally",
+      "80% if players talking within 2 meters",
+    ],
+    evidence: [Evidence.Dots, Evidence.Orb, Evidence.SpiritBox],
+    uniqueInfo: [
+      "When hunting, the radius which it can hear players or equipment is much smaller than normal (2.5 m)",
+      "When using the music box, the Yokai needs to be closer to the player holding the box for the event and cursed hunt",
+    ],
+  },
+  {
+    name: "yurei",
+    huntSanityThreshold: 50,
+    evidence: [Evidence.Dots, Evidence.Freezing, Evidence.Orb],
+    uniqueInfo: [
+      "When smudged, returns to favorite room and is trapped for 60 seconds",
+      "Ability causes players within 7.5 meters to lose 15% sanity",
+      "Same ability also causes a random open door to be closed fully (EMF-2), which means it closes doors a lot more than normal",
+      "The only ghost who can move/close the front door outside of a hunt",
+      "If the room has no open doors, the ability is not used",
     ],
   },
 ];
