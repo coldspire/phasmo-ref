@@ -10,16 +10,28 @@ permalink: "ghosts/{{ ghost.name | slugify }}.html"
 title: Ghost
 ---
 <h3 class="ghost-name">{{ ghost.name }}</h3>
-<p>Hunts at sanity threshold: {{ ghost.huntSanityThreshold }}</p>
+{% if ghost.huntSanityThreshold.values %}
+<ul>
+Hunts at sanity threshold:
+    {% for sanity in ghost.huntSanityThreshold %}
+        <li>{{ sanity }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>
+    Hunts at sanity threshold:
+    {{ ghost.huntSanityThreshold }}
+</p>
+{% endif %}
 <h4>Evidence</h4>
 <ul>
     {%- for evidence in ghost.evidence %}
-        <li>{{ evidence }}</li>
+        <li>{{ evidence.shortName }}</li>
     {% endfor -%}
 </ul>
-<h4>Unique</h4>
+<h4>Notes</h4>
 <ul>
-    {%- for unique in ghost.uniqueInfo %}
-        <li>{{ unique }}</li>
+    {%- for note in ghost.notes %}
+        <li>{{ note }}</li>
     {% endfor -%}
 </ul>
