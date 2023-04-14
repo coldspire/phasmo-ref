@@ -29,9 +29,9 @@ Hunts at sanity threshold:
         <li>{{ evidence.shortName }}</li>
     {% endfor -%}
 </ul>
-<h4>Unique</h4>
+<h4>Notes</h4>
 <ul>
-    {%- for unique in ghost.uniqueInfo %}
-        <li>{{ unique }}</li>
+    {%- for note in ghost.notes %}
+        <li>{{ note }}</li>
     {% endfor -%}
 </ul>
