@@ -220,7 +220,7 @@ const ghosts = [
     evidence: [Evidence.Freezing, Evidence.Orb, Evidence.Writing],
     notes: [
       "During a hunt, moves very slowly (1m/s) when no players detected",
-      "During a hunt, moves twice as fast (3m/s) when a player is detected and is near-impossible to run from",
+      "During a hunt, moves very fast (3m/s) when a player is detected and is near-impossible to run from",
       "The Revenant moves fast until it reaches the point where it last saw a player",
     ],
   },
@@ -242,7 +242,6 @@ const ghosts = [
     evidence: [Evidence.Emf, Evidence.SpiritBox, Evidence.Writing],
     notes: [
       "When smudged, a Spirit won't start a non-cursed hunt for 3 minutes (instead of the normal 90 seconds)",
-      "",
     ],
   },
   {
