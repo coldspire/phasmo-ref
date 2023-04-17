@@ -1,5 +1,9 @@
 @import url("reset.css");
 
+main {
+  max-width: 768px;
+}
+
 .ghost-name {
   text-transform: capitalize;
 }
@@ -9,8 +13,8 @@
   list-style: none;
 
   display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(10, 100px);
-  grid-template-rows: repeat(10, 1rem);
+  gap: 1rem;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(10, 2rem);
   grid-auto-flow: column;
 }
