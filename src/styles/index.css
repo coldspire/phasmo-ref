@@ -15,6 +15,6 @@ main {
   display: grid;
   gap: 1rem;
   grid-template-columns: auto;
-  grid-template-rows: repeat(10, 2rem);
+  grid-template-rows: repeat(8, 2rem);
   grid-auto-flow: column;
 }
