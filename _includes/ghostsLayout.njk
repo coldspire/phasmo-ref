@@ -3,7 +3,7 @@ layout: baseLayout
 ---
 <h2>Ghosts</h2>
 <nav>
-    <ul>
+    <ul class="ghosts">
         {%- for ghost in ghosts %}
             <li><a href="{{ ghost.name | slugify }}.html" class="ghost-name">{{ ghost.name }}</a></li>
         {% endfor -%}
