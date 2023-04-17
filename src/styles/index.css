@@ -1,5 +1,9 @@
 @import url("reset.css");
 
+:root {
+  font: 16pt/ 1.25 sans-serif;
+}
+
 main {
   max-width: 768px;
 }
