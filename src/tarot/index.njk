@@ -4,11 +4,10 @@ layout: baseLayout
 <h2>Tarot cards</h2>
 <section class="cards">
     {%- for card in tarot %}
-        <div class="card">
+        <div class="card" style="--burn-color: {{ card.burnColor.cssColor }}">
             <h3>{{ card.name }}</h3>
             <p>{{ card.drawChance }}</p>
             <p>{{ card.effect }}</p>
-            <p>Burns {{ card.burnColor }}</p>
             {% if card.notes.length > 0 %}
                 <details>
                     <summary>Notes</summary>

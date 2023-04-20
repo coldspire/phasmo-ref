@@ -47,7 +47,7 @@ body > * + * {
 }
 
 main {
-  max-width: 768px;
+  max-width: 800px;
 }
 
 .ghost-name {
@@ -70,7 +70,7 @@ main {
 /***** Tarot page */
 .cards {
   display: flex;
-  gap: 0.25rem;
+  gap: 1rem 0.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -81,8 +81,11 @@ main {
 
   padding: 0.75rem;
 
-  border: 1px solid black; /* TODO: Change to burn color */
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--burn-color);
   border-radius: 15px;
+  background-color: white;
 }
 
 .card > * + * {
@@ -91,5 +94,5 @@ main {
 
 .card > h3 {
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: var(--step-0);
 }
