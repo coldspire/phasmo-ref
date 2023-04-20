@@ -43,8 +43,8 @@ class Card {
  * @type { { name: string, hasThePrefix: boolean, effect: string, burnColor: { inGame: string, cssColor: string }, drawChance: string, drawChanceOneIn: function, notes: string[] }[] }
  */
 const cards = [
-  new Card("tower", "Causes interactions", "blue", "#0080ee", 20, [
-    "Doubles ghost activity for 20 seconds",
+  new Card("tower", "Cause interactions", "blue", "#0080ee", 20, [
+    "Double ghost activity for 20 seconds",
   ]),
   new Card(
     "wheel of fortune",
@@ -54,17 +54,17 @@ const cards = [
     20
   ),
   new Card("sun", "Refill sanity to 100%", "yellow", "#ffd700", 20, [
-    "Decreases hunt chances",
+    "Decrease hunt chances",
   ]),
   new Card("moon", "Drop sanity to 0%", "grey", "#cccccc", 20, [
-    "Increases hunt chances",
+    "Increase hunt chances",
   ]),
-  new Card("devil", "Triggers a ghost event", "pink", "#f25277", 10, [
+  new Card("devil", "Trigger a ghost event", "pink", "#f25277", 10, [
     "Event is directed at player nearest to the ghost",
   ]),
   new Card(
     "hermit",
-    "Teleports and traps ghost in favorite room for 60 seconds",
+    "Teleport and trap ghost in favorite room for 60 seconds",
     "cyan",
     "#53e1e6",
     10,
@@ -83,7 +83,7 @@ const cards = [
     ]
   ),
   new Card("hanged man", "Card-drawer dies", "none", "black", 1),
-  new Card("death", "Starts a cursed hunt", "dark purple", "#8400c3", 10),
+  new Card("death", "Start a cursed hunt", "dark purple", "#8400c3", 10),
   new Card("fool", "No effect", "light purple", "#ba48e0", 17, [
     "A drawn card turns into the Fool when burning",
   ]),
