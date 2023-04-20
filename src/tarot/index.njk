@@ -4,20 +4,22 @@ layout: baseLayout
 <h2>Tarot cards</h2>
 <section class="cards">
     {%- for card in tarotCards %}
-        <div class="card" style="--burn-color: {{ card.burnColor.css }}">
-            <h3>{{ card.name }}</h3>
-            <p>{{ card.drawChanceOneInX }} ({{ card.drawChancePct }}%)</p>
-            <p>{{ card.effect }}</p>
-            {% if card.notes.length > 0 %}
-                <details>
-                    <summary>Notes</summary>
-                    <ul>
-                        {% for note in card.notes %}
-                            <li>{{ note }}</li>
-                        {% endfor %}
-                    </ul>
-                </details>
-            {% endif %}
+        <div class="card-wrapper" style="--burn-color: {{ card.burnColor.css }}">
+            <div class="card">
+                <h3>{{ card.name }}</h3>
+                <p>{{ card.drawChanceOneInX }} ({{ card.drawChancePct }}%)</p>
+                <p>{{ card.effect }}</p>
+                {% if card.notes.length > 0 %}
+                    <details>
+                        <summary>Notes</summary>
+                        <ul>
+                            {% for note in card.notes %}
+                                <li>{{ note }}</li>
+                            {% endfor %}
+                        </ul>
+                    </details>
+                {% endif %}
+            </div>
         </div>
     {% endfor -%}
 </section>

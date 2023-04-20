@@ -70,22 +70,38 @@ main {
 /***** Tarot page */
 .cards {
   display: flex;
-  gap: 1rem 0.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.card {
+.card-wrapper {
   flex-basis: clamp(250px, 30%, 500px);
   aspect-ratio: 5 / 7;
 
-  padding: 0.75rem;
+  background-image: linear-gradient(var(--burn-color));
 
-  border-width: 5px;
-  border-style: solid;
-  border-color: var(--burn-color);
-  border-radius: 15px;
+  --card-spacing: 0.25rem;
+  --card-border-radius--inner: 16px;
+  --card-border-radius--outer: calc(
+    var(--card-spacing) + var(--card-border-radius--inner)
+  );
+
+  border: 1px solid black;
+  border-radius: var(--card-border-radius--outer);
+}
+
+.card {
+  margin: var(--card-spacing);
+  padding: calc(var(--card-spacing) * 3);
+
+  height: calc(100% - var(--card-spacing) * 2);
+  width: calc(100% - var(--card-spacing) * 2);
+
   background-color: white;
+
+  border: 1px solid #333;
+  border-radius: var(--card-border-radius--inner);
 }
 
 .card > * + * {

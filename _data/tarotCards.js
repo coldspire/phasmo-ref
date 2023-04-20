@@ -43,30 +43,30 @@ class Card {
  * @type { { name: string, hasThePrefix: boolean, effect: string, burnColor: { inGame: string, cssColor: string }, drawChance: string, drawChanceOneIn: function, notes: string[] }[] }
  */
 const cards = [
-  new Card("tower", "Cause interactions", "blue", "#0080ee", 20, [
+  new Card("tower", "Cause interactions", "blue", "#0080ee, #0080ee", 20, [
     "Double ghost activity for 20 seconds",
   ]),
   new Card(
     "wheel of fortune",
     "Sanity change: Gain 25% if burns green; lose 25% if burns red",
     "green or red",
-    "#00dd00 #ff4714 #ff4714 #00dd00",
+    "90deg, #00dd00, #a5b800, #e18700, #ff4714",
     20
   ),
-  new Card("sun", "Refill sanity to 100%", "yellow", "#ffd700", 20, [
+  new Card("sun", "Refill sanity to 100%", "yellow", "#ffd700, #ffd700", 20, [
     "Decrease hunt chances",
   ]),
-  new Card("moon", "Drop sanity to 0%", "grey", "#cccccc", 20, [
+  new Card("moon", "Drop sanity to 0%", "grey", "#cccccc, #cccccc", 20, [
     "Increase hunt chances",
   ]),
-  new Card("devil", "Trigger a ghost event", "pink", "#f25277", 10, [
+  new Card("devil", "Trigger a ghost event", "pink", "#f25277, #f25277", 10, [
     "Event is directed at player nearest to the ghost",
   ]),
   new Card(
     "hermit",
     "Teleport and trap ghost in favorite room for 60 seconds",
     "cyan",
-    "#53e1e6",
+    "#53e1e6, #53e1e6",
     10,
     ["No effect on hunts"]
   ),
@@ -74,7 +74,7 @@ const cards = [
     "high priestess",
     "Revive a random dead player",
     "light yellow",
-    "#FCE883",
+    "#fce883, #fce883",
     2,
     [
       "If no-one is dead, the respawn is banked (limit one)",
@@ -82,9 +82,15 @@ const cards = [
       "The same player cannot be revived twice",
     ]
   ),
-  new Card("hanged man", "Card-drawer dies", "none", "black", 1),
-  new Card("death", "Start a cursed hunt", "dark purple", "#8400c3", 10),
-  new Card("fool", "No effect", "light purple", "#ba48e0", 17, [
+  new Card("hanged man", "Card-drawer dies", "none", "#888, black", 1),
+  new Card(
+    "death",
+    "Start a cursed hunt",
+    "dark purple",
+    "#8400c3, #8400c3",
+    10
+  ),
+  new Card("fool", "No effect", "light purple", "#ba48e0, #ba48e0", 17, [
     "A drawn card turns into the Fool when burning",
   ]),
 ];
