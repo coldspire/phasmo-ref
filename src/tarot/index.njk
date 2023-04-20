@@ -4,9 +4,9 @@ layout: baseLayout
 <h2>Tarot cards</h2>
 <section class="cards">
     {%- for card in tarotCards %}
-        <div class="card" style="--burn-color: {{ card.burnColor.cssColor }}">
+        <div class="card" style="--burn-color: {{ card.burnColor.css }}">
             <h3>{{ card.name }}</h3>
-            <p>{{ card.drawChance }}</p>
+            <p>{{ card.drawChanceOneInX }} ({{ card.drawChancePct }}%)</p>
             <p>{{ card.effect }}</p>
             {% if card.notes.length > 0 %}
                 <details>
