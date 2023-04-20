@@ -4,7 +4,8 @@ layout: baseLayout
 <h2>Tarot cards</h2>
 <section class="cards">
     {%- for card in tarotCards %}
-        <div class="card-wrapper" style="--burn-color: {{ card.burnColor.css }}">
+        <div class="card-wrapper"
+             style="--background-color: {{ card.burnColor.css.background }}; --border-color: {{ card.burnColor.css.border }}">
             <div class="card">
                 <h3>{{ card.name }}</h3>
                 <p>{{ card.drawChanceOneInX }} ({{ card.drawChancePct }}%)</p>
