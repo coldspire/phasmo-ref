@@ -102,4 +102,6 @@ main {
 
   margin-block-start: 0;
   padding-inline-start: 1rem;
+
+  list-style: circle;
 }
