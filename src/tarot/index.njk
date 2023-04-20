@@ -3,7 +3,7 @@ layout: baseLayout
 ---
 <h2>Tarot cards</h2>
 <section class="cards">
-    {%- for card in tarot %}
+    {%- for card in tarotCards %}
         <div class="card" style="--burn-color: {{ card.burnColor.cssColor }}">
             <h3>{{ card.name }}</h3>
             <p>{{ card.drawChance }}</p>
