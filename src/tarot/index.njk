@@ -2,25 +2,25 @@
 layout: baseLayout
 ---
 <h2>Tarot cards</h2>
-{%- for card in tarot %}
-<ul>
-    <li>
-        {% if card.hasThePrefix %}
-        the
-        {% endif %}
-        <b>{{ card.name }}</b>
-    </li>
-    <li>{{ card.effect }}</li>
-    <li>{{ card.burnColor }}</li>
-    <li>{{ card.drawChance }}</li>
-    {% if card.notes.length > 0 %}
-    <li> Also note:
-        <ul>
-            {% for note in card.notes %}
-                <li>{{ note }}</li>
-            {% endfor %}
-        </ul>
-    </li>
-    {% endif %}
-</ul>
-{% endfor -%}
+<section class="cards">
+    {%- for card in tarotCards %}
+        <div class="card-wrapper"
+             style="--background-color: {{ card.burnColor.css.background }}; --border-color: {{ card.burnColor.css.border }}">
+            <div class="card">
+                <h3>{{ card.name }}</h3>
+                <p>{{ card.drawChanceOneInX }} ({{ card.drawChancePct }}%)</p>
+                <p>{{ card.effect }}</p>
+                {% if card.notes.length > 0 %}
+                    <details>
+                        <summary>Notes</summary>
+                        <ul>
+                            {% for note in card.notes %}
+                                <li>{{ note }}</li>
+                            {% endfor %}
+                        </ul>
+                    </details>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor -%}
+</section>

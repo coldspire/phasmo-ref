@@ -13,6 +13,27 @@
   --step-1: clamp(1.2rem, calc(0.94rem + 1.29vw), 1.56rem);
   --step-2: clamp(1.44rem, calc(1.07rem + 1.83vw), 1.95rem);
   --step-3: clamp(1.73rem, calc(1.22rem + 2.55vw), 2.44rem);
+
+  /* @link https://www.joshwcomeau.com/shadow-palette/ */
+  --card-shadow-color: 0deg 0% 65%;
+  --card-shadow-elevation-low: 1px 1px 1.6px
+      hsl(var(--card-shadow-color) / 0.32),
+    1.6px 1.6px 2.5px -1.2px hsl(var(--card-shadow-color) / 0.32),
+    3.9px 3.9px 6.2px -2.5px hsl(var(--card-shadow-color) / 0.32);
+  --card-shadow-elevation-medium: 1px 1px 1.6px
+      hsl(var(--card-shadow-color) / 0.33),
+    3.2px 3.2px 5.1px -0.8px hsl(var(--card-shadow-color) / 0.33),
+    7.9px 7.9px 12.6px -1.7px hsl(var(--card-shadow-color) / 0.33),
+    19.3px 19.3px 30.7px -2.5px hsl(var(--card-shadow-color) / 0.33);
+  --card-shadow-elevation-high: 1px 1px 1.6px
+      hsl(var(--card-shadow-color) / 0.31),
+    5.5px 5.5px 8.8px -0.4px hsl(var(--card-shadow-color) / 0.31),
+    10.2px 10.2px 16.2px -0.7px hsl(var(--card-shadow-color) / 0.31),
+    16.7px 16.7px 26.6px -1.1px hsl(var(--card-shadow-color) / 0.31),
+    26.6px 26.6px 42.3px -1.4px hsl(var(--card-shadow-color) / 0.31),
+    41.6px 41.6px 66.2px -1.8px hsl(var(--card-shadow-color) / 0.31),
+    63.2px 63.2px 100.6px -2.1px hsl(var(--card-shadow-color) / 0.31),
+    93px 93px 148px -2.5px hsl(var(--card-shadow-color) / 0.31);
 }
 
 body {
@@ -47,14 +68,14 @@ body > * + * {
 }
 
 main {
-  max-width: 768px;
+  max-width: 800px;
 }
 
 .ghost-name {
   text-transform: capitalize;
 }
 
-/* Ghosts page */
+/***** Ghosts page */
 .ghosts {
   list-style: none;
 
@@ -65,4 +86,67 @@ main {
   grid-template-columns: auto;
   grid-template-rows: repeat(8, 2rem);
   grid-auto-flow: column;
+}
+
+/***** Tarot page */
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card-wrapper {
+  flex-basis: clamp(250px, 30%, 500px);
+  aspect-ratio: 5 / 7;
+
+  background-image: linear-gradient(var(--background-color));
+
+  --card-spacing: 0.25rem;
+  --card-border-radius--inner: 16px;
+  --card-border-radius--outer: calc(
+    var(--card-spacing) + var(--card-border-radius--inner)
+  );
+
+  border: 1px solid black;
+  border-radius: var(--card-border-radius--outer);
+
+  box-shadow: var(--card-shadow-elevation-medium);
+}
+
+.card {
+  margin: var(--card-spacing);
+  padding: calc(var(--card-spacing) * 3);
+
+  min-height: calc(100% - var(--card-spacing) * 2);
+  width: calc(100% - var(--card-spacing) * 2);
+
+  background-image: linear-gradient(110deg, #fafafa 65%, #ddd);
+  color: #444;
+
+  border: 3px solid var(--border-color);
+  border-radius: var(--card-border-radius--inner);
+}
+
+.card > * + * {
+  margin-top: 0.5em;
+}
+
+.card > h3 {
+  text-transform: uppercase;
+  font-size: var(--step-0);
+}
+
+.card > details summary {
+  cursor: pointer;
+}
+
+.card > details > ul {
+  font-size: var(--step--2);
+
+  margin-block-start: 0;
+  padding-inline-start: 1rem;
+
+  list-style: circle;
 }
