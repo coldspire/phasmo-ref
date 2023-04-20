@@ -92,6 +92,7 @@ main {
 .cards {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -118,7 +119,7 @@ main {
   margin: var(--card-spacing);
   padding: calc(var(--card-spacing) * 3);
 
-  height: calc(100% - var(--card-spacing) * 2);
+  min-height: calc(100% - var(--card-spacing) * 2);
   width: calc(100% - var(--card-spacing) * 2);
 
   background-image: linear-gradient(110deg, #fafafa 65%, #ddd);
