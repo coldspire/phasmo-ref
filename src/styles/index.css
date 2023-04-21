@@ -109,7 +109,6 @@ main {
     var(--card-spacing) + var(--card-border-radius--inner)
   );
 
-  border: 1px solid black;
   border-radius: var(--card-border-radius--outer);
 
   box-shadow: var(--card-shadow-elevation-medium);
