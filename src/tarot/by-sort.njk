@@ -1,0 +1,33 @@
+---
+layout: tarotLayout
+
+pagination:
+    data: tarotCardsSorted
+    size: 1
+    alias: cards
+permalink: "tarot/by-{{ cards.sortName.slug | slugify }}.html"
+---
+<section class="cards">
+    {%- for card in cards.cards %}
+        <div class="card-wrapper"
+             style=" --background-color: {{ card.burnColor.css.background }};
+                     --border-color: {{ card.burnColor.css.border }};
+                     --fade-color: {{ card.burnColor.css.fade }}">
+            <div class="card">
+                <h3>{{ card.name }}</h3>
+                <p>{{ card.drawChanceOneInX }} ({{ card.drawChancePct }}%)</p>
+                <p>{{ card.effect }}</p>
+                {% if card.notes.length > 0 %}
+                    <details>
+                        <summary>Notes</summary>
+                        <ul>
+                            {% for note in card.notes %}
+                                <li>{{ note }}</li>
+                            {% endfor %}
+                        </ul>
+                    </details>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor -%}
+</section>
