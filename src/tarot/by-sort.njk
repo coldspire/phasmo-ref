@@ -10,7 +10,9 @@ permalink: "tarot/by-{{ cards.sortName.slug | slugify }}.html"
 <section class="cards">
     {%- for card in cards.cards %}
         <div class="card-wrapper"
-             style="--background-color: {{ card.burnColor.css.background }}; --border-color: {{ card.burnColor.css.border }}">
+             style=" --background-color: {{ card.burnColor.css.background }};
+                     --border-color: {{ card.burnColor.css.border }};
+                     --fade-color: {{ card.burnColor.css.fade }}">
             <div class="card">
                 <h3>{{ card.name }}</h3>
                 <p>{{ card.drawChanceOneInX }} ({{ card.drawChancePct }}%)</p>

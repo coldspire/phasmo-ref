@@ -30,6 +30,18 @@ function calculateMixedBorderColor(colors) {
 }
 
 /**
+ * Calculate a string for a fade color for a card.
+ * A fade can only be one color, so an array of colors is replaced with a neutral gray.
+ * @param {string[]} colors
+ * @return string
+ */
+function calculateCardFadeColor(colors) {
+  const fadeColor = colors.length === 1 ? colors[0] : "black";
+
+  return `color-mix(in xyz, ${fadeColor}, white 75%)`;
+}
+
+/**
  * A Tarot card
  */
 class Card {
@@ -64,6 +76,7 @@ class Card {
       css: {
         background: calculateBackgroundImageGradient(burnColorCssColors),
         border: calculateMixedBorderColor(burnColorCssColors),
+        fade: calculateCardFadeColor(burnColorCssColors),
       },
     };
     this.drawChancePct = drawChancePct;

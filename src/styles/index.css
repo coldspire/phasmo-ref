@@ -139,8 +139,7 @@ main {
   min-height: calc(100% - var(--card-spacing) * 2);
   width: calc(100% - var(--card-spacing) * 2);
 
-  --fade-color: color-mix(in xyz, var(--border-color), white 75%);
-  background-image: linear-gradient(180deg, #fafafa 65%, var(--fade-color));
+  background-image: linear-gradient(160deg, #fafafa 65%, var(--fade-color));
   color: #444;
 
   border: 3px solid var(--border-color);
