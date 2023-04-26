@@ -1,0 +1,13 @@
+---
+layout: baseLayout
+title: Tarot Cards
+---
+<h2>Tarot Cards</h2>
+<nav class="sorted-cards-nav">
+    <ul>
+        {% for sorts in tarotCardsSorted %}
+            <li><a href="by-{{ sorts.sortName.slug }}.html">{{ sorts.sortName.friendly }}</a></li>
+        {% endfor %}
+    </ul>
+</nav>
+{{ content | safe }}

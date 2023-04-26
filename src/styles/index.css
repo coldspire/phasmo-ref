@@ -89,6 +89,24 @@ main {
 }
 
 /***** Tarot page */
+
+.sorted-cards-nav > ul {
+  margin-block-start: 0;
+  padding-inline-start: 0.25em;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.sorted-cards-nav > ul > li {
+  margin-inline-start: 2ch;
+}
+
+.sorted-cards-nav > ul > li::marker {
+  content: "🃏";
+}
+
 .cards {
   display: flex;
   justify-content: center;
