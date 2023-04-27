@@ -67,8 +67,17 @@ body > * + * {
   margin-block-start: var(--major-padding);
 }
 
-main {
+main,
+footer {
   max-width: 800px;
+}
+
+footer {
+  border-top: 2px solid #ccc;
+
+  padding-block-start: 0.5rem;
+  margin-block-start: 1rem;
+  font-size: 0.6rem;
 }
 
 .ghost-name {
