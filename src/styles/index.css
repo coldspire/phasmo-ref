@@ -99,6 +99,30 @@ footer {
 
 /***** Tarot page */
 
+.individual-cards-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.individual-cards-nav > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.individual-cards-nav > ul > li {
+  text-transform: capitalize;
+  margin-inline-start: 2ch;
+}
+
+.individual-cards-nav > ul > li::marker {
+  content: "🃏";
+}
+
 .sorted-cards-nav > ul {
   margin-block-start: 0;
   padding-inline-start: 0.25em;
@@ -113,7 +137,7 @@ footer {
 }
 
 .sorted-cards-nav > ul > li::marker {
-  content: "🃏";
+  content: "🎲";
 }
 
 .cards {
@@ -127,6 +151,7 @@ footer {
 .card-wrapper {
   flex-basis: clamp(250px, 30%, 500px);
   aspect-ratio: 5 / 7;
+  max-width: 300px;
 
   background-image: linear-gradient(var(--background-color));
 
