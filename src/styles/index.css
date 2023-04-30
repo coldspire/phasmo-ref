@@ -67,8 +67,17 @@ body > * + * {
   margin-block-start: var(--major-padding);
 }
 
-main {
+main,
+footer {
   max-width: 800px;
+}
+
+footer {
+  border-top: 2px solid #ccc;
+
+  padding-block-start: 0.5rem;
+  margin-block-start: 1rem;
+  font-size: 0.6rem;
 }
 
 .ghost-name {
@@ -90,21 +99,31 @@ main {
 
 /***** Tarot page */
 
-.sorted-cards-nav > ul {
-  margin-block-start: 0;
-  padding-inline-start: 0.25em;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1rem;
-}
-
-.sorted-cards-nav > ul > li {
+.cards-nav.individual-cards > ul > li {
+  text-transform: capitalize;
   margin-inline-start: 2ch;
 }
 
-.sorted-cards-nav > ul > li::marker {
+.cards-nav > ul {
+  margin-block-start: 0;
+  padding-inline-start: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+}
+
+.cards-nav > ul > li {
+  margin-inline-start: 2ch;
+  flex: 1 100px;
+}
+
+.individual-cards li::marker {
   content: "🃏";
+}
+
+.sorted-cards li::marker {
+  content: "🎲";
 }
 
 .cards {
@@ -118,6 +137,7 @@ main {
 .card-wrapper {
   flex-basis: clamp(250px, 30%, 500px);
   aspect-ratio: 5 / 7;
+  max-width: 300px;
 
   background-image: linear-gradient(var(--background-color));
 

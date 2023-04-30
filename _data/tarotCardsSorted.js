@@ -11,7 +11,7 @@ const cards = require("./tarotCards");
 const cardsByAlphaAsc = {
   sortName: {
     slug: "alpha-asc",
-    friendly: "alphabetically, ascending",
+    friendly: "alpha, A-to-Z",
   },
   cards: [...cards].sort((cardA, cardB) =>
     cardA.name.localeCompare(cardB.name)
@@ -24,7 +24,7 @@ const cardsByAlphaAsc = {
 const cardsByAlphaDesc = {
   sortName: {
     slug: "alpha-desc",
-    friendly: "alphabetically, descending",
+    friendly: "alpha, Z-to-A",
   },
   cards: [...cardsByAlphaAsc.cards].reverse(),
 };
@@ -35,7 +35,7 @@ const cardsByAlphaDesc = {
 const cardsByDrawFreqAsc = {
   sortName: {
     slug: "draw-freq-asc",
-    friendly: "draw-frequency, ascending",
+    friendly: "draw freq, low to high",
   },
   cards: [...cardsByAlphaAsc.cards].sort((cardA, cardB) => {
     if (cardA.drawChancePct > cardB.drawChancePct) {
@@ -56,7 +56,7 @@ const cardsByDrawFreqAsc = {
 const cardsByDrawFreqDesc = {
   sortName: {
     slug: "draw-freq-desc",
-    friendly: "draw-frequency, descending",
+    friendly: "draw freq, high to low",
   },
   cards: [...cardsByDrawFreqAsc.cards].reverse(),
 };
