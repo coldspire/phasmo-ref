@@ -3,14 +3,15 @@ layout: baseLayout
 title: Tarot Cards
 ---
 <h2>Tarot Cards</h2>
-<nav class="individual-cards-nav">
+<nav class="cards-nav individual-cards">
     <ul>
         {% for card in tarotCardsSorted[0].cards %}
             <li><a href="{{ card.name | slugify }}.html">{{ card.name }}</a></li>
         {% endfor %}
     </ul>
 </nav>
-<nav class="sorted-cards-nav">
+<nav class="cards-nav sorted-nav">
+    <p>Sorted:</p>
     <ul>
         {% for sorts in tarotCardsSorted %}
             <li><a href="by-{{ sorts.sortName.slug }}.html">{{ sorts.sortName.friendly }}</a></li>
