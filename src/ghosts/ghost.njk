@@ -35,3 +35,10 @@ Hunts at sanity threshold:
         <li>{{ note }}</li>
     {% endfor -%}
 </ul>
+<nav class="ghost-nav" aria-labelledby="ghost-nav-label">
+    <h3 id="ghost-nav-label">See an adjacent ghost</h4>
+    <ul>
+        {% if pagination.href.previous %}<li>Previous: <a class="ghost-name" href="{{ pagination.href.previous }}">{{ pagination.page.previous.name }}</a></li>{% endif %}
+        {% if pagination.href.next %}<li>Next: <a class="ghost-name" href="{{ pagination.href.next }}">{{ pagination.page.next.name }}</a></li>{% endif %}
+    </ul>
+</nav>
