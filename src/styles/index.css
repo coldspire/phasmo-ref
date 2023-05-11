@@ -97,6 +97,14 @@ footer {
   grid-auto-flow: column;
 }
 
+.super-sanity-thresholds {
+  padding-inline-start: 1rem;
+
+  display: grid;
+  grid-template-columns: 3em 1fr;
+  gap: 0.25rem 0.5rem;
+}
+
 /***** Tarot page */
 
 .cards-nav.individual-cards > ul > li {
