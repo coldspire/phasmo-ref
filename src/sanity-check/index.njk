@@ -1,0 +1,10 @@
+---
+layout: baseLayout
+---
+<h2>Sanity Checker</h2>
+<h3>Static sanity thresholds</h3>
+<ul>
+{% for sanity in sanityCollections.sanityStartingSortDesc %}
+<li>{{ sanity.sanityNum }}: {{ sanity.ghosts }}</li>
+{% endfor %}
+</ul>
