@@ -38,13 +38,30 @@ const Evidence = {
 };
 
 /**
+ * @typedef {Object} HuntConditions
+ * @property {number|"Varies"} startingSanityThreshold
+ * @property {Array<{ threshold: number; condition: string; }>} [superSanityThresholds]
+ * @property {string[]} [additionalConditions]
+ */
+
+/**
+ * @typedef {Object} Ghost
+ * @property {string} name - Ghost name
+ * @property {HuntConditions} huntConditions - Sanity threshold and other abilities that may cause a hunt
+ * @property {Evidence[]} evidence - Evidence needed to verify a ghost
+ * @property {string[]} [notes] - Optional additional information
+ */
+
+/**
  * The master list of ghosts.
- * @type { {name: string, huntSanityThreshold: (number|string[]), evidence: Evidence[], notes: string[] }[] }
+ * @type { Ghost[] }
  */
 const ghosts = [
   {
     name: "banshee",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Dots, Evidence.Fingerprints, Evidence.Orb],
     notes: [
       "Using a parabolic mic has a 33%-chance of hearing a unique Banshee shriek",
@@ -54,10 +71,15 @@ const ghosts = [
   },
   {
     name: "demon",
-    huntSanityThreshold: [
-      "70% for normal hunts",
-      "Can use ability to hunt regardless of sanity threshold",
-    ],
+    huntConditions: {
+      startingSanityThreshold: 70,
+      superSanityThresholds: [
+        {
+          threshold: 100,
+          condition: "Can hunt simply by activating ability",
+        },
+      ],
+    },
     evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Writing],
     notes: [
       "Below-sanity-threshold hunts can still occur and are separate from ability-triggered hunts",
@@ -68,7 +90,9 @@ const ghosts = [
   },
   {
     name: "deogen",
-    huntSanityThreshold: 40,
+    huntConditions: {
+      startingSanityThreshold: 40,
+    },
     evidence: [Evidence.Dots, Evidence.SpiritBox, Evidence.Writing],
     notes: [
       "Above-average interactivity with DOTS and ghost writing",
@@ -79,9 +103,12 @@ const ghosts = [
   },
   {
     name: "goryo",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Dots, Evidence.Emf, Evidence.Fingerprints],
     notes: [
+      "DOTS interaction occurs only if no players are in the same room as the ghost (though may interact with DOTS if roaming elsewhere)",
       "DOTS interaction appears only through a video feed",
       "Doesn't roam far from its favorite room",
       "Cannot change favorite rooms on any difficulty (though the Monkey Paw can force a change)",
@@ -89,7 +116,9 @@ const ghosts = [
   },
   {
     name: "hantu",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Orb],
     notes: [
       "The colder the room, the faster it moves (so be careful around the favorite room)",
@@ -100,7 +129,9 @@ const ghosts = [
   },
   {
     name: "jinn",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Freezing],
     notes: [
       "Cannot turn off a breaker through interactions",
@@ -110,10 +141,19 @@ const ghosts = [
   },
   {
     name: "mare",
-    huntSanityThreshold: [
-      "60% if lights off in ghost's current room",
-      "40% if lights on in ghost's current room",
-    ],
+    huntConditions: {
+      startingSanityThreshold: "Varies",
+      superSanityThresholds: [
+        {
+          threshold: 60,
+          condition: "Lights on in ghost's favorite room",
+        },
+        {
+          threshold: 40,
+          condition: "Lights off in ghost's favorite room",
+        },
+      ],
+    },
     evidence: [Evidence.Writing, Evidence.Orb, Evidence.SpiritBox],
     notes: [
       "More likely to turn off lights; cannot turn lights on",
@@ -124,7 +164,9 @@ const ghosts = [
   },
   {
     name: "moroi",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Freezing, Evidence.SpiritBox, Evidence.Writing],
     notes: [
       "Ability: Curses a player through Spirit Box interaction or parabolic-mic whispers",
@@ -135,7 +177,9 @@ const ghosts = [
   },
   {
     name: "myling",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Writing],
     notes: [
       "Produces more whispers when using the parabolic mic",
@@ -144,7 +188,9 @@ const ghosts = [
   },
   {
     name: "obake",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Orb],
     notes: [
       "Less chance of fingerprints (75% instead of 100%)",
@@ -156,7 +202,9 @@ const ghosts = [
   },
   {
     name: "oni",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Dots, Evidence.Emf, Evidence.Freezing],
     notes: [
       "Causes more interactions than normal and more when people are in the ghost room",
@@ -166,10 +214,12 @@ const ghosts = [
   },
   {
     name: "onryo",
-    huntSanityThreshold: [
-      "60% normally",
-      "Every third flame blown out (can be prevented by normal methods, e.g. a crucifix)",
-    ],
+    huntConditions: {
+      startingSanityThreshold: 60,
+      additionalConditions: [
+        "Every third flame blown out (can be prevented by normal methods, e.g. a crucifix), as long as no other flames are around",
+      ],
+    },
     evidence: [Evidence.Freezing, Evidence.Orb, Evidence.SpiritBox],
     notes: [
       "Can't hunt until all flames in the area (candle, flashlight, campfires) are out",
@@ -181,7 +231,9 @@ const ghosts = [
   },
   {
     name: "phantom",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Dots, Evidence.Fingerprints, Evidence.SpiritBox],
     notes: [
       "If photo of ghost is taken during a hunt, the ghost will be invisible in the photo",
@@ -193,7 +245,9 @@ const ghosts = [
   },
   {
     name: "poltergeist",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Fingerprints, Evidence.Writing, Evidence.SpiritBox],
     notes: [
       "Throws items more often and with more force",
@@ -203,10 +257,15 @@ const ghosts = [
   },
   {
     name: "raiju",
-    huntSanityThreshold: [
-      "50% normally",
-      "65% when near at least one piece of electronic equipment",
-    ],
+    huntConditions: {
+      startingSanityThreshold: 50,
+      superSanityThresholds: [
+        {
+          threshold: 65,
+          condition: "When near electronic equipment",
+        },
+      ],
+    },
     evidence: [Evidence.Dots, Evidence.Emf, Evidence.Orb],
     notes: [
       "During hunt or event, interferes with electronics at greater distance (15m, instead of 10m)",
@@ -216,7 +275,9 @@ const ghosts = [
   },
   {
     name: "revenant",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Freezing, Evidence.Orb, Evidence.Writing],
     notes: [
       "During a hunt, moves very slowly (1m/s) when no players detected",
@@ -226,7 +287,15 @@ const ghosts = [
   },
   {
     name: "shade",
-    huntSanityThreshold: ["35% normally", "Never if any players in ghost room"],
+    huntConditions: {
+      startingSanityThreshold: 35,
+      superSanityThresholds: [
+        {
+          threshold: -1,
+          condition: "Never hunts if any players in the same room",
+        },
+      ],
+    },
     evidence: [Evidence.Emf, Evidence.Freezing, Evidence.Writing],
     notes: [
       "Less likely to do interactions",
@@ -238,7 +307,9 @@ const ghosts = [
   },
   {
     name: "spirit",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Emf, Evidence.SpiritBox, Evidence.Writing],
     notes: [
       "When smudged, a Spirit won't start a non-cursed hunt for 3 minutes (instead of the normal 90 seconds)",
@@ -246,10 +317,12 @@ const ghosts = [
   },
   {
     name: "thaye",
-    huntSanityThreshold: [
-      "75% at start (before aging)",
-      "Reduces by -6% per year aged",
-    ],
+    huntConditions: {
+      startingSanityThreshold: 75,
+      additionalConditions: [
+        "Threshold reduces by 6% by year aged (see ability)",
+      ],
+    },
     evidence: [Evidence.Dots, Evidence.Orb, Evidence.Writing],
     notes: [
       `Appears on ${Evidence.Dots.shortName} and ${Evidence.Writing.shortName} more often`,
@@ -260,9 +333,12 @@ const ghosts = [
   },
   {
     name: "the mimic",
-    huntSanityThreshold: [
-      "Inherits threshold and abilities of currently-mimicked ghost",
-    ],
+    huntConditions: {
+      startingSanityThreshold: "Varies",
+      additionalConditions: [
+        "Inherits threshold and abilities of mimicked ghost",
+      ],
+    },
     evidence: [
       Evidence.Fingerprints,
       Evidence.Freezing,
@@ -278,7 +354,9 @@ const ghosts = [
   },
   {
     name: "the twins",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Emf, Evidence.Freezing, Evidence.SpiritBox],
     notes: [
       "Ability allow it to perform two interactions within 16 meters (25% of EMF-5), which can make it difficult to tell the favorite room",
@@ -289,7 +367,9 @@ const ghosts = [
   },
   {
     name: "wraith",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Dots, Evidence.Emf, Evidence.SpiritBox],
     notes: [
       "Never steps in salt or leaves UV footprints, though its appearance doesn't float and it still makes footstep sounds",
@@ -299,10 +379,15 @@ const ghosts = [
   },
   {
     name: "yokai",
-    huntSanityThreshold: [
-      "50% normally",
-      "80% if players talking within 2 meters",
-    ],
+    huntConditions: {
+      startingSanityThreshold: 50,
+      superSanityThresholds: [
+        {
+          threshold: 80,
+          condition: "When players talk within 2 meters",
+        },
+      ],
+    },
     evidence: [Evidence.Dots, Evidence.Orb, Evidence.SpiritBox],
     notes: [
       "When hunting, the radius which it can hear players or equipment is much smaller than normal (2.5 m)",
@@ -311,7 +396,9 @@ const ghosts = [
   },
   {
     name: "yurei",
-    huntSanityThreshold: 50,
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
     evidence: [Evidence.Dots, Evidence.Freezing, Evidence.Orb],
     notes: [
       "When smudged, returns to favorite room and is trapped for 60 seconds",
