@@ -2,11 +2,24 @@
 layout: baseLayout
 ---
 <h2>Sanity Checker</h2>
-<h3>Static sanity thresholds</h3>
+<h3>Starting sanity thresholds</h3>
 <ul>
 {% for sanity in sanityCollections.sanityStartingSortDesc %}
     <li>
-        {{ sanity.sanityNum }}: {{ sanity.ghosts | formatGhostNames | safe }}
+        {{ sanity.sanityNum }}%: {{ sanity.ghosts | formatGhostNames | safe }}
+    </li>
+{% endfor %}
+</ul>
+<h3>Super sanity thresholds</h3>
+<ul>
+{% for sanity in sanityCollections.sanitySuperSortDesc %}
+    <li>
+        {{ sanity.sanityNum }}%:
+        <ul>
+            {% for superPair in sanity.superPairs %}
+                <li><span class="ghost-name">{{ superPair.ghost }}</span> ({{ superPair.condition }})</li>
+            {% endfor %}
+        </ul>
     </li>
 {% endfor %}
 </ul>
