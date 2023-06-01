@@ -67,7 +67,9 @@ function getSanitySuperSortDesc() {
     ([sanityNum, superPairs]) => ({ sanityNum, superPairs })
   );
 
-  return sanityPairs.sort().reverse();
+  return sanityPairs
+    .sort((pairA, pairB) => pairA.sanityNum - pairB.sanityNum)
+    .reverse();
 }
 
 const sanityCollections = {

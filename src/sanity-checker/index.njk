@@ -6,7 +6,8 @@ layout: baseLayout
 <ul>
 {% for sanity in sanityCollections.sanityStartingSortDesc %}
     <li>
-        {{ sanity.sanityNum }}%: {{ sanity.ghosts | formatGhostNames | safe }}
+        {{ sanity.sanityNum }}
+        {%- if sanity.sanityNum !== 'Varies' %}%{% endif %}: {{ sanity.ghosts | formatGhostNames | safe }}
     </li>
 {% endfor %}
 </ul>

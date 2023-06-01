@@ -146,11 +146,11 @@ const ghosts = [
       superSanityThresholds: [
         {
           threshold: 60,
-          condition: "Lights on in ghost's favorite room",
+          condition: "Lights off in ghost's favorite room",
         },
         {
           threshold: 40,
-          condition: "Lights off in ghost's favorite room",
+          condition: "Lights on in ghost's favorite room",
         },
       ],
     },
