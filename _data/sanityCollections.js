@@ -13,18 +13,17 @@ function getSanityStartingSortDesc() {
   const sanityCollection = {};
 
   ghosts.forEach((ghost) => {
-    const ghostName = ghost.name;
     const startingSanity = ghost.huntConditions.startingSanityThreshold;
 
     if (Array.isArray(sanityCollection[startingSanity])) {
-      sanityCollection[startingSanity].push(ghostName);
+      sanityCollection[startingSanity].push(ghost);
     } else {
-      sanityCollection[startingSanity] = [ghostName];
+      sanityCollection[startingSanity] = [ghost];
     }
   });
 
-  Object.values(sanityCollection).forEach((ghostNames) => {
-    ghostNames.sort();
+  Object.values(sanityCollection).forEach((ghosts) => {
+    ghosts.sort((ghostA, ghostB) => ghostA.name.localeCompare(ghostB));
   });
 
   /**

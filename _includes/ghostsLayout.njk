@@ -5,7 +5,11 @@ layout: baseLayout
 <nav>
     <ul class="ghosts">
         {%- for ghost in ghosts %}
-            <li><a href="{{ ghost.name | slugify }}.html" class="ghost-name">{{ ghost.name }}</a></li>
+            <li>
+            {% renderTemplate "webc", ghost %}
+            <ghost-link :@name="name"></ghost-link>
+            {% endrenderTemplate %}
+            </li>
         {% endfor -%}
     </ul>
 </nav>
