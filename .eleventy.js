@@ -2,19 +2,6 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const CleanCSS = require("clean-css");
 
-/**
- * Turn an array of ghost names into a string of elements with commas between
- * @param {string[]} ghosts
- * @return string
- */
-function formatGhostNamesArray(ghosts) {
-  return ghosts
-    ?.map((ghostName) => {
-      return `<span class="ghost-name">${ghostName}</span>`;
-    })
-    .join(`, `);
-}
-
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(pluginWebc);
@@ -24,8 +11,6 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/styles");
-
-  eleventyConfig.addFilter("formatGhostNames", formatGhostNamesArray);
 
   return {
     dir: {
