@@ -7,7 +7,16 @@ layout: baseLayout
 {% for sanity in sanityCollections.sanityStartingSortDesc %}
     <li>
         {{ sanity.sanityNum }}
-        {%- if sanity.sanityNum !== 'Varies' %}%{% endif %}: {{ sanity.ghosts | formatGhostNames | safe }}
+        {%- if sanity.sanityNum !== 'Varies' %}%{% endif %}:
+        <ul class="ghost-list-inline">
+            {% for ghost in sanity.ghosts %}
+                <li>
+                {% renderTemplate "webc", ghost %}
+                <ghost-link :@name="name"></ghost-link>
+                {% endrenderTemplate %}
+                </li>
+            {% endfor %}
+        </ul>
     </li>
 {% endfor %}
 </ul>
@@ -18,7 +27,12 @@ layout: baseLayout
         {{ sanity.sanityNum }}%:
         <ul>
             {% for superPair in sanity.superPairs %}
-                <li><span class="ghost-name">{{ superPair.ghost }}</span> ({{ superPair.condition }})</li>
+                <li>
+                    {% renderTemplate "webc", superPair %}
+                    <ghost-link :@name="ghost"></ghost-link>
+                    {% endrenderTemplate %}
+                    ({{ superPair.condition }})
+                </li>
             {% endfor %}
         </ul>
     </li>

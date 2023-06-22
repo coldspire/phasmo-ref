@@ -97,6 +97,20 @@ footer {
   grid-auto-flow: column;
 }
 
+/***** Sanity Checker page */
+
+.ghost-list-inline {
+  list-style: none;
+}
+
+.ghost-list-inline > li {
+  display: inline;
+}
+
+.ghost-list-inline > li:not(:last-child)::after {
+  content: "•";
+}
+
 .super-sanity-thresholds {
   padding-inline-start: 1rem;
 
