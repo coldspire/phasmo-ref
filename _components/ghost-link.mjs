@@ -10,15 +10,18 @@ class GhostLink extends LitElement {
 	`;
 
 	static properties = {
-		ghostName: {}
+		name: {},
+		_href: { attribute: false, state: true }
 	};
 
-	get href() {
-		return `/ghosts/${slugify(this.ghostName)}.html`;
+	willUpdate(changedProperties) {
+		if (changedProperties.has("name")) {
+			this._href = `/ghosts/${slugify(this.name)}.html`;
+		}
 	}
 
 	render() {
-		return html`<a class="ghost-link" href="${this.href}">${this.ghostName}</a>`;
+		return html`<a class="ghost-link" href="${this._href}">${this.name}</a>`;
 	}
 }
 
