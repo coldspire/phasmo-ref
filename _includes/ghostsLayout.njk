@@ -6,9 +6,7 @@ layout: baseLayout
     <ul class="ghosts">
         {%- for ghost in ghosts %}
             <li>
-            {% renderTemplate "webc", ghost %}
-            <ghost-link :@name="name"></ghost-link>
-            {% endrenderTemplate %}
+            <ghost-link name="{{ ghost.name }}"></ghost-link>
             </li>
         {% endfor -%}
     </ul>
