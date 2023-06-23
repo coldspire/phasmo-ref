@@ -11,9 +11,7 @@ layout: baseLayout
         <ul class="ghost-list-inline">
             {% for ghost in sanity.ghosts %}
                 <li>
-                {% renderTemplate "webc", ghost %}
-                <ghost-link :@name="name"></ghost-link>
-                {% endrenderTemplate %}
+                <ghost-link name="{{ ghost.name }}"></ghost-link>
                 </li>
             {% endfor %}
         </ul>
@@ -28,9 +26,7 @@ layout: baseLayout
         <ul>
             {% for superPair in sanity.superPairs %}
                 <li>
-                    {% renderTemplate "webc", superPair %}
-                    <ghost-link :@name="ghost"></ghost-link>
-                    {% endrenderTemplate %}
+                    <ghost-link name="{{ ghost.name }}"></ghost-link>
                     ({{ superPair.condition }})
                 </li>
             {% endfor %}
