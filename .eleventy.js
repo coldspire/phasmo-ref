@@ -3,12 +3,14 @@ const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const CleanCSS = require("clean-css");
 const litPlugin = require("@lit-labs/eleventy-plugin-lit");
 
+const componentsDir = "_components";
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(pluginWebc);
   eleventyConfig.addPlugin(litPlugin, {
     mode: "worker",
-    componentModules: [],
+    componentModules: [`${componentsDir}/ghost-link.mjs`],
   });
 
   eleventyConfig.addFilter("cssmin", function (code) {
@@ -16,6 +18,8 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/styles");
+
+  eleventyConfig.addWatchTarget(componentsDir);
 
   return {
     dir: {
