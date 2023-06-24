@@ -44,7 +44,7 @@ function getSanitySuperSortDesc() {
       const superThresholds = ghost.huntConditions.superSanityThresholds;
       superThresholds.forEach((threshold) => {
         const superSanityPair = {
-          ghost: ghost.name,
+          ghost,
           condition: threshold.condition,
         };
         if (Array.isArray(sanityCollection[threshold.threshold])) {
@@ -58,7 +58,7 @@ function getSanitySuperSortDesc() {
 
   Object.values(sanityCollection).forEach((superPairs) => {
     superPairs.sort((pairA, pairB) => {
-      return pairA.ghost.localeCompare(pairB.ghost);
+      return pairA.ghost.name.localeCompare(pairB.ghost.name);
     });
   });
 
