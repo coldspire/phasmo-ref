@@ -26,7 +26,7 @@ layout: baseLayout
         <ul>
             {% for superPair in sanity.superPairs %}
                 <li>
-                    <ghost-link name="{{ ghost.name }}"></ghost-link>
+                    <ghost-link name="{{ superPair.ghost.name }}"></ghost-link>
                     ({{ superPair.condition }})
                 </li>
             {% endfor %}
