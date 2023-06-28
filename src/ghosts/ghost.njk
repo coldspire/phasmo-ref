@@ -46,11 +46,12 @@ title: Ghost
 </ul>
 
 <h4>Notes</h4>
-<ul>
-    {%- for note in ghost.notes %}
-        <li>{{ note }}</li>
-    {% endfor -%}
-</ul>
+{% renderTemplate "webc", ghost %}
+<ghost-notes @notes-type="Ability" :@notes="notes.ability"></ghost-notes>
+<ghost-notes @notes-type="Hunting" :@notes="notes.hunt"></ghost-notes>
+<ghost-notes @notes-type="Evidence" :@notes="notes.evidence"></ghost-notes>
+<ghost-notes @notes-type="Other" :@notes="notes.other"></ghost-notes>
+{% endrenderTemplate %}
 <nav class="ghost-nav" aria-labelledby="ghost-nav-label">
     <h3 id="ghost-nav-label">See an adjacent ghost</h4>
     <ul>
