@@ -1,0 +1,5 @@
+<h5 @text="notesType"></h5>
+<ul webc:if="notes && notes.length > 0">
+    <li webc:for="note of notes" @text="note"></li>
+</ul>
+<p webc:else>Nothing else to report, unfortunately.</p>
