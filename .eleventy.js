@@ -5,6 +5,12 @@ const litPlugin = require("@lit-labs/eleventy-plugin-lit");
 
 const componentsDir = "_components";
 
+function wikiUrl(ghostName, isTextVersion) {
+  return isTextVersion
+    ? `https://www.textise.net/showText.aspx?strURL=https%253A//phasmophobia.fandom.com/wiki/${ghostName}`
+    : `https://phasmophobia.fandom.com/wiki/${ghostName}`;
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(litPlugin, {
@@ -16,6 +22,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
+
+  eleventyConfig.addShortcode("ghostWikiUrl", wikiUrl);
 
   eleventyConfig.addPassthroughCopy("src/styles");
 
