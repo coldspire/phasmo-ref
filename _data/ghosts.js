@@ -56,6 +56,7 @@ const Evidence = {
  * @typedef {Object} Ghost
  * @property {string} name - Ghost name
  * @property {string} mustKnow - One essential bit of information to remember about this ghost
+ * @property {string} [pronunciation] - Optional pronunciation guide
  * @property {HuntConditions} huntConditions - Sanity threshold and other abilities that may cause a hunt
  * @property {Evidence[]} evidence - Evidence needed to verify a ghost
  * @property {Notes} [notes] - Optional additional information
@@ -115,6 +116,7 @@ const ghosts = [
   },
   {
     name: "deogen",
+    pronunciation: "deh·OH·gen (hard g)",
     mustKnow:
       "The bad news is you can't hide from a Deogen. The good news is that you can easily outrun it.",
     huntConditions: {
@@ -136,6 +138,7 @@ const ghosts = [
   },
   {
     name: "goryo",
+    pronunciation: "gore·yo",
     mustKnow:
       "Appears in a DOTS interaction only through a video feed and if no hunters are in the same room.",
     huntConditions: {
@@ -157,6 +160,7 @@ const ghosts = [
   },
   {
     name: "hantu",
+    pronunciation: "HAHN·too",
     mustKnow:
       "Beware of the ghost's favorite room, where the ghost will always move quickly due to the freezing temperatures.",
     huntConditions: {
@@ -230,6 +234,7 @@ const ghosts = [
   },
   {
     name: "moroi",
+    pronunciation: "moe·ROY",
     mustKnow:
       "Beware of a sanity-draining curse caused by ghostly vocalizations. Pills are the cure.",
     huntConditions: {
@@ -251,6 +256,7 @@ const ghosts = [
   },
   {
     name: "myling",
+    pronunciation: "mew·leeng",
     mustKnow:
       "This ghost hunts quietly. Use the flickering of nearby lights and your own heartbeat to stay aware.",
     huntConditions: {
@@ -268,6 +274,7 @@ const ghosts = [
   },
   {
     name: "obake",
+    pronunciation: "oh·BAH·kay",
     mustKnow:
       "Its ability can quickly hide its occasional unique fingerprints.",
     huntConditions: {
@@ -291,6 +298,7 @@ const ghosts = [
   },
   {
     name: "oni",
+    pronunciation: "OH·nee",
     mustKnow:
       "Loves to interact, especially when hunters are nearby. Evidence may come readily.",
     huntConditions: {
@@ -311,6 +319,7 @@ const ghosts = [
   },
   {
     name: "onryo",
+    pronunciation: "OWN·yo",
     mustKnow:
       "Every third flame blown out causes a hunt attempt; a fourth nearby flame will prevent it.",
     huntConditions: {
@@ -376,6 +385,7 @@ const ghosts = [
   },
   {
     name: "raiju",
+    pronunciation: "RYE·joo",
     mustKnow:
       "Beware the ghost's increased sanity threshold when near in-use electronics brought from the van.",
     huntConditions: {
@@ -465,6 +475,7 @@ const ghosts = [
   },
   {
     name: "thaye",
+    pronunciation: "thuh·yay",
     mustKnow: "Beware its high sanity threshold early in contracts.",
     huntConditions: {
       startingSanityThreshold: 75,
@@ -559,6 +570,7 @@ const ghosts = [
   },
   {
     name: "yokai",
+    pronunciation: "YO·kai",
     mustKnow: "Can hunt very early if local in-game voice chat is heard.",
     huntConditions: {
       startingSanityThreshold: 50,
@@ -584,6 +596,7 @@ const ghosts = [
   },
   {
     name: "yurei",
+    pronunciation: "yur·ray",
     mustKnow:
       "If a lot of internal doors are being closed, it might be this ghost. If it touches an exit door, it's definitely this ghost.",
     huntConditions: {
