@@ -1,16 +1,1 @@
-[[plugins]]
-    package = "netlify-plugin-visual-diff"
-    [plugins.inputs]
 
-        [[plugins.inputs.browser]]
-        name = "chrome"
-        width = 1024
-        height = 768
-
-        [[plugins.inputs.browser]]
-        name = "firefox"
-        width = 1024
-        height = 768
-
-        [[plugins.inputs.browser]]
-        deviceName = "iPhone 11 Pro"
