@@ -209,3 +209,20 @@ footer {
 
   list-style: circle;
 }
+
+/***** Cursed possessions page */
+.jump-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2ch;
+}
+
+.jump-links > li {
+  display: inline;
+}
+
+.location:target {
+  color: darkred;
+  text-shadow: black 0 0 25px;
+}

@@ -5,14 +5,15 @@ layout: baseLayout
 <h3>Locations</h3>
 <p>
 Jump to:
-<ul>
+<ul class="jump-links">
 {% for locName, location in locations %}
 <li><a href="#{{ location.shortName }}">{{ location.shortName }}</a></li>
 {% endfor %}
 </ul>
 </p>
+<hr>
 {% for locName, location in locations %}
-<h4 id="{{ location.shortName }}">{{ location.shortName }}</h4>
+<h4 id="{{ location.shortName }}" class="location">{{ location.shortName }}</h4>
 <ul>
     {% for possession, placement in location.possessionLocations %}
     <li><b>{{ possession }}</b>: {{ placement }}</li>
