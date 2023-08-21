@@ -30,17 +30,17 @@ const CursedPossession = {
  * @enum {number}
  */
 const LocationNames = {
-  Tanglewood: 0,
-  Ridgeview: 1,
-  Willow: 2,
-  Edgefield: 3,
-  Bleasdale: 4,
-  Woodwind: 5,
-  Grafton: 6,
-  Brownstone: 7,
-  MapleLodge: 8,
-  SunnyMeadows: 9,
-  Prison: 10,
+  Bleasdale: 0,
+  Brownstone: 1,
+  Edgefield: 2,
+  Grafton: 3,
+  MapleLodge: 4,
+  Prison: 5,
+  Ridgeview: 6,
+  SunnyMeadows: 7,
+  Tanglewood: 8,
+  Willow: 9,
+  Woodwind: 10,
 };
 
 /**
