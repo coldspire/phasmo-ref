@@ -1,0 +1,25 @@
+---
+layout: baseLayout
+---
+<h2>Cursed Possessions</h2>
+<h3>Locations</h3>
+<p id="jump-links">
+Jump to:
+<ul class="jump-links" >
+{% for locName, location in locations %}
+<li><a href="#{{ location.shortName }}">{{ location.shortName }}</a></li>
+{% endfor %}
+</ul>
+</p>
+<hr>
+{% for locName, location in locations %}
+<section class="location" id="{{ location.shortName }}">
+<h4>{{ location.shortName }}</h4>
+<ul>
+    {% for possession, placement in location.possessionLocations %}
+    <li><b>{{ possession }}</b>: {{ placement }}</li>
+    {% endfor %}
+</ul>
+<a href="#jump-links">Back to jump links</a>
+</section>
+{% endfor %}
