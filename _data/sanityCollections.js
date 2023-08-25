@@ -4,6 +4,9 @@ const ghosts = require("./ghosts");
  * @typedef { { sanityNum: number; ghosts: string[]; } } SanityPair[]
  * @typedef { { ghost: string; reason: string; } } SuperCondition
  * @typedef { { sanityNum: number; superConditions: SuperCondition[] } } SuperSanityPairs[]
+ *
+ * @typedef { { sanityNum: number; condition: string } } SanityCondition
+ * @typedef { Object.<ghost, Array.<SanityCondition>>} GhostSanityConditions
  */
 
 /**
@@ -71,9 +74,48 @@ function getSanitySuperSortDesc() {
     .reverse();
 }
 
+function getGhostSanityConditions() {
+  /**
+   * @type {GhostSanityConditions}
+   */
+  const ghostSanityConditions = {};
+
+  ghosts.forEach((ghost) => {
+    const huntConditions = ghost.huntConditions;
+
+    ghostSanityConditions[ghost.name] = [];
+    if (ghost.huntConditions.startingSanityThreshold !== "Varies") {
+      ghostSanityConditions[ghost.name].push({
+        sanityNum: huntConditions.startingSanityThreshold,
+        condition: "Starting value",
+      });
+    }
+
+    if (huntConditions.superSanityThresholds) {
+      huntConditions.superSanityThresholds.forEach(
+        ({ threshold, condition }) => {
+          ghostSanityConditions[ghost.name].push({
+            sanityNum: threshold,
+            condition,
+          });
+        }
+      );
+    }
+  });
+
+  Object.values(ghostSanityConditions).forEach((sanityPairs) => {
+    sanityPairs.sort(
+      (sanityA, sanityB) => sanityB.sanityNum - sanityA.sanityNum
+    );
+  });
+
+  return ghostSanityConditions;
+}
+
 const sanityCollections = {
   sanityStartingSortDesc: getSanityStartingSortDesc(),
   sanitySuperSortDesc: getSanitySuperSortDesc(),
+  ghostSanityConditions: getGhostSanityConditions(),
 };
 
 module.exports = sanityCollections;
