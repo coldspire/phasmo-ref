@@ -2,6 +2,20 @@
 layout: baseLayout
 ---
 <h2>Sanity Checker</h2>
+<h3>Realtime Checker</h3>
+<p><ghost-link name="the mimic"></ghost-link> has no determined sanity and is not included in the list.</p>
+<ul class="ghosts">
+    {%- for ghostName, sanityNumbers in sanityCollections.ghostSanityConditions %}
+        <li>
+            <span class="ghost-name">{{ ghostName }}</span>
+            <ul class="ghost-list-inline">
+                {% for sanity in sanityNumbers %}
+                <li title="{{ sanity.condition}}">{{ sanity.sanityNum }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor -%}
+</ul>
 <h3>Starting sanity thresholds</h3>
 <ul>
 {% for sanity in sanityCollections.sanityStartingSortDesc %}
