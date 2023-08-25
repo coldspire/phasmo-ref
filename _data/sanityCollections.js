@@ -81,6 +81,11 @@ function getGhostSanityConditions() {
   const ghostSanityConditions = {};
 
   ghosts.forEach((ghost) => {
+    // Mimic can have any sanity number, so we can't track it
+    if (ghost.name === "the mimic") {
+      return;
+    }
+
     const huntConditions = ghost.huntConditions;
 
     ghostSanityConditions[ghost.name] = [];
