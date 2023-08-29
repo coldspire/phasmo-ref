@@ -119,6 +119,24 @@ footer {
   gap: 0.25rem 0.5rem;
 }
 
+input[name="selected-sanity"] {
+  width: 100%;
+}
+
+datalist[id="sanity-markers"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 100%;
+}
+
+datalist[id="sanity-markers"] > option {
+  line-height: 0.75em;
+  padding: 0;
+  margin: 0;
+}
+
 /***** Tarot page */
 
 .cards-nav.individual-cards > ul > li {
