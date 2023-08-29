@@ -22,12 +22,12 @@ layout: baseLayout
 <ul class="ghosts">
     {%- for ghostName, sanityNumbers in sanityCollections.ghostSanityConditions %}
         <li>
-            <span class="ghost-name">{{ ghostName }}</span>
-            <ul class="ghost-list-inline">
-                {% for sanity in sanityNumbers %}
-                <li title="{{ sanity.condition}}">{{ sanity.sanityNum }}</li>
-                {% endfor %}
-            </ul>
+            <span
+                class="ghost-name"
+                data-sanity-list="{{ sanityNumbers | join(',', 'sanityNum') }}"
+            >
+                {{ ghostName }}
+            </span>
         </li>
     {% endfor -%}
 </ul>
