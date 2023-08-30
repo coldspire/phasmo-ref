@@ -137,6 +137,21 @@ datalist[id="sanity-markers"] > option {
   margin: 0;
 }
 
+.can-hunt {
+  font-weight: 700;
+  rotate: -5deg;
+  color: white;
+  text-shadow: darkred 0 0 5px, darkred 0 0 5px, darkred 0 0 5px,
+    darkred 0 0 10px, darkred 0 0 10px, darkred 0 0 15px, darkred 0 0 15px,
+    darkred 0 0 20px, darkred 0 0 50px;
+}
+
+.cannot-hunt {
+  font-weight: 300;
+  font-style: italic;
+  color: #666;
+}
+
 /***** Tarot page */
 
 .cards-nav.individual-cards > ul > li {
