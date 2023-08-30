@@ -3,7 +3,6 @@ layout: baseLayout
 ---
 <h2>Sanity Checker</h2>
 <h3>Realtime Checker</h3>
-<p><ghost-link name="the mimic"></ghost-link> has no determined sanity and is not included in the list.</p>
 <label for="selected-sanity">Choose a sanity amount to see which ghosts may hunt at that threshold:</label>
 <input type="range" id="selected-sanity" name="selected-sanity" step="5" min="0" max="100" value="0" list="sanity-markers">
 <datalist id="sanity-markers">
@@ -19,6 +18,7 @@ layout: baseLayout
     <option value="90" label="90"></option>
     <option value="100" label="100"></option>
 </datalist>
+<p><ghost-link name="the mimic"></ghost-link> has no determined sanity and is not included in the list.</p>
 <ul class="ghosts">
     {%- for ghostName, sanityNumbers in sanityCollections.ghostSanityConditions %}
         <li>
