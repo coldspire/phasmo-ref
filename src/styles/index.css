@@ -162,7 +162,7 @@ datalist[id="sanity-markers"] > option {
 }
 
 .realtime-sanity-list {
-  padding: 1rem;
+  padding: 1rem 0;
   margin: 0;
 }
 
@@ -172,6 +172,7 @@ datalist[id="sanity-markers"] > option {
 
 .realtime-sanity-list > li > .ghost-name {
   position: absolute;
+  word-break: keep-all;
 }
 
 .selected-sanity-label {
