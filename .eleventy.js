@@ -25,7 +25,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("ghostWikiUrl", wikiUrl);
 
-  eleventyConfig.addPassthroughCopy("src/styles");
+  eleventyConfig.addPassthroughCopy({
+    "src/styles": "styles",
+    "src/scripts": "scripts",
+  });
 
   eleventyConfig.addWatchTarget(componentsDir);
 

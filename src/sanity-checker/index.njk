@@ -2,6 +2,40 @@
 layout: baseLayout
 ---
 <h2>Sanity Checker</h2>
+<h3>Realtime Checker</h3>
+<ul>
+<li>A dagger ("†") indicates the ghost may hunt due to a super-sanity condition. Refer to <a href="#super-sanity-thresholds">below list</a>.</li>
+<li><ghost-link name="the mimic"></ghost-link> has no determined sanity and is not included in the list.</li>
+</ul>
+<label for="selected-sanity">Choose a sanity amount to see which ghosts may hunt at that threshold:</label>
+<input type="range" id="selected-sanity" name="selected-sanity" step="5" min="0" max="100" value="100" list="sanity-markers">
+<datalist id="sanity-markers">
+    <option value="0" label="0"></option>
+    <option value="10" label="10"></option>
+    <option value="20" label="20"></option>
+    <option value="30" label="30"></option>
+    <option value="40" label="40"></option>
+    <option value="50" label="50"></option>
+    <option value="60" label="60"></option>
+    <option value="70" label="70"></option>
+    <option value="80" label="80"></option>
+    <option value="90" label="90"></option>
+    <option value="100" label="100"></option>
+</datalist>
+<p class="selected-sanity-label">Selected sanity: <span class="evil-text" id="selected-sanity-value"></span></p>
+<ul class="ghosts realtime-sanity-list">
+    {%- for ghostName, sanityNumbers in sanityCollections.ghostSanityConditions %}
+        <li>
+            <span
+                class="ghost-name ghost-sanity-hook"
+                data-super-list="{{ sanityNumbers | selectattr('isSuperCondition') | join(',', 'sanityNum') }}"
+                data-sanity-list="{{ sanityNumbers | rejectattr('isSuperCondition') | join(',', 'sanityNum') }}"
+            >
+                {{ ghostName }}
+            </span>
+        </li>
+    {% endfor -%}
+</ul>
 <h3>Starting sanity thresholds</h3>
 <ul>
 {% for sanity in sanityCollections.sanityStartingSortDesc %}
@@ -18,7 +52,7 @@ layout: baseLayout
     </li>
 {% endfor %}
 </ul>
-<h3>Super sanity thresholds</h3>
+<h3 id="super-sanity-thresholds">Super sanity thresholds</h3>
 <ul>
 {% for sanity in sanityCollections.sanitySuperSortDesc %}
     <li>
@@ -34,3 +68,4 @@ layout: baseLayout
     </li>
 {% endfor %}
 </ul>
+<script src="/scripts/realtime-sanity-checker.js"></script>
