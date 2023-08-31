@@ -20,7 +20,14 @@ function ghostMeetsStartingSanity(sanityNums, playerSanity) {
   return meetsThreshold;
 }
 
+function updateSanityLabel(playerSanity) {
+  const sanityEl = document.querySelector("#selected-sanity-value");
+  sanityEl.textContent = playerSanity;
+}
+
 function filterGhostsBySanity(playerSanity) {
+  updateSanityLabel(playerSanity);
+
   const ghostEls = Array.from(
     document.getElementsByClassName("ghost-sanity-hook")
   );
@@ -46,3 +53,8 @@ document.addEventListener("input", (event) => {
     filterGhostsBySanity(playerSanity);
   }
 });
+
+// Get starting value
+const startingSanityRangeValue =
+  document.querySelector("#selected-sanity").value;
+filterGhostsBySanity(startingSanityRangeValue);

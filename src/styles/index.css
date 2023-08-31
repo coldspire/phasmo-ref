@@ -84,6 +84,11 @@ footer {
   text-transform: capitalize;
 }
 
+.evil-text {
+  color: #600;
+  text-shadow: 0 0 15px darkred;
+}
+
 /***** Ghosts page */
 .ghosts {
   list-style: none;
@@ -158,6 +163,7 @@ datalist[id="sanity-markers"] > option {
 
 .realtime-sanity-list {
   padding: 1rem;
+  margin: 0;
 }
 
 .realtime-sanity-list > li {
@@ -166,6 +172,12 @@ datalist[id="sanity-markers"] > option {
 
 .realtime-sanity-list > li > .ghost-name {
   position: absolute;
+}
+
+.selected-sanity-label {
+  padding: 1rem 0 0 0;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 /***** Tarot page */
