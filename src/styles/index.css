@@ -152,6 +152,10 @@ datalist[id="sanity-markers"] > option {
   color: #666;
 }
 
+.is-super-condition::after {
+  content: "†";
+}
+
 /***** Tarot page */
 
 .cards-nav.individual-cards > ul > li {

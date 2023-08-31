@@ -5,7 +5,7 @@ const ghosts = require("./ghosts");
  * @typedef { { ghost: string; reason: string; } } SuperCondition
  * @typedef { { sanityNum: number; superConditions: SuperCondition[] } } SuperSanityPairs[]
  *
- * @typedef { { sanityNum: number; condition: string } } SanityCondition
+ * @typedef { { sanityNum: number; isSuperCondition: boolean } } SanityCondition
  * @typedef { Object.<ghost, Array.<SanityCondition>>} GhostSanityConditions
  */
 
@@ -92,7 +92,7 @@ function getGhostSanityConditions() {
     if (ghost.huntConditions.startingSanityThreshold !== "Varies") {
       ghostSanityConditions[ghost.name].push({
         sanityNum: huntConditions.startingSanityThreshold,
-        condition: "Starting value",
+        isSuperCondition: false,
       });
     }
 
@@ -101,7 +101,7 @@ function getGhostSanityConditions() {
         ({ threshold, condition }) => {
           ghostSanityConditions[ghost.name].push({
             sanityNum: threshold,
-            condition,
+            isSuperCondition: true,
           });
         }
       );
