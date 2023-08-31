@@ -91,7 +91,7 @@ footer {
   padding: 0;
 
   display: grid;
-  gap: 1rem;
+  gap: 0.5rem;
   grid-template-columns: auto;
   grid-template-rows: repeat(8, 2rem);
   grid-auto-flow: column;
@@ -154,6 +154,18 @@ datalist[id="sanity-markers"] > option {
 
 .is-super-condition::after {
   content: "†";
+}
+
+.realtime-sanity-list {
+  padding: 1rem;
+}
+
+.realtime-sanity-list > li {
+  position: relative;
+}
+
+.realtime-sanity-list > li > .ghost-name {
+  position: absolute;
 }
 
 /***** Tarot page */
