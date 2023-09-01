@@ -296,3 +296,15 @@ datalist[id="sanity-markers"] > option {
   color: darkred;
   text-shadow: black 0 0 25px;
 }
+
+/***** Timers page */
+.timer {
+  display: grid;
+  grid-template-areas:
+    "time  time"
+    "start reset";
+}
+
+.timer > time {
+  grid-area: time;
+}
