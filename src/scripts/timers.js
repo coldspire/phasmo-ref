@@ -3,12 +3,32 @@
  */
 
 /**
+ * @readonly
+ * @enum {number}
+ */
+const TimerState = {
+  Reset: 0,
+  Running: 1,
+  Expired: 2,
+};
+
+/**
  *
  * @param {HTMLElement} labelEl
  * @param {number} value
  */
 function updateLabel(labelEl, value) {
-  labelEl.innerText = value;
+  labelEl.innerText = value.toString();
+}
+
+/**
+ * @param {TimerState} timerState
+ * @param {TimerEl} els
+ */
+function setTimerButtonState(timerState, els) {
+  els.startBtn.disabled =
+    timerState === TimerState.Running || timerState === TimerState.Expired;
+  els.resetBtn.disabled = timerState === TimerState.Reset;
 }
 
 /**
@@ -21,13 +41,14 @@ function countdownFactory(duration, els) {
     let countdownValue = duration;
 
     updateLabel(els.label, countdownValue);
+    setTimerButtonState(TimerState.Running, els);
     const countdownInterval = setInterval(() => {
       countdownValue -= 1;
       updateLabel(els.label, countdownValue);
+      setTimerButtonState(TimerState.Expired, els);
     }, 1000);
 
     setTimeout(() => {
-      console.log("timer stopped");
       clearInterval(countdownInterval);
     }, durationInMs);
   })(duration);
@@ -38,8 +59,15 @@ function countdownFactory(duration, els) {
  * @param {TimerEl} els
  */
 function setTimerLogic(duration, els) {
+  setTimerButtonState(TimerState.Reset, els);
+
   els.startBtn.addEventListener("click", () => {
     countdownFactory(duration, els);
+  });
+
+  els.resetBtn.addEventListener("click", () => {
+    updateLabel(els.label, duration);
+    setTimerButtonState(TimerState.Reset, els);
   });
 }
 
@@ -62,7 +90,7 @@ function setupTimer(timerEl) {
   }
 
   els.label.innerText = duration;
-  setTimerLogic(duration, els);
+  setTimerLogic(+duration, els);
 }
 
 function setupAllTimers() {
