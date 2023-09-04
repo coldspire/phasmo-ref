@@ -2,9 +2,23 @@
 layout: baseLayout
 ---
 <h2>Timers</h2>
+<h3>Setup Time: Amateur</h3>
+<p>Hunters on the "Amateur" difficulty have five minutes (300 seconds) setup time before ghosts can hunt.</p>
+<div class="timer" id="setup-amateur-timer" data-duration="300">
+    <p class="time"></p>
+    <button type="button" class="start-btn">Start</button>
+    <button type="button" class="reset-btn">Reset</button>
+</div>
 <h3>Hunt Cooldown</h3>
 <p>Once a hunt ends, a ghost must wait at least 25 seconds before attempting to hunt again.</p>
-<div class="timer" id="hunt-cooldown-timer" data-duration="5">
+<div class="timer" id="hunt-cooldown-timer" data-duration="25">
+    <p class="time"></p>
+    <button type="button" class="start-btn">Start</button>
+    <button type="button" class="reset-btn">Reset</button>
+</div>
+<h3>Incensed Spirit</h3>
+<p>Using incense near a <ghost-link name="Spirit"></ghost-link> will prevent it from hunting for three minutes (180 seconds).</p>
+<div class="timer" id="spirit-incense-timer" data-duration="180">
     <p class="time"></p>
     <button type="button" class="start-btn">Start</button>
     <button type="button" class="reset-btn">Reset</button>
