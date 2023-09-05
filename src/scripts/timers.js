@@ -48,9 +48,19 @@ function countdownFactory(duration, els) {
       setTimerButtonState(TimerState.Expired, els);
     }, 1000);
 
-    setTimeout(() => {
+    const timerTimeout = setTimeout(() => {
       clearInterval(countdownInterval);
     }, durationInMs);
+
+    const stopTimer = () => {
+      clearInterval(countdownInterval);
+      clearTimeout(timerTimeout);
+      updateLabel(els.label, duration);
+    };
+
+    return {
+      stopTimer,
+    };
   })(duration);
 }
 
@@ -60,13 +70,16 @@ function countdownFactory(duration, els) {
  */
 function setTimerLogic(duration, els) {
   setTimerButtonState(TimerState.Reset, els);
+  let countdown;
 
   els.startBtn.addEventListener("click", () => {
-    countdownFactory(duration, els);
+    countdown = countdownFactory(duration, els);
   });
 
   els.resetBtn.addEventListener("click", () => {
-    updateLabel(els.label, duration);
+    if (countdown) {
+      countdown.stopTimer();
+    }
     setTimerButtonState(TimerState.Reset, els);
   });
 }
