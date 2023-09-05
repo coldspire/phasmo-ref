@@ -26,9 +26,16 @@ function updateLabel(labelEl, value) {
  * @param {TimerEl} els
  */
 function setTimerButtonState(timerState, els) {
-  els.startBtn.disabled =
-    timerState === TimerState.Running || timerState === TimerState.Expired;
-  els.resetBtn.disabled = timerState === TimerState.Reset;
+  const isReset = timerState === TimerState.Reset;
+  const isRunning = timerState === TimerState.Running;
+  const isExpired = timerState === TimerState.Expired;
+
+  els.startBtn.disabled = isRunning || isExpired;
+  els.resetBtn.disabled = isReset;
+
+  els.container.classList.toggle("timer--reset", isReset);
+  els.container.classList.toggle("timer--running", isRunning);
+  els.container.classList.toggle("timer--expired", isExpired);
 }
 
 /**
@@ -45,10 +52,10 @@ function countdownFactory(duration, els) {
     const countdownInterval = setInterval(() => {
       countdownValue -= 1;
       updateLabel(els.label, countdownValue);
-      setTimerButtonState(TimerState.Expired, els);
     }, 1000);
 
     const timerTimeout = setTimeout(() => {
+      setTimerButtonState(TimerState.Expired, els);
       clearInterval(countdownInterval);
     }, durationInMs);
 

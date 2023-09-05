@@ -308,3 +308,15 @@ datalist[id="sanity-markers"] > option {
 .timer > time {
   grid-area: time;
 }
+
+.timer--reset {
+  background-color: lightskyblue;
+}
+
+.timer--running {
+  background-color: springgreen;
+}
+
+.timer--expired {
+  background-color: tomato;
+}
