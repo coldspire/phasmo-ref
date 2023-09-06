@@ -97,9 +97,10 @@ function setupTimer(timerEl) {
   /** @type TimerEl **/
   const els = {
     container: timerEl,
-    label: timerEl.children[0],
-    startBtn: timerEl.children[1],
-    resetBtn: timerEl.children[2],
+    heading: timerEl.children[0],
+    label: timerEl.children[1],
+    startBtn: timerEl.children[2],
+    resetBtn: timerEl.children[3],
   };
 
   if (!duration) {

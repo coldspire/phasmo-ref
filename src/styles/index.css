@@ -318,6 +318,7 @@ datalist[id="sanity-markers"] > option {
 .timer {
   display: grid;
   grid-template-areas:
+    "heading ..."
     "time  time"
     "start reset";
   gap: 1rem;
@@ -349,6 +350,23 @@ datalist[id="sanity-markers"] > option {
   background-color: color-mix(in oklab, var(--bg-color) 25%, white);
   border: 2px solid color-mix(in oklab, var(--bg-color) 75%, black);
   border-radius: 5px;
+}
+
+.timer > .heading {
+  margin: 0;
+  padding: 0;
+
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--bg-color, #aaa) 50%, black);
+}
+
+.timer > .start-btn {
+  grid-area: start;
+}
+
+.timer > .reset-btn {
+  grid-area: reset;
 }
 
 @keyframes wiggle {
