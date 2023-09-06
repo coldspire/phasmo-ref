@@ -311,6 +311,8 @@ datalist[id="sanity-markers"] > option {
 .timer--expired {
   --bg-color: tomato;
   background-color: var(--bg-color);
+
+  animation: wiggle 1s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .timer {
@@ -347,4 +349,40 @@ datalist[id="sanity-markers"] > option {
   background-color: color-mix(in oklab, var(--bg-color) 25%, white);
   border: 2px solid color-mix(in oklab, var(--bg-color) 75%, black);
   border-radius: 5px;
+}
+
+@keyframes wiggle {
+  from {
+    rotate: 0deg;
+  }
+  10% {
+    rotate: -25deg;
+  }
+  20% {
+    rotate: 25deg;
+  }
+  30% {
+    rotate: -20deg;
+  }
+  40% {
+    rotate: 20deg;
+  }
+  50% {
+    rotate: -15deg;
+  }
+  60% {
+    rotate: 15deg;
+  }
+  70% {
+    rotate: -10deg;
+  }
+  80% {
+    rotate: 10deg;
+  }
+  90% {
+    rotate: -5deg;
+  }
+  to {
+    rotate: 0deg;
+  }
 }
