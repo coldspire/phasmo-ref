@@ -298,6 +298,16 @@ datalist[id="sanity-markers"] > option {
 }
 
 /***** Timers page */
+
+input[id="show-simple-view"]:checked ~ .timers > :is(h3, p) {
+  display: none;
+}
+
+input[id="show-simple-view"]:checked ~ .timers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .timer--reset {
   --bg-color: lightskyblue;
   background-color: var(--bg-color);
@@ -316,6 +326,8 @@ datalist[id="sanity-markers"] > option {
 }
 
 .timer {
+  flex: 1 1 300px;
+
   display: grid;
   grid-template-areas:
     "heading ..."
