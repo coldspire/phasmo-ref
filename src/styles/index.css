@@ -312,6 +312,15 @@ datalist[id="sanity-markers"] > option {
   text-decoration: line-through 2px;
 }
 
+.timers.simple-view > :is(h3, p) {
+  display: none;
+}
+
+.timers.simple-view {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 input[id="show-simple-view"]:checked ~ .timers > :is(h3, p) {
   display: none;
 }

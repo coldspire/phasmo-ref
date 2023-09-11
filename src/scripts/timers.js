@@ -126,4 +126,14 @@ function setupAllTimers() {
   });
 }
 
+function updateSimpleView({ target } = { target: { checked: false } }) {
+  document
+    .querySelector(".timers")
+    .classList[target.checked ? "add" : "remove"]("simple-view");
+}
+
 setupAllTimers();
+
+document
+  .querySelector("#show-simple-view")
+  .addEventListener("click", updateSimpleView);
