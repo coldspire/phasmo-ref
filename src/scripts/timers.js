@@ -36,6 +36,11 @@ function setTimerButtonState(timerState, els) {
   els.container.classList.toggle("timer--reset", isReset);
   els.container.classList.toggle("timer--running", isRunning);
   els.container.classList.toggle("timer--expired", isExpired);
+
+  if (isExpired) {
+    // Necessary to show "0" on expiry in iOS Safari
+    els.label.textContent = "0";
+  }
 }
 
 /**
