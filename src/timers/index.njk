@@ -1,0 +1,57 @@
+---
+layout: baseLayout
+---
+<h2>Timers</h2>
+<h3>Configuration</h3>
+<div class="config__options">
+<input id="show-simple-view" type="checkbox">
+<label for="show-simple-view">Simple view</label>
+<input id="wake-lock" type="checkbox">
+<label for="wake-lock" id="wake-lock__label">Prevent device from sleeping</label>
+</div>
+<section class="timers">
+<!--
+<h3>Testing timer</h3>
+<div class="timer" id="testing-timer" data-duration="5">
+    <p class="heading">Testing</p>
+    <p class="time"></p>
+    <button type="button" class="start-btn">Start</button>
+    <button type="button" class="reset-btn">Reset</button>
+</div>
+-->
+<h3>Setup Time: Amateur</h3>
+<p>Hunters on the "Amateur" difficulty have five minutes (300 seconds) setup time before ghosts can hunt.</p>
+<div class="timer" id="setup-amateur-timer" data-duration="300">
+    <p class="heading">Setup: Amateur</p>
+    <p class="time"></p>
+    <button type="button" class="start-btn">Start</button>
+    <button type="button" class="reset-btn">Reset</button>
+</div>
+<h3>Setup Time: Intermediate</h3>
+<p>Hunters on the "Intermediate" difficulty have two minutes (120 seconds) setup time before ghosts can hunt.</p>
+<div class="timer" id="setup-amateur-timer" data-duration="120">
+    <p class="heading">Setup: Amateur</p>
+    <p class="time"></p>
+    <button type="button" class="start-btn">Start</button>
+    <button type="button" class="reset-btn">Reset</button>
+</div>
+<h3>Hunt Cooldown</h3>
+<p>Once a hunt ends, a ghost must wait at least 25 seconds before attempting to hunt again.</p>
+<div class="timer" id="hunt-cooldown-timer" data-duration="25">
+    <p class="heading">Hunt Cooldown</p>
+    <p class="time"></p>
+    <button type="button" class="start-btn">Start</button>
+    <button type="button" class="reset-btn">Reset</button>
+</div>
+<h3>Incensed Spirit</h3>
+<p>Using incense near a <ghost-link name="Spirit"></ghost-link> will prevent it from hunting for three minutes (180 seconds).</p>
+<div class="timer" id="spirit-incense-timer" data-duration="180">
+    <p class="heading">Incensed Spirit</p>
+    <p class="time"></p>
+    <button type="button" class="start-btn">Start</button>
+    <button type="button" class="reset-btn">Reset</button>
+</div>
+</timers>
+
+<script src="/scripts/timers.js"></script>
+<script src="/scripts/wakelock.js"></script>
