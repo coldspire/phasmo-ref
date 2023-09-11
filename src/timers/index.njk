@@ -2,8 +2,15 @@
 layout: baseLayout
 ---
 <h2>Timers</h2>
+<section>
+<h3>Configuration</h3>
+<div class="config__options">
 <input id="show-simple-view" type="checkbox">
 <label for="show-simple-view">Simple view</label>
+<input id="wake-lock" type="checkbox">
+<label for="wake-lock">Prevent device from sleeping</label>
+</div>
+</section>
 <section class="timers">
 <h3>Testing timer</h3>
 <div class="timer" id="testing-timer" data-duration="5">

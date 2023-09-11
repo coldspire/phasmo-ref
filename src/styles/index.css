@@ -299,6 +299,14 @@ datalist[id="sanity-markers"] > option {
 
 /***** Timers page */
 
+.config__options {
+  margin-inline-start: 1rem;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  grid-template-rows: auto;
+  gap: 0.25rem;
+}
+
 input[id="show-simple-view"]:checked ~ .timers > :is(h3, p) {
   display: none;
 }
