@@ -307,6 +307,11 @@ datalist[id="sanity-markers"] > option {
   gap: 0.25rem;
 }
 
+.wake-lock--unsupported {
+  color: #555;
+  text-decoration: line-through 2px;
+}
+
 input[id="show-simple-view"]:checked ~ .timers > :is(h3, p) {
   display: none;
 }
