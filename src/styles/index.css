@@ -351,11 +351,12 @@ input[id="show-simple-view"]:checked ~ .timers {
   flex: 1 1 300px;
 
   display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "heading ..."
     "time  time"
     "start reset";
-  gap: 1rem;
+  gap: 0.5rem;
 
   max-width: 400px;
 
