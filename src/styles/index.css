@@ -124,6 +124,10 @@ footer {
   gap: 0.25rem 0.5rem;
 }
 
+.sanity-slider {
+  padding-inline-end: 1.5rem;
+}
+
 input[name="selected-sanity"] {
   width: 100%;
 }
