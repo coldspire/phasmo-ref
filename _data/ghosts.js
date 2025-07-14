@@ -620,4 +620,4 @@ const ghosts = [
   },
 ];
 
-module.exports = ghosts;
+export default ghosts;

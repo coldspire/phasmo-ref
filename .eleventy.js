@@ -1,7 +1,7 @@
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
-const pluginWebc = require("@11ty/eleventy-plugin-webc");
-const CleanCSS = require("clean-css");
-const litPlugin = require("@lit-labs/eleventy-plugin-lit");
+import { EleventyRenderPlugin } from "@11ty/eleventy";
+import pluginWebc from "@11ty/eleventy-plugin-webc";
+import CleanCSS from "clean-css";
+import litPlugin from "@lit-labs/eleventy-plugin-lit";
 
 const componentsDir = "_components";
 
@@ -11,7 +11,7 @@ function wikiUrl(ghostName, isTextVersion) {
     : `https://phasmophobia.fandom.com/wiki/${ghostName}`;
 }
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(litPlugin, {
     mode: "worker",
@@ -41,4 +41,4 @@ module.exports = function (eleventyConfig) {
       output: "./dist",
     },
   };
-};
+}

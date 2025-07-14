@@ -1,4 +1,4 @@
-const ghosts = require("./ghosts");
+import ghosts from "./ghosts.js";
 
 /**
  * @typedef { { sanityNum: number; ghosts: string[]; } } SanityPair[]
@@ -123,4 +123,4 @@ const sanityCollections = {
   ghostSanityConditions: getGhostSanityConditions(),
 };
 
-module.exports = sanityCollections;
+export default sanityCollections;
