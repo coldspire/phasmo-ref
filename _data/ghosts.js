@@ -15,9 +15,9 @@ const Evidence = {
     name: "EMF level 5",
     shortName: "EMF-5",
   },
-  Fingerprints: {
-    name: "Fingerprints",
-    shortName: "Fingerprints",
+  Ultraviolet: {
+    name: "Ultraviolet",
+    shortName: "Ultraviolet",
   },
   Orb: {
     name: "Ghost orb",
@@ -74,7 +74,7 @@ const ghosts = [
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Dots, Evidence.Fingerprints, Evidence.Orb],
+    evidence: [Evidence.Dots, Evidence.Orb, Evidence.Ultraviolet],
     notes: {
       ability: [
         "Using a parabolic mic has a 33%-chance of hearing a unique Banshee shriek",
@@ -100,7 +100,7 @@ const ghosts = [
         },
       ],
     },
-    evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Writing],
+    evidence: [Evidence.Freezing, Evidence.Writing, Evidence.Ultraviolet],
     notes: {
       ability: ["Attempts to initiate a hunt, regardless of average sanity"],
       hunt: [
@@ -144,7 +144,7 @@ const ghosts = [
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Dots, Evidence.Emf, Evidence.Fingerprints],
+    evidence: [Evidence.Dots, Evidence.Emf, Evidence.Ultraviolet],
     notes: {
       ability: [],
       hunt: [],
@@ -166,7 +166,7 @@ const ghosts = [
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Orb],
+    evidence: [Evidence.Freezing, Evidence.Orb, Evidence.Ultraviolet],
     notes: {
       ability: [],
       hunt: [
@@ -187,7 +187,7 @@ const ghosts = [
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Freezing],
+    evidence: [Evidence.Emf, Evidence.Freezing, Evidence.Ultraviolet],
     notes: {
       ability: [
         "Lowers sanity of players in same room/3-meter distance by 25%; fuse box will give EMF 2/5",
@@ -262,7 +262,7 @@ const ghosts = [
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Writing],
+    evidence: [Evidence.Emf, Evidence.Writing, Evidence.Ultraviolet],
     notes: {
       ability: [],
       hunt: [
@@ -280,7 +280,7 @@ const ghosts = [
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Orb],
+    evidence: [Evidence.Emf, Evidence.Orb, Evidence.Ultraviolet],
     notes: {
       ability: [
         "Cuts fingerprint-duration time in half. Can be used several times in succession",
@@ -290,8 +290,8 @@ const ghosts = [
         "During a hunt, changing from standing to crawling (or vice versa) counts as a shapeshift",
       ],
       evidence: [
-        "Less chance of fingerprints (75% instead of 100%)",
-        "May leave unique fingerprints: six-fingered handprint; two fingers on a light switch; five fingers on a keyboard and prison cell door",
+        "Less chance of ultraviolet evidence (75% instead of 100%)",
+        "May leave unique ultraviolet evidence: six-fingered handprint; two fingers on a light switch; five fingers on a keyboard and prison cell door",
       ],
       other: [],
     },
@@ -350,7 +350,7 @@ const ghosts = [
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Dots, Evidence.Fingerprints, Evidence.SpiritBox],
+    evidence: [Evidence.Dots, Evidence.SpiritBox, Evidence.Ultraviolet],
     notes: {
       ability: [
         "May pick a player and teleport to it, instead of a normal roam (causes an EMF-2)",
@@ -373,7 +373,7 @@ const ghosts = [
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Fingerprints, Evidence.Writing, Evidence.SpiritBox],
+    evidence: [Evidence.Writing, Evidence.SpiritBox, Evidence.Ultraviolet],
     notes: {
       ability: [
         "Throws multiple items at once (EMF-2; items are EMF-3). Causes sanity drain equal to number of items thrown times two",
@@ -508,9 +508,9 @@ const ghosts = [
       ],
     },
     evidence: [
-      Evidence.Fingerprints,
       Evidence.Freezing,
       Evidence.SpiritBox,
+      Evidence.Ultraviolet,
       Evidence.FakeOrb,
     ],
     notes: {
