@@ -10,16 +10,11 @@ permalink: "ghosts/{{ ghost.name | slugify }}.html"
 title: Ghost
 ---
 <h3 class="ghost-name">Ghost: {{ ghost.name }}</h3>
-{% if ghost.pronunciation %}
-<p>{{ ghost.pronunciation }}</p>
-{% endif %}
 
 <p>
     View <a href="{% ghostWikiUrl ghost.name, true %}">text-only</a> or
     <a href="{% ghostWikiUrl ghost.name, false %}">noisy original</a> wiki page from Fandom
 </p>
-
-<p>{{ ghost.mustKnow }}</p>
 
 <h4>Hunt conditions</h4>
 <p>
