@@ -1,4 +1,4 @@
-const cards = require("./tarotCards");
+import cards from "./tarotCards.js";
 
 /**
  * A sorted set of cards.
@@ -68,4 +68,4 @@ const cardsSorted = [
   cardsByDrawFreqDesc,
 ];
 
-module.exports = cardsSorted;
+export default cardsSorted;

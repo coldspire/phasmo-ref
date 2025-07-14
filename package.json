@@ -1,8 +1,8 @@
 {
   "name": "phasmo-ref",
+  "type": "module",
   "version": "0.0.1",
   "description": "A quick reference for Phasmophobia.",
-  "main": "index.js",
   "scripts": {
     "build": "npm run eleventy",
     "clean": "npx rimraf dist",
@@ -17,7 +17,7 @@
   "license": "Unlicense",
   "private": true,
   "devDependencies": {
-    "@11ty/eleventy": "2.0.1",
+    "@11ty/eleventy": "3.1.2",
     "@11ty/eleventy-plugin-webc": "^0.11.1",
     "@lit-labs/eleventy-plugin-lit": "^1.0.1",
     "@sindresorhus/slugify": "^2.2.1",
