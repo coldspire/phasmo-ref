@@ -8,7 +8,7 @@
     "clean": "npx rimraf dist",
     "clean-start": "npm run clean && npm run start",
     "eleventy": "eleventy",
-    "prepare": "husky install",
+    "prepare": "husky",
     "serve": "eleventy --serve",
     "start": "npm run serve"
   },
@@ -18,15 +18,15 @@
   "private": true,
   "devDependencies": {
     "@11ty/eleventy": "3.1.2",
-    "@11ty/eleventy-plugin-webc": "^0.11.1",
-    "@lit-labs/eleventy-plugin-lit": "^1.0.1",
+    "@11ty/eleventy-plugin-webc": "0.11.2",
+    "@lit-labs/eleventy-plugin-lit": "1.0.5",
     "@sindresorhus/slugify": "^2.2.1",
     "clean-css": "5.3.2",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
-    "lit": "^2.7.5",
-    "prettier": "2.8.7",
-    "rimraf": "4.4.1"
+    "husky": "9.1.7",
+    "lint-staged": "16.1.2",
+    "lit": "3.3.1",
+    "prettier": "3.6.2",
+    "rimraf": "6.0.1"
   },
   "lint-staged": {
     "*.{js,css,md,html}": "prettier --write"
