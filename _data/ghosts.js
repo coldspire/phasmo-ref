@@ -15,9 +15,9 @@ const Evidence = {
     name: "EMF level 5",
     shortName: "EMF-5",
   },
-  Fingerprints: {
-    name: "Fingerprints",
-    shortName: "Fingerprints",
+  Ultraviolet: {
+    name: "Ultraviolet",
+    shortName: "Ultraviolet",
   },
   Orb: {
     name: "Ghost orb",
@@ -55,8 +55,6 @@ const Evidence = {
 /**
  * @typedef {Object} Ghost
  * @property {string} name - Ghost name
- * @property {string} mustKnow - One essential bit of information to remember about this ghost
- * @property {string} [pronunciation] - Optional pronunciation guide
  * @property {HuntConditions} huntConditions - Sanity threshold and other abilities that may cause a hunt
  * @property {Evidence[]} evidence - Evidence needed to verify a ghost
  * @property {Notes} [notes] - Optional additional information
@@ -69,12 +67,10 @@ const Evidence = {
 const ghosts = [
   {
     name: "banshee",
-    mustKnow:
-      "Targets one hunter at a time, and only that hunter's sanity and location during hunting matter to the ghost.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Dots, Evidence.Fingerprints, Evidence.Orb],
+    evidence: [Evidence.Dots, Evidence.Orb, Evidence.Ultraviolet],
     notes: {
       ability: [
         "Using a parabolic mic has a 33%-chance of hearing a unique Banshee shriek",
@@ -90,7 +86,6 @@ const ghosts = [
   },
   {
     name: "demon",
-    mustKnow: "Wants to hunt early and often.",
     huntConditions: {
       startingSanityThreshold: 70,
       superSanityThresholds: [
@@ -100,7 +95,7 @@ const ghosts = [
         },
       ],
     },
-    evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Writing],
+    evidence: [Evidence.Freezing, Evidence.Writing, Evidence.Ultraviolet],
     notes: {
       ability: ["Attempts to initiate a hunt, regardless of average sanity"],
       hunt: [
@@ -116,9 +111,6 @@ const ghosts = [
   },
   {
     name: "deogen",
-    pronunciation: "deh·OH·gen (hard g)",
-    mustKnow:
-      "The bad news is you can't hide from a Deogen. The good news is that you can easily outrun it.",
     huntConditions: {
       startingSanityThreshold: 40,
     },
@@ -138,13 +130,10 @@ const ghosts = [
   },
   {
     name: "goryo",
-    pronunciation: "gore·yo",
-    mustKnow:
-      "Appears in a DOTS interaction only through a video feed and if no hunters are in the same room.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Dots, Evidence.Emf, Evidence.Fingerprints],
+    evidence: [Evidence.Dots, Evidence.Emf, Evidence.Ultraviolet],
     notes: {
       ability: [],
       hunt: [],
@@ -160,13 +149,10 @@ const ghosts = [
   },
   {
     name: "hantu",
-    pronunciation: "HAHN·too",
-    mustKnow:
-      "Beware of the ghost's favorite room, where the ghost will always move quickly due to the freezing temperatures.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Fingerprints, Evidence.Freezing, Evidence.Orb],
+    evidence: [Evidence.Freezing, Evidence.Orb, Evidence.Ultraviolet],
     notes: {
       ability: [],
       hunt: [
@@ -182,12 +168,10 @@ const ghosts = [
   },
   {
     name: "jinn",
-    mustKnow:
-      "Turn the breaker off (and break out the flashlights) to prevent this ghost from using its ability.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Freezing],
+    evidence: [Evidence.Emf, Evidence.Freezing, Evidence.Ultraviolet],
     notes: {
       ability: [
         "Lowers sanity of players in same room/3-meter distance by 25%; fuse box will give EMF 2/5",
@@ -202,8 +186,6 @@ const ghosts = [
   },
   {
     name: "mare",
-    mustKnow:
-      "Keep the lights on wherever possible for a Mare, to avoid its increased sanity threshold when lurking in dark rooms.",
     huntConditions: {
       startingSanityThreshold: "Varies",
       superSanityThresholds: [
@@ -234,9 +216,6 @@ const ghosts = [
   },
   {
     name: "moroi",
-    pronunciation: "moe·ROY",
-    mustKnow:
-      "Beware of a sanity-draining curse caused by ghostly vocalizations. Pills are the cure.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
@@ -256,13 +235,10 @@ const ghosts = [
   },
   {
     name: "myling",
-    pronunciation: "mew·leeng",
-    mustKnow:
-      "This ghost hunts quietly. Use the flickering of nearby lights and your own heartbeat to stay aware.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Writing],
+    evidence: [Evidence.Emf, Evidence.Writing, Evidence.Ultraviolet],
     notes: {
       ability: [],
       hunt: [
@@ -274,13 +250,10 @@ const ghosts = [
   },
   {
     name: "obake",
-    pronunciation: "oh·BAH·kay",
-    mustKnow:
-      "Its ability can quickly hide its occasional unique fingerprints.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Emf, Evidence.Fingerprints, Evidence.Orb],
+    evidence: [Evidence.Emf, Evidence.Orb, Evidence.Ultraviolet],
     notes: {
       ability: [
         "Cuts fingerprint-duration time in half. Can be used several times in succession",
@@ -290,17 +263,14 @@ const ghosts = [
         "During a hunt, changing from standing to crawling (or vice versa) counts as a shapeshift",
       ],
       evidence: [
-        "Less chance of fingerprints (75% instead of 100%)",
-        "May leave unique fingerprints: six-fingered handprint; two fingers on a light switch; five fingers on a keyboard and prison cell door",
+        "Less chance of ultraviolet evidence (75% instead of 100%)",
+        "May leave unique ultraviolet evidence: six-fingered handprint; two fingers on a light switch; five fingers on a keyboard and prison cell door",
       ],
       other: [],
     },
   },
   {
     name: "oni",
-    pronunciation: "OH·nee",
-    mustKnow:
-      "Loves to interact, especially when hunters are nearby. Evidence may come readily.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
@@ -319,9 +289,6 @@ const ghosts = [
   },
   {
     name: "onryo",
-    pronunciation: "OWN·yo",
-    mustKnow:
-      "Every third flame blown out causes a hunt attempt; a fourth nearby flame will prevent it.",
     huntConditions: {
       startingSanityThreshold: 60,
       additionalConditions: [
@@ -345,12 +312,10 @@ const ghosts = [
   },
   {
     name: "phantom",
-    mustKnow:
-      "Beware its ability to teleport to a hunter instead of roaming. Be aware that it never appears in photographs.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Dots, Evidence.Fingerprints, Evidence.SpiritBox],
+    evidence: [Evidence.Dots, Evidence.SpiritBox, Evidence.Ultraviolet],
     notes: {
       ability: [
         "May pick a player and teleport to it, instead of a normal roam (causes an EMF-2)",
@@ -368,12 +333,10 @@ const ghosts = [
   },
   {
     name: "poltergeist",
-    mustKnow:
-      "Loves throwing stuff around and occasionally with force, especially during hunts.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
-    evidence: [Evidence.Fingerprints, Evidence.Writing, Evidence.SpiritBox],
+    evidence: [Evidence.Writing, Evidence.SpiritBox, Evidence.Ultraviolet],
     notes: {
       ability: [
         "Throws multiple items at once (EMF-2; items are EMF-3). Causes sanity drain equal to number of items thrown times two",
@@ -385,9 +348,6 @@ const ghosts = [
   },
   {
     name: "raiju",
-    pronunciation: "RYE·joo",
-    mustKnow:
-      "Beware the ghost's increased sanity threshold when near in-use electronics brought from the van.",
     huntConditions: {
       startingSanityThreshold: 50,
       superSanityThresholds: [
@@ -412,8 +372,6 @@ const ghosts = [
   },
   {
     name: "revenant",
-    mustKnow:
-      "Slow when wandering; puts on the motor when a hunter is spotted. Get out of sight as soon as possible.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
@@ -431,8 +389,6 @@ const ghosts = [
   },
   {
     name: "shade",
-    mustKnow:
-      "Does less of everything, especially when hunters are in the same room.",
     huntConditions: {
       startingSanityThreshold: 35,
       superSanityThresholds: [
@@ -458,8 +414,6 @@ const ghosts = [
   },
   {
     name: "spirit",
-    mustKnow:
-      "Smudge this ghost to halt its hunting activities for twice as long as other ghosts.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
@@ -475,8 +429,6 @@ const ghosts = [
   },
   {
     name: "thaye",
-    pronunciation: "thuh·yay",
-    mustKnow: "Beware its high sanity threshold early in contracts.",
     huntConditions: {
       startingSanityThreshold: 75,
       additionalConditions: [
@@ -500,7 +452,6 @@ const ghosts = [
   },
   {
     name: "the mimic",
-    mustKnow: "Orbs help give it away, if hunters can survive its mimicking.",
     huntConditions: {
       startingSanityThreshold: "Varies",
       additionalConditions: [
@@ -508,9 +459,9 @@ const ghosts = [
       ],
     },
     evidence: [
-      Evidence.Fingerprints,
       Evidence.Freezing,
       Evidence.SpiritBox,
+      Evidence.Ultraviolet,
       Evidence.FakeOrb,
     ],
     notes: {
@@ -529,8 +480,6 @@ const ghosts = [
   },
   {
     name: "the twins",
-    mustKnow:
-      "Multiple interactions apart may give them away. But beware: a twin can begin a hunt away from its favorite room.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
@@ -551,7 +500,6 @@ const ghosts = [
   },
   {
     name: "wraith",
-    mustKnow: "Drop some salt for great insight.",
     huntConditions: {
       startingSanityThreshold: 50,
     },
@@ -570,8 +518,6 @@ const ghosts = [
   },
   {
     name: "yokai",
-    pronunciation: "YO·kai",
-    mustKnow: "Can hunt very early if local in-game voice chat is heard.",
     huntConditions: {
       startingSanityThreshold: 50,
       superSanityThresholds: [
@@ -596,9 +542,6 @@ const ghosts = [
   },
   {
     name: "yurei",
-    pronunciation: "yur·ray",
-    mustKnow:
-      "If a lot of internal doors are being closed, it might be this ghost. If it touches an exit door, it's definitely this ghost.",
     huntConditions: {
       startingSanityThreshold: 50,
     },

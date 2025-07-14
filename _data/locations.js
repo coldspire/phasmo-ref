@@ -124,13 +124,15 @@ const locations = {
     shortName: "Bleasdale",
     mapSize: MapSize.Small,
     possessionLocations: {
-      [CursedPossession.HauntedMirror]: "Office wall",
-      [CursedPossession.MonkeyPaw]: "Master bedroom, on top of chest",
-      [CursedPossession.MusicBox]: "Living room, table with lamp",
-      [CursedPossession.OuijaBoard]: "Garage workbench",
-      [CursedPossession.SummoningCircle]: "Attic",
-      [CursedPossession.TarotCards]: "Office table",
-      [CursedPossession.VoodooDoll]: "Upstairs hallway couch",
+      [CursedPossession.HauntedMirror]:
+        "Trophy room, back corner cabinet on floor",
+      [CursedPossession.MonkeyPaw]: "Study, bookshelf in corner",
+      [CursedPossession.MusicBox]: "Tea room shelf",
+      [CursedPossession.OuijaBoard]:
+        "Living room, next to one of the couches, facing the fireplace",
+      [CursedPossession.SummoningCircle]: "Utility room",
+      [CursedPossession.TarotCards]: "Attic bedroom table",
+      [CursedPossession.VoodooDoll]: "Primary bedroom, front of the bed",
     },
   },
   [LocationNames.Woodwind]: {
