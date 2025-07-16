@@ -473,3 +473,26 @@ input[id="show-simple-view"]:checked ~ .timers {
   ~ .media__type[data-sound] {
   display: block;
 }
+
+.media__type__list {
+  list-style: none;
+  padding: 0;
+
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.media__type__list > li {
+  display: inline flex;
+  align-items: center;
+
+  padding: 0.5rem;
+
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
