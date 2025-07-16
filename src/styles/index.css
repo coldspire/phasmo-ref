@@ -474,8 +474,13 @@ input[id="show-simple-view"]:checked ~ .timers {
   display: block;
 }
 
+.media__type {
+  margin-top: 2rem;
+}
+
 .media__type__list {
   list-style: none;
+
   padding: 0;
 
   display: grid;
