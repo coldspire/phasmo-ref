@@ -16,13 +16,28 @@ title: Media
 
     <div class="media__type" data-photo>
         <h3 data-photo>Photo</h3>
+        <ul>
+        {% for photo in media.photo %}
+            <li>{{ photo }}</li>
+        {% endfor %}
+        </ul>
     </div>
 
     <div class="media__type" data-video>
         <h3 data-video>Video</h3>
+        <ul>
+        {% for video in media.video %}
+            <li>{{ video }}</li>
+        {% endfor %}
+        </ul>
     </div>
 
     <div class="media__type" data-sound>
         <h3 data-sound>Sound</h3>
+        <ul>
+        {% for sound in media.sound %}
+            <li>{{ sound }}</li>
+        {% endfor %}
+        </ul>
     </div>
 </section>
