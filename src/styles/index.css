@@ -452,6 +452,10 @@ input[id="show-simple-view"]:checked ~ .timers {
   }
 }
 
+.media {
+  --vert-spacer: 1rem;
+}
+
 .media > .media__type {
   display: none;
 }
@@ -475,7 +479,15 @@ input[id="show-simple-view"]:checked ~ .timers {
 }
 
 .media__type {
-  margin-top: 2rem;
+  margin-top: var(--vert-spacer);
+}
+
+.media__type > h3 {
+  position: sticky;
+  top: 0;
+
+  background-color: white;
+  border-bottom: 1px solid #888;
 }
 
 .media__type__list {
