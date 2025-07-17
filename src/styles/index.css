@@ -498,19 +498,12 @@ input[id="show-simple-view"]:checked ~ .timers {
 }
 
 .media__type__list {
-  list-style: none;
-
-  padding: 0;
-
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .media__type__list > li {
-  display: inline flex;
-  align-items: center;
-
   padding: 0.5rem;
 
   &:hover {
@@ -538,6 +531,4 @@ input[id="show-simple-view"]:checked ~ .timers {
 
 .media__item:has(input:checked) {
   text-decoration-line: line-through;
-
-  transform: rotate(-5deg) translateY(-5px);
 }
