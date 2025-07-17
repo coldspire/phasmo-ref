@@ -506,10 +506,31 @@ input[id="show-simple-view"]:checked ~ .timers {
 
   padding: 0.5rem;
 
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  &:hover {
+    cursor: pointer;
+    background-color: #eee;
+    border-radius: 3px;
+  }
+}
+
+.media__item {
+  position: relative;
+
+  height: 100%;
+  width: 100%;
 
   font-size: 0.875rem;
   text-transform: capitalize;
+
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+}
+
+.media__item:has(input:checked) {
+  text-decoration-line: line-through;
+
+  transform: rotate(-5deg) translateY(-5px);
 }

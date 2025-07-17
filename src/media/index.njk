@@ -5,20 +5,26 @@ title: Media
 <script defer src="/scripts/alpinejs.min.js"></script>
 <section class="media">
     <h2>Media</h2>
-    <input type="radio" value="all" id="media-type--all" name="media-type" checked>
+    <input type="radio" value="all" id="media-type--all" name="media-type" checked />
     <label for="media-type--all">All</label>
-    <input type="radio" value="photo" id="media-type--photo" name="media-type">
+    <input type="radio" value="photo" id="media-type--photo" name="media-type" />
     <label for="media-type--photo">Photo</label>
-    <input type="radio" value="video" id="media-type--video" name="media-type">
+    <input type="radio" value="video" id="media-type--video" name="media-type" />
     <label for="media-type--video">Video</label>
-    <input type="radio" value="sound" id="media-type--sound" name="media-type">
+    <input type="radio" value="sound" id="media-type--sound" name="media-type" />
     <label for="media-type--sound">Sound</label>
 
     <div class="media__type" data-photo>
         <h3 data-photo>📷 Photo</h3>
         <ul class="media__type__list">
         {% for photo in media.photo %}
-            <li>{{ photo }}</li>
+            <li>
+                <label class="media__item">
+                    {{ photo }}
+                    {% set uniqueId = 'photo-' + loop.index %}
+                    <input type="checkbox" id="{{ uniqueId }}" name="{{ uniqueId }}"/>
+                </label
+            </li>
         {% endfor %}
         </ul>
     </div>
@@ -27,7 +33,13 @@ title: Media
         <h3 data-video>📹 Video</h3>
         <ul class="media__type__list">
         {% for video in media.video %}
-            <li>{{ video }}</li>
+            <li>
+                <label class="media__item">
+                    {{ video }}
+                    {% set uniqueId = 'video-' + loop.index %}
+                    <input type="checkbox" id="{{ uniqueId }}" name="{{ uniqueId }}"/>
+                </label
+            </li>
         {% endfor %}
         </ul>
     </div>
@@ -36,7 +48,13 @@ title: Media
         <h3 data-sound>🔉 Sound</h3>
         <ul class="media__type__list">
         {% for sound in media.sound %}
-            <li>{{ sound }}</li>
+            <li>
+                <label class="media__item">
+                    {{ sound }}
+                    {% set uniqueId = 'sound-' + loop.index %}
+                    <input type="checkbox" id="{{ uniqueId }}" name="{{ uniqueId }}"/>
+                </label
+            </li>
         {% endfor %}
         </ul>
     </div>
