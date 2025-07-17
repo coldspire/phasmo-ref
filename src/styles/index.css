@@ -521,7 +521,7 @@ input[id="show-simple-view"]:checked ~ .timers {
   height: 100%;
   width: 100%;
 
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   text-transform: capitalize;
 
   cursor: pointer;
