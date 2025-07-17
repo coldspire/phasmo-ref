@@ -13,6 +13,10 @@ title: Media
             sounds: [{% for sound in media.sound %}'{{sound}}',{% endfor %}]
         },
 
+        clearSearch() {
+            this.search = '';
+        },
+
         get filteredPhotoItems() {
             return this.items.photos.filter(i => i.startsWith(this.search.toLowerCase()));
         },
@@ -36,7 +40,11 @@ title: Media
     <input type="radio" value="sound" id="media-type--sound" name="media-type" />
     <label for="media-type--sound">Sound</label>
 
-    <label class="input-group">Search all: <input x-model="search" id="media-search" placeholder="crucifix" /></label>
+    <p class="input-group">
+        <label for="media-search">Search all: </label>
+        <input x-model="search" id="media-search" placeholder="crucifix" />
+        <button x-on:click="clearSearch()">Clear</button>
+    </p>
 
     <div class="media__type" data-photo>
         <h3 data-photo>📷 Photo</h3>
