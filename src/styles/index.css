@@ -456,6 +456,11 @@ input[id="show-simple-view"]:checked ~ .timers {
   --vert-spacer: 1rem;
 }
 
+.media .input-group {
+  display: block;
+  margin-top: 0.5rem;
+}
+
 .media > .media__type {
   display: none;
 }

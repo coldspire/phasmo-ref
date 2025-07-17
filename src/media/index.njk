@@ -3,7 +3,29 @@ layout: baseLayout
 title: Media
 ---
 <script defer src="/scripts/alpinejs.min.js"></script>
-<section class="media">
+<section class="media"
+    x-data="{
+        search: '',
+
+        items: {
+            photos: [{% for photo in media.photo %}'{{photo}}',{% endfor %}],
+            videos: [{% for video in media.video %}'{{video}}',{% endfor %}],
+            sounds: [{% for sound in media.sound %}'{{sound}}',{% endfor %}]
+        },
+
+        get filteredPhotoItems() {
+            return this.items.photos.filter(i => i.startsWith(this.search.toLowerCase()));
+        },
+
+        get filteredVideoItems() {
+            return this.items.videos.filter(i => i.startsWith(this.search.toLowerCase()));
+        },
+
+        get filteredSoundItems() {
+            return this.items.sounds.filter(i => i.startsWith(this.search.toLowerCase()));
+        }
+    }"
+>
     <h2>Media</h2>
     <input type="radio" value="all" id="media-type--all" name="media-type" checked />
     <label for="media-type--all">All</label>
@@ -14,48 +36,47 @@ title: Media
     <input type="radio" value="sound" id="media-type--sound" name="media-type" />
     <label for="media-type--sound">Sound</label>
 
+    <label class="input-group">Search all: <input x-model="search" id="media-search" placeholder="crucifix" /></label>
+
     <div class="media__type" data-photo>
         <h3 data-photo>📷 Photo</h3>
         <ul class="media__type__list">
-        {% for photo in media.photo %}
-            <li>
-                <label class="media__item">
-                    {{ photo }}
-                    {% set uniqueId = 'photo-' + loop.index %}
-                    <input type="checkbox" id="{{ uniqueId }}" name="{{ uniqueId }}"/>
-                </label
-            </li>
-        {% endfor %}
+            <template x-for="item in filteredPhotoItems" :key="item">
+                <li>
+                    <label class="media__item">
+                        <span x-text="item"></span>
+                        <input type="checkbox" />
+                    </label
+                </li>
+            </template>
         </ul>
     </div>
 
     <div class="media__type" data-video>
         <h3 data-video>📹 Video</h3>
         <ul class="media__type__list">
-        {% for video in media.video %}
-            <li>
-                <label class="media__item">
-                    {{ video }}
-                    {% set uniqueId = 'video-' + loop.index %}
-                    <input type="checkbox" id="{{ uniqueId }}" name="{{ uniqueId }}"/>
-                </label
-            </li>
-        {% endfor %}
+            <template x-for="item in filteredVideoItems" :key="item">
+                <li>
+                    <label class="media__item">
+                        <span x-text="item"></span>
+                        <input type="checkbox" />
+                    </label
+                </li>
+            </template>
         </ul>
     </div>
 
     <div class="media__type" data-sound>
         <h3 data-sound>🔉 Sound</h3>
         <ul class="media__type__list">
-        {% for sound in media.sound %}
-            <li>
-                <label class="media__item">
-                    {{ sound }}
-                    {% set uniqueId = 'sound-' + loop.index %}
-                    <input type="checkbox" id="{{ uniqueId }}" name="{{ uniqueId }}"/>
-                </label
-            </li>
-        {% endfor %}
+            <template x-for="item in filteredSoundItems" :key="item">
+                <li>
+                    <label class="media__item">
+                        <span x-text="item"></span>
+                        <input type="checkbox" />
+                    </label
+                </li>
+            </template>
         </ul>
     </div>
 </section>
