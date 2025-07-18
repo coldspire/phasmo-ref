@@ -500,6 +500,10 @@ input[id="show-simple-view"]:checked ~ .timers {
   border-bottom: 1px solid #888;
 }
 
+.media__type > .no-match-notice {
+  padding-block: 1em;
+}
+
 .media__type__list {
   display: grid;
   gap: 1rem;
