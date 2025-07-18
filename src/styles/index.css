@@ -465,21 +465,24 @@ input[id="show-simple-view"]:checked ~ .timers {
   display: none;
 }
 
-.media
-  > :where(input[value="photo"], input[value="all"]):checked
-  ~ .media__type[data-photo] {
+.media:has(
+    > fieldset > :where(input[value="photo"], input[value="all"]):checked
+  )
+  > .media__type[data-photo] {
   display: block;
 }
 
-.media
-  > :where(input[value="video"], input[value="all"]):checked
-  ~ .media__type[data-video] {
+.media:has(
+    > fieldset > :where(input[value="video"], input[value="all"]):checked
+  )
+  > .media__type[data-video] {
   display: block;
 }
 
-.media
-  > :where(input[value="sound"], input[value="all"]):checked
-  ~ .media__type[data-sound] {
+.media:has(
+    > fieldset > :where(input[value="sound"], input[value="all"]):checked
+  )
+  > .media__type[data-sound] {
   display: block;
 }
 
