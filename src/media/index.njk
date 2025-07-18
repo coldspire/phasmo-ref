@@ -17,16 +17,23 @@ title: Media
             this.search = '';
         },
 
+        filterMedia(mediaCollection, searchString) {
+            return mediaCollection.filter(mediaItem => {
+                const mediaItemTokens = mediaItem.replace(',', '').split(' ');
+                return mediaItemTokens.some(token => token.toLowerCase().startsWith(searchString.toLowerCase()));
+            });
+        },
+
         get filteredPhotoItems() {
-            return this.items.photos.filter(i => i.toLowerCase().startsWith(this.search.toLowerCase()));
+            return this.filterMedia(this.items.photos, this.search);
         },
 
         get filteredVideoItems() {
-            return this.items.videos.filter(i => i.toLowerCase().startsWith(this.search.toLowerCase()));
+            return this.filterMedia(this.items.videos, this.search);
         },
 
         get filteredSoundItems() {
-            return this.items.sounds.filter(i => i.toLowerCase().startsWith(this.search.toLowerCase()));
+            return this.filterMedia(this.items.sounds, this.search);
         }
     }"
 >
