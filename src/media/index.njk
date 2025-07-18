@@ -39,16 +39,22 @@ title: Media
 >
     <h2>Media</h2>
 
-    <fieldset>
+    <fieldset class="media__filter">
         <legend>Filter media type</legend>
-        <input type="radio" value="all" id="media-type--all" name="media-type" checked />
-        <label for="media-type--all">All</label>
-        <input type="radio" value="photo" id="media-type--photo" name="media-type" />
-        <label for="media-type--photo">Photo</label>
-        <input type="radio" value="video" id="media-type--video" name="media-type" />
-        <label for="media-type--video">Video</label>
-        <input type="radio" value="sound" id="media-type--sound" name="media-type" />
-        <label for="media-type--sound">Sound</label>
+        <div class="media__filter-options">
+            <label>
+                <input type="radio" value="all" id="media-type--all" name="media-type" checked /> All
+            </label>
+            <label>
+                <input type="radio" value="photo" id="media-type--photo" name="media-type" /> Photo
+            </label>
+            <label>
+                <input type="radio" value="video" id="media-type--video" name="media-type" /> Video
+            </label>
+            <label>
+                <input type="radio" value="sound" id="media-type--sound" name="media-type" /> Sound
+            </label>
+        </div>
     </fieldset>
 
     <p class="input-group">

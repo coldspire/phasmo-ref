@@ -466,24 +466,36 @@ input[id="show-simple-view"]:checked ~ .timers {
 }
 
 .media:has(
-    > fieldset > :where(input[value="photo"], input[value="all"]):checked
+    .media__filter-options
+      > label
+      > :where(input[value="photo"], input[value="all"]):checked
   )
   > .media__type[data-photo] {
   display: block;
 }
 
 .media:has(
-    > fieldset > :where(input[value="video"], input[value="all"]):checked
+    .media__filter-options
+      > label
+      > :where(input[value="video"], input[value="all"]):checked
   )
   > .media__type[data-video] {
   display: block;
 }
 
 .media:has(
-    > fieldset > :where(input[value="sound"], input[value="all"]):checked
+    .media__filter-options
+      > label
+      > :where(input[value="sound"], input[value="all"]):checked
   )
   > .media__type[data-sound] {
   display: block;
+}
+
+.media__filter-options {
+  display: flex;
+  column-gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .media__type {
