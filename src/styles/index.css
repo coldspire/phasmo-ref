@@ -16,17 +16,17 @@
 
   /* @link https://www.joshwcomeau.com/shadow-palette/ */
   --card-shadow-color: 0deg 0% 65%;
-  --card-shadow-elevation-low: 1px 1px 1.6px
-      hsl(var(--card-shadow-color) / 0.32),
+  --card-shadow-elevation-low:
+    1px 1px 1.6px hsl(var(--card-shadow-color) / 0.32),
     1.6px 1.6px 2.5px -1.2px hsl(var(--card-shadow-color) / 0.32),
     3.9px 3.9px 6.2px -2.5px hsl(var(--card-shadow-color) / 0.32);
-  --card-shadow-elevation-medium: 1px 1px 1.6px
-      hsl(var(--card-shadow-color) / 0.33),
+  --card-shadow-elevation-medium:
+    1px 1px 1.6px hsl(var(--card-shadow-color) / 0.33),
     3.2px 3.2px 5.1px -0.8px hsl(var(--card-shadow-color) / 0.33),
     7.9px 7.9px 12.6px -1.7px hsl(var(--card-shadow-color) / 0.33),
     19.3px 19.3px 30.7px -2.5px hsl(var(--card-shadow-color) / 0.33);
-  --card-shadow-elevation-high: 1px 1px 1.6px
-      hsl(var(--card-shadow-color) / 0.31),
+  --card-shadow-elevation-high:
+    1px 1px 1.6px hsl(var(--card-shadow-color) / 0.31),
     5.5px 5.5px 8.8px -0.4px hsl(var(--card-shadow-color) / 0.31),
     10.2px 10.2px 16.2px -0.7px hsl(var(--card-shadow-color) / 0.31),
     16.7px 16.7px 26.6px -1.1px hsl(var(--card-shadow-color) / 0.31),
@@ -150,9 +150,16 @@ datalist[id="sanity-markers"] > option {
   font-weight: 700;
   rotate: -5deg;
   color: white;
-  text-shadow: darkred 0 0 5px, darkred 0 0 5px, darkred 0 0 5px,
-    darkred 0 0 10px, darkred 0 0 10px, darkred 0 0 15px, darkred 0 0 15px,
-    darkred 0 0 20px, darkred 0 0 50px;
+  text-shadow:
+    darkred 0 0 5px,
+    darkred 0 0 5px,
+    darkred 0 0 5px,
+    darkred 0 0 10px,
+    darkred 0 0 10px,
+    darkred 0 0 15px,
+    darkred 0 0 15px,
+    darkred 0 0 20px,
+    darkred 0 0 50px;
 }
 
 .cannot-hunt {
@@ -368,7 +375,8 @@ input[id="show-simple-view"]:checked ~ .timers {
   padding: 0.5rem;
 
   border-radius: 10px;
-  box-shadow: 0 5px 15px #ccc,
+  box-shadow:
+    0 5px 15px #ccc,
     0 10px 25px color-mix(in oklab, var(--bg-color, #aaa) 75%, #666);
 }
 
@@ -442,4 +450,89 @@ input[id="show-simple-view"]:checked ~ .timers {
   to {
     rotate: 0deg;
   }
+}
+
+.media {
+  --vert-spacer: 1rem;
+}
+
+.media .input-group {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.media > .media__type {
+  display: none;
+}
+
+.media:has(
+    .media__filter-options
+      > label
+      > :where(input[value="photo"], input[value="all"]):checked
+  )
+  > .media__type[data-photo] {
+  display: block;
+}
+
+.media:has(
+    .media__filter-options
+      > label
+      > :where(input[value="video"], input[value="all"]):checked
+  )
+  > .media__type[data-video] {
+  display: block;
+}
+
+.media:has(
+    .media__filter-options
+      > label
+      > :where(input[value="sound"], input[value="all"]):checked
+  )
+  > .media__type[data-sound] {
+  display: block;
+}
+
+.media__filter-options {
+  display: flex;
+  column-gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.media__type {
+  margin-top: var(--vert-spacer);
+}
+
+.media__type > h3 {
+  position: sticky;
+  top: 0;
+
+  z-index: 1; /* Allows the content to sit on top of whatever it's over */
+
+  background-color: white;
+  border-bottom: 1px solid #888;
+}
+
+.media__type > .no-match-notice {
+  padding-block: 1em;
+}
+
+.media__type__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.media__item {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+}
+
+.media__item:has(input:checked) {
+  text-decoration-line: line-through;
 }

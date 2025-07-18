@@ -1,0 +1,116 @@
+---
+layout: baseLayout
+title: Media
+---
+<script defer src="/scripts/alpinejs.min.js"></script>
+<section class="media"
+    x-data="{
+        search: '',
+
+        items: {
+            photos: [{% for photo in media.photo %}'{{photo}}',{% endfor %}],
+            videos: [{% for video in media.video %}'{{video}}',{% endfor %}],
+            sounds: [{% for sound in media.sound %}'{{sound}}',{% endfor %}]
+        },
+
+        clearSearch() {
+            this.search = '';
+        },
+
+        filterMedia(mediaCollection, searchString) {
+            return mediaCollection.filter(mediaItem => {
+                const mediaItemTokens = mediaItem.replace(',', '').split(' ');
+                return mediaItemTokens.some(token => token.toLowerCase().startsWith(searchString.toLowerCase()));
+            });
+        },
+
+        get filteredPhotoItems() {
+            return this.filterMedia(this.items.photos, this.search);
+        },
+
+        get filteredVideoItems() {
+            return this.filterMedia(this.items.videos, this.search);
+        },
+
+        get filteredSoundItems() {
+            return this.filterMedia(this.items.sounds, this.search);
+        }
+    }"
+>
+    <h2>Media</h2>
+
+    <fieldset class="media__filter">
+        <legend>Filter media type</legend>
+        <div class="media__filter-options">
+            <label>
+                <input type="radio" value="all" id="media-type--all" name="media-type" checked /> All
+            </label>
+            <label>
+                <input type="radio" value="photo" id="media-type--photo" name="media-type" /> Photo
+            </label>
+            <label>
+                <input type="radio" value="video" id="media-type--video" name="media-type" /> Video
+            </label>
+            <label>
+                <input type="radio" value="sound" id="media-type--sound" name="media-type" /> Sound
+            </label>
+        </div>
+    </fieldset>
+
+    <p class="input-group">
+        <label for="media-search">Search all: </label>
+        <input x-model="search" id="media-search" placeholder="crucifix" />
+        <button x-on:click="clearSearch()">Clear</button>
+    </p>
+
+    <div class="media__type" data-photo>
+        <h3 data-photo>📷 Photo</h3>
+        <ul class="media__type__list" x-show="filteredPhotoItems.length > 0">
+            <template x-for="item in filteredPhotoItems" :key="item">
+                <li>
+                    <label class="media__item">
+                        <span x-text="item"></span>
+                        <input type="checkbox" />
+                    </label
+                </li>
+            </template>
+        </ul>
+        <p class="no-match-notice" x-show="filteredPhotoItems.length === 0">
+            No search matches.
+        </p>
+    </div>
+
+    <div class="media__type" data-video>
+        <h3 data-video>📹 Video</h3>
+        <ul class="media__type__list" x-show="filteredVideoItems.length > 0">
+            <template x-for="item in filteredVideoItems" :key="item">
+                <li>
+                    <label class="media__item">
+                        <span x-text="item"></span>
+                        <input type="checkbox" />
+                    </label
+                </li>
+            </template>
+        </ul>
+        <p class="no-match-notice" x-show="filteredVideoItems.length === 0">
+            No search matches.
+        </p>
+    </div>
+
+    <div class="media__type" data-sound>
+        <h3 data-sound>🔉 Sound</h3>
+        <ul class="media__type__list" x-show="filteredSoundItems.length > 0">
+            <template x-for="item in filteredSoundItems" :key="item">
+                <li>
+                    <label class="media__item">
+                        <span x-text="item"></span>
+                        <input type="checkbox" />
+                    </label
+                </li>
+            </template>
+        </ul>
+        <p class="no-match-notice" x-show="filteredSoundItems.length === 0">
+            No search matches.
+        </p>
+    </div>
+</section>
