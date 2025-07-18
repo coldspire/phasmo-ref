@@ -510,22 +510,7 @@ input[id="show-simple-view"]:checked ~ .timers {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-.media__type__list > li {
-  padding: 0.5rem;
-
-  &:hover {
-    cursor: pointer;
-    background-color: #eee;
-    border-radius: 3px;
-  }
-}
-
 .media__item {
-  position: relative;
-
-  height: 100%;
-  width: 100%;
-
   font-size: 1.2rem;
   text-transform: capitalize;
 
