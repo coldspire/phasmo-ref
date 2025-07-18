@@ -18,15 +18,15 @@ title: Media
         },
 
         get filteredPhotoItems() {
-            return this.items.photos.filter(i => i.startsWith(this.search.toLowerCase()));
+            return this.items.photos.filter(i => i.toLowerCase().startsWith(this.search.toLowerCase()));
         },
 
         get filteredVideoItems() {
-            return this.items.videos.filter(i => i.startsWith(this.search.toLowerCase()));
+            return this.items.videos.filter(i => i.toLowerCase().startsWith(this.search.toLowerCase()));
         },
 
         get filteredSoundItems() {
-            return this.items.sounds.filter(i => i.startsWith(this.search.toLowerCase()));
+            return this.items.sounds.filter(i => i.toLowerCase().startsWith(this.search.toLowerCase()));
         }
     }"
 >
