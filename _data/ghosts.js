@@ -172,15 +172,19 @@ const ghosts = [
   {
     name: "Gallu",
     huntConditions: {
-      startingSanityThreshold: 50,
+      startingSanityThreshold: "Varies",
       superSanityThresholds: [
-        {
-          threshold: 60,
-          condition: "Enraged state",
-        },
         {
           threshold: 40,
           condition: "Weakened state",
+        },
+        {
+          threshold: 50,
+          condition: "Normal state",
+        },
+        {
+          threshold: 60,
+          condition: "Enraged state",
         },
       ],
     },
@@ -370,8 +374,12 @@ const ghosts = [
   {
     name: "obambo",
     huntConditions: {
-      startingSanityThreshold: 10,
+      startingSanityThreshold: "Varies",
       superSanityThresholds: [
+        {
+          threshold: 10,
+          condition: "Calm state",
+        },
         {
           threshold: 65,
           condition: "Aggressive state",
