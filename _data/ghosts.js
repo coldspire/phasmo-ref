@@ -262,10 +262,12 @@ const ghosts = [
     name: "kormos",
     huntConditions: {
       startingSanityThreshold: 50,
-      superSanityThresholds: {
-        threshold: 70,
-        condition: "Player in the same room is sprinting",
-      },
+      superSanityThresholds: [
+        {
+          threshold: 70,
+          condition: "Player in the same room is sprinting",
+        },
+      ],
     },
     evidence: [Evidence.Orb, Evidence.SpiritBox, Evidence.Ultraviolet],
     notes: {
