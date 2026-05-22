@@ -66,6 +66,21 @@ const Evidence = {
  */
 const ghosts = [
   {
+    name: "aswang",
+    huntConditions: {
+      startingSanityThreshold: 50,
+    },
+    evidence: [Evidence.Dots, Evidence.Freezing, Evidence.Writing],
+    notes: {
+      ability: [],
+      hunt: [
+        "Immediately ends a hunt if it enters an official hiding spot containing a player",
+        "If previous hunt ended by entering a hiding spot, at start of next hunt (including grace period) the ghost will walk to where the player is located at the start of the new hunt",
+        "Reaches line-of-sight speed more quickly than other ghosts (17 seconds instead of 26 seconds)",
+      ],
+    },
+  },
+  {
     name: "banshee",
     huntConditions: {
       startingSanityThreshold: 50,
@@ -82,6 +97,32 @@ const ghosts = [
       ],
       evidence: [],
       other: ["Performs more singing events than normal"],
+    },
+  },
+  {
+    name: "Dayan",
+    huntConditions: {
+      startingSanityThreshold: 50,
+      superSanityThresholds: [
+        {
+          threshold: 45,
+          condition: "Near ghost and not moving",
+        },
+        {
+          threshold: 65,
+          condition: "Near ghost and moving",
+        },
+      ],
+    },
+    evidence: [Evidence.Emf, Evidence.Orb, Evidence.SpiritBox],
+    notes: {
+      ability: [],
+      hunt: [
+        "Speed is greater if within 10 meters of a player and player is moving",
+        "Speed is lesser if within 10 meters of a player and player is still",
+      ],
+      evidence: [],
+      other: ["Can only be a female ghost"],
     },
   },
   {
@@ -126,6 +167,39 @@ const ghosts = [
         'Spirit Box usage within a meter has 33%-chance of heavy, "bull-like" breathing',
       ],
       other: [],
+    },
+  },
+  {
+    name: "Gallu",
+    huntConditions: {
+      startingSanityThreshold: 50,
+      superSanityThresholds: [
+        {
+          threshold: 60,
+          condition: "Enraged state",
+        },
+        {
+          threshold: 40,
+          condition: "Weakened state",
+        },
+      ],
+    },
+    evidence: [Evidence.Emf, Evidence.Ultraviolet, Evidence.SpiritBox],
+    notes: {
+      ability: [
+        "Cycles through normal, enraged, and weakened states",
+        "Normal state: Normal speed, normal incense blindness duration, normal crucifix range, and 50% sanity hunt threshold",
+        "Enraged state: Faster speed, shorter incense blindness duration, smaller crucifix range, and 60% hunt threshold",
+        "Weakened state: Slower speed, longer incense blindness duration, longer crucifix range, and 40% hunt threshold",
+      ],
+      hunt: [],
+      evidence: [],
+      other: [
+        "Starts contract on normal state",
+        "Enters enraged state when it steps in salt (and after 2-second delay), is incensed, or burns a crucifix",
+        "Enters weakened state after hunting while in an enraged state",
+        "Re-enters normal state when it steps in salt (and after 3-second delay), is incensed, or burns a crucifix",
+      ],
     },
   },
   {
@@ -182,6 +256,28 @@ const ghosts = [
       ],
       evidence: [],
       other: ["Cannot turn off a breaker through interactions"],
+    },
+  },
+  {
+    name: "kormos",
+    huntConditions: {
+      startingSanityThreshold: 50,
+      superSanityThresholds: {
+        threshold: 70,
+        condition: "Player in the same room is sprinting",
+      },
+    },
+    evidence: [Evidence.Orb, Evidence.SpiritBox, Evidence.Ultraviolet],
+    notes: {
+      ability: [],
+      hunt: [
+        "Completely blind",
+        "Hypersensitive to walking sounds: detects crouch-walking at 10 meters, walking at 15 meters, and sprinting at 30 meters",
+        "If player is detected by movement, ghost has increased speed until it reaches the point where it last heard a player",
+        "Normal detection of electronic equipment",
+      ],
+      evidence: [],
+      other: ["Can't do mist ball or chasing events"],
     },
   },
   {
@@ -267,6 +363,32 @@ const ghosts = [
         "May leave unique ultraviolet evidence: six-fingered handprint; two fingers on a light switch; five fingers on a keyboard and prison cell door",
       ],
       other: [],
+    },
+  },
+  {
+    name: "obambo",
+    huntConditions: {
+      startingSanityThreshold: 10,
+      superSanityThresholds: [
+        {
+          threshold: 65,
+          condition: "Aggressive state",
+        },
+      ],
+    },
+    evidence: [Evidence.Dots, Evidence.Ultraviolet, Evidence.Writing],
+    notes: {
+      ability: [],
+      hunt: [
+        "Faster and shorter hunts when in aggressive state",
+        "Slower when in a calm state",
+      ],
+      evidence: [],
+      other: [
+        "In calm state at beginning of contract (for one minute)",
+        "Changes between aggressive and calm state every two minutes, even during hunts",
+        "Calm and aggressive walking speeds are very close to slow and fast Twin walking speeds — verify Obambo by listening for a speed change during a hunt",
+      ],
     },
   },
   {
