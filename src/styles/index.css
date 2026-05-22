@@ -1,4 +1,5 @@
 @import url("reset.css");
+@import url("fonts.css");
 
 :root {
   font: 16pt / 1.2 sans-serif;
@@ -42,6 +43,12 @@ body {
 
 :where(h1, h2, h3, h4, h5, h6) {
   font-family: "EB Garamond", serif;
+}
+
+.spooky-text {
+  font-family: "October Crow", "EB Garamond", serif;
+  letter-spacing: 4px;
+  font-weight: 500;
 }
 
 h1 {
