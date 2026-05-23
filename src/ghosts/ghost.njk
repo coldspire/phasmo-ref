@@ -11,11 +11,6 @@ title: Ghost
 ---
 <h3 class="ghost-name spooky-text">Ghost: {{ ghost.name }}</h3>
 
-<p>
-    View <a href="{% ghostWikiUrl ghost.name, true %}">text-only</a> or
-    <a href="{% ghostWikiUrl ghost.name, false %}">noisy original</a> wiki page from Fandom
-</p>
-
 <h4>Hunt conditions</h4>
 <p>
     Starting sanity threshold:
@@ -57,6 +52,12 @@ title: Ghost
 <ghost-notes @notes-type="Evidence" :@notes="notes.evidence"></ghost-notes>
 <ghost-notes @notes-type="Other" :@notes="notes.other"></ghost-notes>
 {% endrenderTemplate %}
+
+<h4>Resources</h4>
+<p>
+    Fandom wiki page: <a href="{% ghostWikiUrl ghost.name, true %}">text-only</a>, <a href="{% ghostWikiUrl ghost.name, false %}">original</a>
+</p>
+
 <nav class="ghost-nav" aria-labelledby="ghost-nav-label">
     <h3 id="ghost-nav-label">See an adjacent ghost</h4>
     <ul>
