@@ -56,15 +56,17 @@ layout: baseLayout
     }"
 >
     <div class="obambo-tracker__time">
-        <div class="obambo-tracker__time--time-stuff">
-            <span class="time-stuff__time" x-text="timeDisplay"></span>
+        <div class="obambo-tracker__time--time-adders">
+            <button class="time__control" x-on:click="addTimeMinute()" x-bind:disabled="isTimeRunning">+1m</button>
+            <button class="time__control" x-on:click="addTimeSecond(5)" x-bind:disabled="isTimeRunning">+5s</button>
+            <button class="time__control" x-on:click="addTimeSecond(1)" x-bind:disabled="isTimeRunning">+1s</button>
+        </div>
+        <div class="obambo-tracker__time--time-display">
+            <span class="time-display__time" x-text="timeDisplay"></span>
         </div>
         <div class="obambo-tracker__time-controls">
-            <button class="time-stuff__control" x-on:click="addTimeMinute()" x-bind:disabled="isTimeRunning">+1m</button>
-            <button class="time-stuff__control" x-on:click="addTimeSecond(5)" x-bind:disabled="isTimeRunning">+5s</button>
-            <button class="time-stuff__control" x-on:click="addTimeSecond(1)" x-bind:disabled="isTimeRunning">+1s</button>
-            <button class="time-stuff__control" x-on:click="startTime()" x-bind:disabled="isTimeRunning">Start</button>
-            <button class="time-stuff__control" x-on:click="resetTime()">Reset</button>
+            <button class="time__control" x-on:click="startTime()" x-bind:disabled="isTimeRunning">Start</button>
+            <button class="time__control" x-on:click="resetTime()">Reset</button>
         </div>
     </div>
     <p class="obambo-tracker__state">
