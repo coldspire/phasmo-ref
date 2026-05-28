@@ -15,26 +15,35 @@
 
 .obambo-tracker__time {
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
 }
 
 .obambo-tracker__time-controls {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   gap: 0.5rem;
 }
 
-.obambo-tracker__time-controls > * {
+.time__control {
   border-radius: var(--border-radius);
 }
 
-.obambo-tracker__time--time-stuff {
+.obambo-tracker__time--time-adders {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 0.25rem;
+}
+
+.obambo-tracker__time--time-display {
   display: grid;
   place-content: center;
   gap: 0.25rem;
 }
 
-.time-stuff__time {
+.time-display__time {
   grid-area: time;
   text-align: center;
 
@@ -42,7 +51,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-.time-stuff__control {
+.time-display__control {
   border-radius: var(--border-radius);
 }
 
