@@ -56,5 +56,73 @@
   display: grid;
   place-content: center;
   font-size: var(--step-6);
-  text-shadow: 0 0 5px black;
+  text-shadow:
+    0 0 3px var(--state-color, black),
+    0 0 8px var(--state-color, black),
+    0 0 15px var(--state-color, black);
+
+  animation-iteration-count: infinite;
+}
+
+.obambo-state--calm {
+  --state-color: dodgerblue;
+
+  animation-duration: 4s;
+  animation-name: floaty;
+  animation-timing-function: ease-in-out;
+}
+
+.obambo-state--aggressive {
+  --state-color: tomato;
+
+  animation-duration: 100ms;
+  animation-name: jiggle;
+  animation-timing-function: linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .obambo-tracker__state--live {
+    animation: none;
+  }
+}
+
+@keyframes floaty {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.15;
+  }
+}
+
+@keyframes jiggle {
+  0% {
+    translate: none;
+  }
+
+  24% {
+    translate: none;
+  }
+  25% {
+    translate: 0 0.05rem;
+  }
+
+  49% {
+    translate: 0 0.05rem;
+  }
+  50% {
+    translate: 0.05rem 0;
+  }
+
+  74% {
+    translate: 0.05rem 0;
+  }
+  75% {
+    translate: 0.05rem 0.05rem;
+  }
+
+  99% {
+    translate: 0.05rem 0.05rem;
+  }
 }

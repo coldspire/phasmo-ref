@@ -28,11 +28,11 @@ layout: baseLayout
 
         get obamboState() {
             if (this.timeRaw < 0) {
-                return 'Calm';
+                return 'calm';
             }
 
             const twoMinuteTracker = Math.floor(this.timeRaw / 120);
-            return twoMinuteTracker % 2 === 0 ? 'Aggressive' : 'Calm';
+            return twoMinuteTracker % 2 === 0 ? 'aggressive' : 'calm';
         },
 
         addTimeMinute() {
@@ -68,6 +68,10 @@ layout: baseLayout
     </div>
     <p class="obambo-tracker__state">
         <span >The Obambo is currently...</span>
-        <span class="obambo-tracker__state--live spooky-text" x-text="obamboState">CALM</span>
+        <span class="obambo-tracker__state--live spooky-text"
+            x-text="obamboState"
+            x-bind:class="{ 'obambo-state--calm': obamboState === 'calm', 'obambo-state--aggressive': obamboState === 'aggressive' }"
+        >
+        </span>
     </p>
 </section>
