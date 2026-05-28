@@ -1,0 +1,84 @@
+.media {
+  --vert-spacer: 1rem;
+}
+
+.media .input-group {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.media > .media__type {
+  display: none;
+}
+
+.media:has(
+    .media__filter-options
+      > label
+      > :where(input[value="photo"], input[value="all"]):checked
+  )
+  > .media__type[data-photo] {
+  display: block;
+}
+
+.media:has(
+    .media__filter-options
+      > label
+      > :where(input[value="video"], input[value="all"]):checked
+  )
+  > .media__type[data-video] {
+  display: block;
+}
+
+.media:has(
+    .media__filter-options
+      > label
+      > :where(input[value="sound"], input[value="all"]):checked
+  )
+  > .media__type[data-sound] {
+  display: block;
+}
+
+.media__filter-options {
+  display: flex;
+  column-gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.media__type {
+  margin-top: var(--vert-spacer);
+}
+
+.media__type > h3 {
+  position: sticky;
+  top: 0;
+
+  z-index: 1; /* Allows the content to sit on top of whatever it's over */
+
+  background-color: white;
+  border-bottom: 1px solid #888;
+}
+
+.media__type > .no-match-notice {
+  padding-block: 1em;
+}
+
+.media__type__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.media__item {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+}
+
+.media__item:has(input:checked) {
+  text-decoration-line: line-through;
+}

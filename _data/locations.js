@@ -35,12 +35,14 @@ const LocationNames = {
   Edgefield: 2,
   Grafton: 3,
   MapleLodge: 4,
-  Prison: 5,
-  Ridgeview: 6,
-  SunnyMeadows: 7,
-  Tanglewood: 8,
-  Willow: 9,
-  Woodwind: 10,
+  Nells: 5,
+  PointHope: 6,
+  Prison: 7,
+  Ridgeview: 8,
+  SunnyMeadows: 9,
+  Tanglewood: 10,
+  Willow: 11,
+  Woodwind: 12,
 };
 
 /**
@@ -65,12 +67,14 @@ const locations = {
     possessionLocations: {
       [CursedPossession.HauntedMirror]:
         "On wall outside door to master bedroom",
-      [CursedPossession.MonkeyPaw]: "Dining room, in dish cabinet",
-      [CursedPossession.MusicBox]: "Nursery, on shelf just inside door",
-      [CursedPossession.OuijaBoard]: "Basement, on table at far end",
-      [CursedPossession.SummoningCircle]: "Basement",
+      [CursedPossession.MonkeyPaw]: "Garage, on top of fertilizer bag",
+      [CursedPossession.MusicBox]: "Master bedroom closet, next to safe",
+      [CursedPossession.OuijaBoard]: "Basement, under train table at far end",
+      [CursedPossession.SummoningCircle]:
+        "Basement, far side next to workbenches",
       [CursedPossession.TarotCards]: "Living room, on end table by the window",
-      [CursedPossession.VoodooDoll]: "Garage, on top of trash can",
+      [CursedPossession.VoodooDoll]:
+        "Nancy's room, on floor in front of big stuffed bear",
     },
   },
   [LocationNames.Ridgeview]: {
@@ -157,13 +161,15 @@ const locations = {
     mapSize: MapSize.Small,
     possessionLocations: {
       [CursedPossession.HauntedMirror]:
-        "Living room, on wall next to kitchen door",
-      [CursedPossession.MonkeyPaw]: "Twin bedroom table",
-      [CursedPossession.MusicBox]: "Foyer shelf",
-      [CursedPossession.OuijaBoard]: "Master bedroom closet",
-      [CursedPossession.SummoningCircle]: "Storage area",
-      [CursedPossession.TarotCards]: "Dining room table",
-      [CursedPossession.VoodooDoll]: "Nursery chest",
+        "Master bedroom, on dresser across from entry door",
+      [CursedPossession.MonkeyPaw]: "Dining room, on dresser next to fireplace",
+      [CursedPossession.MusicBox]: "Twin bedroom, nightstand",
+      [CursedPossession.OuijaBoard]:
+        "Attic, towards the back under a tall lamp",
+      [CursedPossession.SummoningCircle]: "Child's bedroom",
+      [CursedPossession.TarotCards]:
+        "Library, left side, on table with typewriter",
+      [CursedPossession.VoodooDoll]: "Mannequins room, on work table",
     },
   },
   [LocationNames.Brownstone]: {
@@ -226,6 +232,42 @@ const locations = {
         "Lobby, in blue crate on table inside front door",
       [CursedPossession.VoodooDoll]:
         "Lobby, between crates on table inside front door",
+    },
+  },
+  [LocationNames.PointHope]: {
+    name: "Point Hope",
+    shortName: "Point Hope",
+    mapSize: MapSize.Medium,
+    possessionLocations: {
+      [CursedPossession.HauntedMirror]:
+        "Dining floor, leaning against cabinet at far end of dining table",
+      [CursedPossession.MonkeyPaw]: "Maintenance floor, on work table",
+      [CursedPossession.MusicBox]: "Master bedroom, on vanity near entry door",
+      [CursedPossession.OuijaBoard]:
+        "Leisure floor, in floor shelves on side away from entry",
+      [CursedPossession.SummoningCircle]: "Bathroom floor",
+      [CursedPossession.TarotCards]: "Living room, on side table facing TV",
+      [CursedPossession.VoodooDoll]: "Child's bedroom, on dresser",
+    },
+  },
+  [LocationNames.Nells]: {
+    name: "Nell's Diner",
+    shortName: "Nell's",
+    mapSize: MapSize.Small,
+    possessionLocations: {
+      [CursedPossession.HauntedMirror]:
+        "Break room, chair on far side of vending machine",
+      [CursedPossession.MonkeyPaw]:
+        "Kitchen, on cutting board on edge of work island closest to entry doors",
+      [CursedPossession.MusicBox]:
+        "Manager's office, on table just inside door",
+      [CursedPossession.OuijaBoard]:
+        "Janitor's closet, on top of cardboard box next to shelves",
+      [CursedPossession.SummoningCircle]: "Men's bathroom (back bathroom)",
+      [CursedPossession.TarotCards]:
+        "Counter area, behind counter next to register",
+      [CursedPossession.VoodooDoll]:
+        "Diner area, second-to-last booth on the left",
     },
   },
 };

@@ -1,0 +1,55 @@
+:root {
+  font: 16pt / 1.2 sans-serif;
+
+  /* @link https://utopia.fyi/type/calculator?c=400,16,1.2,800,20,1.25,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --step--2: clamp(0.8784rem, 0.7691rem + 0.4372vw, 0.9877rem);
+  --step--1: clamp(0.9372rem, 0.7633rem + 0.6956vw, 1.1111rem);
+  --step-0: clamp(1rem, 0.75rem + 1vw, 1.25rem);
+  --step-1: clamp(1.067rem, 0.7278rem + 1.357vw, 1.4063rem);
+  --step-2: clamp(1.1385rem, 0.6949rem + 1.7742vw, 1.582rem);
+  --step-3: clamp(1.2148rem, 0.6498rem + 2.2601vw, 1.7798rem);
+  --step-4: clamp(1.2962rem, 0.5901rem + 2.8244vw, 2.0023rem);
+  --step-5: clamp(1.383rem, 0.5135rem + 3.4782vw, 2.2525rem);
+  --step-6: clamp(1.4757rem, 0.4172rem + 4.2338vw, 2.5341rem);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: "EB Garamond", serif;
+  padding-block-start: 0.5em;
+}
+
+h1 {
+  line-height: 1.25;
+  font-size: var(--step-6);
+}
+
+h2 {
+  font-size: var(--step-5);
+}
+
+h3 {
+  font-size: var(--step-4);
+}
+
+h4 {
+  font-size: var(--step-3);
+}
+
+h5 {
+  font-size: var(--step-2);
+}
+
+h6 {
+  font-size: var(--step-1);
+}
+
+.spooky-text {
+  font-family: "October Crow", "EB Garamond", serif;
+  letter-spacing: 4px;
+  font-weight: 500;
+}
+
+.evil-text {
+  color: #600;
+  text-shadow: 0 0 15px darkred;
+}

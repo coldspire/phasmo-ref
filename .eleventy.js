@@ -28,6 +28,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "src/styles": "styles",
     "src/scripts": "scripts",
+    "src/fonts": "fonts",
   });
 
   eleventyConfig.addWatchTarget(componentsDir);
