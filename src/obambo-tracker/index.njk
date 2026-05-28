@@ -1,21 +1,57 @@
 ---
 layout: baseLayout
 ---
+<script defer src="/scripts/alpinejs.min.js"></script>
+<script defer src="/scripts/obambo-tracker.js"></script>
 <h2 class="spooky-text">Obambo Tracker</h2>
 <p>
     The <a href="/ghosts/obambo.html">Obambo</a> alternates between "calm" and "aggressive" states on a fixed interval of two minutes,
     starting halfway through the calm state upon location entry. This regularity allows calculating the Obambo's state from the elapsed time of the contract.
 </p>
-<section class="obambo-tracker">
+<section class="obambo-tracker"
+    x-data="{
+        timeRaw: 0,
+        timeIntervalHandle: 0,
+
+        get timeDisplay() {
+            const minutes = Math.floor(this.timeRaw / 60);
+            const seconds = this.timeRaw % 60;
+            return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2,'0')}`;
+        },
+
+        get isTimeRunning() {
+            return this.timeIntervalHandle > 0;
+        },
+
+        addTimeMinute() {
+            this.timeRaw += 60;
+        },
+        addTimeSecond() {
+            this.timeRaw += 1;
+        },
+        resetTime() {
+            this.timeRaw = 0;
+            if (this.timeIntervalHandle) {
+                clearInterval(this.timeIntervalHandle);
+                this.timeIntervalHandle = 0;
+            }
+        },
+        startTime() {
+            this.timeIntervalHandle = setInterval(() => {
+                this.timeRaw += 1;
+            }, 1000);
+        }
+    }"
+>
     <div class="obambo-tracker__time">
         <div class="obambo-tracker__time--time-stuff">
-            <span class="time-stuff__time">00:00</span>
+            <span class="time-stuff__time" x-text="timeDisplay"></span>
         </div>
         <div class="obambo-tracker__time-controls">
-            <button class="time-stuff__control">+1m</button>
-            <button class="time-stuff__control">+1s</button>
-            <button class="time-stuff__control">Start</button>
-            <button class="time-stuff__control">Reset</button>
+            <button class="time-stuff__control" x-on:click="addTimeMinute()" x-bind:disabled="isTimeRunning">+1m</button>
+            <button class="time-stuff__control" x-on:click="addTimeSecond()" x-bind:disabled="isTimeRunning">+1s</button>
+            <button class="time-stuff__control" x-on:click="startTime()" x-bind:disabled="isTimeRunning">Start</button>
+            <button class="time-stuff__control" x-on:click="resetTime()">Reset</button>
         </div>
     </div>
     <p class="obambo-tracker__state">
@@ -23,4 +59,3 @@ layout: baseLayout
         <span class="obambo-tracker__state--live spooky-text">CALM</span>
     </p>
 </section>
-<script src="/scripts/obambo-tracker.js"></script>
