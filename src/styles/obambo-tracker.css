@@ -1,0 +1,70 @@
+.obambo-tracker {
+  margin-block-start: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+
+  --border-radius: 0.5em;
+}
+
+.obambo-tracker > * {
+  padding: 0.5rem;
+  background-color: lightgray;
+}
+
+.obambo-tracker__time {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+
+.obambo-tracker__time-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.obambo-tracker__time-controls > * {
+  border-radius: var(--border-radius);
+}
+
+.obambo-tracker__time--time-stuff {
+  display: grid;
+  grid-template-areas:
+    "time time"
+    "start-control reset-control";
+  place-content: center;
+  gap: 0.25rem;
+}
+
+.time-stuff__time {
+  grid-area: time;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.time-stuff__control {
+  border-radius: var(--border-radius);
+}
+
+.time-stuff__start {
+  grid-area: start-control;
+}
+
+.time-stuff__reset {
+  grid-area: reset-control;
+}
+
+.obambo-tracker__state {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: fit-content(1rem) 1fr;
+}
+
+.obambo-tracker__state--live {
+  display: grid;
+  place-content: center;
+  font-size: var(--step-6);
+  text-shadow: 0 0 5px black;
+}
