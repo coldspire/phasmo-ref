@@ -57,3 +57,12 @@ footer {
   margin-block-start: 1rem;
   font-size: 0.6rem;
 }
+
+ul {
+  margin: 0;
+  padding-inline-start: 1em;
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}

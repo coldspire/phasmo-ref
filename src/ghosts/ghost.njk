@@ -45,7 +45,7 @@ title: Ghost
     {% endfor -%}
 </ul>
 
-<h4>Notes</h4>
+<h4 class="spooky-text">Notes</h4>
 {% renderTemplate "webc", ghost %}
 <ghost-notes @notes-type="Ability" :@notes="notes.ability"></ghost-notes>
 <ghost-notes @notes-type="Hunting" :@notes="notes.hunt"></ghost-notes>
@@ -53,13 +53,13 @@ title: Ghost
 <ghost-notes @notes-type="Other" :@notes="notes.other"></ghost-notes>
 {% endrenderTemplate %}
 
-<h4>Resources</h4>
+<h4 class="spooky-text">Resources</h4>
 <p>
     Fandom wiki page: <a href="{% ghostWikiUrl ghost.name, true %}">text-only</a>, <a href="{% ghostWikiUrl ghost.name, false %}">original</a>
 </p>
 
 <nav class="ghost-nav" aria-labelledby="ghost-nav-label">
-    <h3 id="ghost-nav-label">See an adjacent ghost</h4>
+    <h3 id="ghost-nav-label" class="spooky-text">See an adjacent ghost</h4>
     <ul>
         {% if pagination.href.previous %}<li>Previous: <a class="ghost-name" href="{{ pagination.href.previous }}">{{ pagination.page.previous.name }}</a></li>{% endif %}
         {% if pagination.href.next %}<li>Next: <a class="ghost-name" href="{{ pagination.href.next }}">{{ pagination.page.next.name }}</a></li>{% endif %}
