@@ -1,0 +1,90 @@
+/***** Tarot page */
+
+.cards-nav.individual-cards > ul > li {
+  text-transform: capitalize;
+  margin-inline-start: 2ch;
+}
+
+.cards-nav > ul {
+  margin-block-start: 0;
+  padding-inline-start: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+}
+
+.cards-nav > ul > li {
+  margin-inline-start: 2ch;
+  flex: 1 100px;
+}
+
+.individual-cards li::marker {
+  content: "🃏";
+}
+
+.sorted-cards li::marker {
+  content: "🎲";
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card-wrapper {
+  flex-basis: clamp(250px, 30%, 500px);
+  aspect-ratio: 5 / 7;
+  max-width: 300px;
+
+  background-image: linear-gradient(var(--background-color));
+
+  --card-spacing: 0.25rem;
+  --card-border-radius--inner: 16px;
+  --card-border-radius--outer: calc(
+    var(--card-spacing) + var(--card-border-radius--inner)
+  );
+
+  border-radius: var(--card-border-radius--outer);
+
+  box-shadow: var(--card-shadow-elevation-medium);
+}
+
+.card {
+  margin: var(--card-spacing);
+  padding: calc(var(--card-spacing) * 3);
+
+  min-height: calc(100% - var(--card-spacing) * 2);
+  width: calc(100% - var(--card-spacing) * 2);
+
+  background-image: linear-gradient(160deg, #fafafa 65%, var(--fade-color));
+  color: #444;
+
+  border: 3px solid var(--border-color);
+  border-radius: var(--card-border-radius--inner);
+}
+
+.card > * + * {
+  margin-top: 0.5em;
+}
+
+.card > h3 {
+  text-transform: uppercase;
+  font-size: var(--step-0);
+}
+
+.card > details summary {
+  cursor: pointer;
+}
+
+.card > details > ul {
+  font-size: var(--step--2);
+
+  margin-block-start: 0;
+  padding-inline-start: 1rem;
+
+  list-style: circle;
+}

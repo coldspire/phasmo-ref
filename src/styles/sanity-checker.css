@@ -1,0 +1,89 @@
+/***** Sanity Checker page */
+
+.ghost-list-inline {
+  list-style: none;
+}
+
+.ghost-list-inline > li {
+  display: inline;
+}
+
+.ghost-list-inline > li:not(:last-child)::after {
+  content: "•";
+}
+
+.super-sanity-thresholds {
+  padding-inline-start: 1rem;
+
+  display: grid;
+  grid-template-columns: 3em 1fr;
+  gap: 0.25rem 0.5rem;
+}
+
+.sanity-slider {
+  padding-inline-end: 1.5rem;
+}
+
+input[name="selected-sanity"] {
+  width: 100%;
+}
+
+datalist[id="sanity-markers"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 100%;
+}
+
+datalist[id="sanity-markers"] > option {
+  line-height: 0.75em;
+  padding: 0;
+  margin: 0;
+}
+
+.can-hunt {
+  font-weight: 700;
+  rotate: -5deg;
+  color: white;
+  text-shadow:
+    darkred 0 0 5px,
+    darkred 0 0 5px,
+    darkred 0 0 5px,
+    darkred 0 0 10px,
+    darkred 0 0 10px,
+    darkred 0 0 15px,
+    darkred 0 0 15px,
+    darkred 0 0 20px,
+    darkred 0 0 50px;
+}
+
+.cannot-hunt {
+  font-weight: 300;
+  font-style: italic;
+  color: #666;
+}
+
+.is-super-condition::after {
+  content: "†";
+}
+
+.realtime-sanity-list {
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.realtime-sanity-list > li {
+  position: relative;
+}
+
+.realtime-sanity-list > li > .ghost-name {
+  position: absolute;
+  word-break: keep-all;
+}
+
+.selected-sanity-label {
+  padding: 1rem 0 0 0;
+  font-weight: bold;
+  font-size: 1em;
+}
