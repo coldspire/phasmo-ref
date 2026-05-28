@@ -38,8 +38,8 @@ layout: baseLayout
         addTimeMinute() {
             this.timeRaw += 60;
         },
-        addTimeSecond() {
-            this.timeRaw += 1;
+        addTimeSecond(addAmount) {
+            this.timeRaw += addAmount;
         },
         resetTime() {
             this.timeRaw = -60;
@@ -61,7 +61,8 @@ layout: baseLayout
         </div>
         <div class="obambo-tracker__time-controls">
             <button class="time-stuff__control" x-on:click="addTimeMinute()" x-bind:disabled="isTimeRunning">+1m</button>
-            <button class="time-stuff__control" x-on:click="addTimeSecond()" x-bind:disabled="isTimeRunning">+1s</button>
+            <button class="time-stuff__control" x-on:click="addTimeSecond(5)" x-bind:disabled="isTimeRunning">+5s</button>
+            <button class="time-stuff__control" x-on:click="addTimeSecond(1)" x-bind:disabled="isTimeRunning">+1s</button>
             <button class="time-stuff__control" x-on:click="startTime()" x-bind:disabled="isTimeRunning">Start</button>
             <button class="time-stuff__control" x-on:click="resetTime()">Reset</button>
         </div>
