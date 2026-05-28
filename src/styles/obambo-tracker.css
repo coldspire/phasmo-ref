@@ -37,7 +37,9 @@
 .time-stuff__time {
   grid-area: time;
   text-align: center;
+
   font-size: 3rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .time-stuff__control {
