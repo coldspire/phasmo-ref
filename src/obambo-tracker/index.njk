@@ -35,6 +35,10 @@ layout: baseLayout
             return twoMinuteTracker % 2 === 0 ? 'aggressive' : 'calm';
         },
 
+        get isObamboCalm() {
+            return this.obamboState === 'calm';
+        },
+
         addTimeMinute() {
             this.timeRaw += 60;
         },
@@ -69,8 +73,8 @@ layout: baseLayout
             <button class="time__control" x-on:click="resetTime()">Reset</button>
         </div>
     </div>
-    <p class="obambo-tracker__state">
-        <span >The Obambo is currently...</span>
+    <p class="obambo-tracker__state" x-bind:style="isObamboCalm ? '--state-bg-color: skyblue' : '--state-bg-color: darkred'">
+        <span class="obambo-tracker__state--label">The Obambo is currently...</span>
         <span class="obambo-tracker__state--live spooky-text"
             x-text="obamboState"
             x-bind:class="{ 'obambo-state--calm': obamboState === 'calm', 'obambo-state--aggressive': obamboState === 'aggressive' }"
