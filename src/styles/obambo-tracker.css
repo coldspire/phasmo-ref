@@ -70,9 +70,10 @@
 .obambo-tracker__state {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: fit-content(1rem) 1fr;
+  grid-template-rows: fit-content(1rem) 1fr fit-content(1rem);
+  gap: 0.25rem;
 
-  padding: 1.5rem;
+  padding: 1rem;
 
   background-image: radial-gradient(
     at center 60% in oklab,
@@ -95,6 +96,12 @@
     0 0 15px var(--state-color, black);
 
   animation-iteration-count: infinite;
+}
+
+.obambo-tracker__state--notes {
+  font-style: italic;
+  font-size: var(--step--3);
+  text-align: center;
 }
 
 .obambo-state--calm {

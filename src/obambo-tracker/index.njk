@@ -84,5 +84,9 @@ layout: baseLayout
             x-bind:class="{ 'obambo-state--calm': obamboState === 'calm', 'obambo-state--aggressive': obamboState === 'aggressive' }"
         >
         </span>
+        <span x-cloak class="obambo-tracker__state--notes">
+            <span x-show="isObamboCalm">Hunts at 10%; slower hunt speed</span>
+            <span x-show="!isObamboCalm">Hunts at 60%; faster hunt speed; shorter hunt</span>
+        </span>
     </p>
 </section>
