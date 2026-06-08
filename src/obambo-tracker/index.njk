@@ -7,6 +7,11 @@ layout: baseLayout
     The <a href="/ghosts/obambo.html">Obambo</a> alternates between "calm" and "aggressive" states on a fixed interval of two minutes,
     starting halfway through the calm state upon location entry. This regularity allows calculating the Obambo's state from the elapsed time of the contract.
 </p>
+<p>
+    {% renderTemplate "webc" %}
+    <wake-lock></wake-lock>
+    {% endrenderTemplate %}
+</p>
 <section class="obambo-tracker"
     x-data="{
         timeRaw: -60,
