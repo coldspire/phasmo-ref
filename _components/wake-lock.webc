@@ -1,0 +1,2 @@
+<input id="wake-lock" type="checkbox">
+<label for="wake-lock" id="wake-lock__label">Prevent device from sleeping</label>
