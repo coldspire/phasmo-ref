@@ -38,6 +38,10 @@
     93px 93px 148px -2.5px hsl(var(--card-shadow-color) / 0.31);
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 body {
   padding: var(--body-padding);
 }

@@ -1,7 +1,7 @@
 :root {
   font: 16pt / 1.2 sans-serif;
 
-  /* @link https://utopia.fyi/type/calculator?c=400,16,1.2,800,20,1.25,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --step--3: clamp(0.6944rem, 0.5889rem + 0.4222vw, 0.8rem);
   --step--2: clamp(0.8784rem, 0.7691rem + 0.4372vw, 0.9877rem);
   --step--1: clamp(0.9372rem, 0.7633rem + 0.6956vw, 1.1111rem);
   --step-0: clamp(1rem, 0.75rem + 1vw, 1.25rem);
