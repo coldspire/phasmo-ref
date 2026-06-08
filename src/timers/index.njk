@@ -6,8 +6,9 @@ layout: baseLayout
 <div class="config__options">
 <input id="show-simple-view" type="checkbox">
 <label for="show-simple-view">Simple view</label>
-<input id="wake-lock" type="checkbox">
-<label for="wake-lock" id="wake-lock__label">Prevent device from sleeping</label>
+{% renderTemplate "webc" %}
+<wake-lock></wake-lock>
+{% endrenderTemplate %}
 </div>
 <section class="timers">
 <!--
