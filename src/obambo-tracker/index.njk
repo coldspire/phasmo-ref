@@ -82,11 +82,12 @@ layout: baseLayout
         <label for="obambo-tracker__state-change-audio-option">
            <input type="checkbox" id="obambo-tracker__state-change-audio-option" x-model="playStateChangeSound" /><span>Play sound on state change</span>
         </label>
-        <audio x-ref="stateChangeAudioCalm" id="obambo-tracker__state-change-audio--calm" src="/sounds/obambo-tracker__state-change--calm.m4a"></audio>
-        <audio x-ref="stateChangeAudioAggressive" id="obambo-tracker__state-change-audio--aggressive" src="/sounds/obambo-tracker__state-change--aggressive.m4a"></audio>
+        <audio x-ref="stateChangeAudioCalm" id="obambo-tracker__state-change-audio--calm" preload="metadata" src="/sounds/obambo-tracker__state-change--calm.m4a" type="audio/aac"></audio>
+        <audio x-ref="stateChangeAudioAggressive" id="obambo-tracker__state-change-audio--aggressive" preload="metadata" src="/sounds/obambo-tracker__state-change--aggressive.m4a" type="audio/aac"></audio>
     </fieldset>
     <section class="obambo-tracker">
         <div class="obambo-tracker__time">
+            <h3 class="obambo-tracker__time-title">Contract time</h3>
             <div class="obambo-tracker__time--time-adders">
                 <button class="time__control" x-on:click="addTimeMinute()" x-bind:disabled="isTimeRunning">+1m</button>
                 <button class="time__control" x-on:click="addTimeSecond(5)" x-bind:disabled="isTimeRunning">+5s</button>
