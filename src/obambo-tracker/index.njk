@@ -33,7 +33,11 @@ layout: baseLayout
                 if (currentState !== this.previousState) {
                     this.previousState = currentState;
                     if (this.playStateChangeSound && this.isTimeRunning) {
-                        $refs.statechangeaudio.play();
+                        if (this.isObamboCalm) {
+                            $refs.stateChangeAudioCalm.play();
+                        } else {
+                            $refs.stateChangeAudioAggressive.play();
+                        }
                     }
                 }
 
@@ -70,16 +74,17 @@ layout: baseLayout
         The <a href="/ghosts/obambo.html">Obambo</a> alternates between "calm" and "aggressive" states every two minutes,
         starting halfway through the calm state upon location entry. This regular interval allows calculating the Obambo's state from the elapsed time of the contract.
     </p>
-    <p>
+    <fieldset>
+        <legend>Settings</legend>
         {% renderTemplate "webc" %}
         <wake-lock></wake-lock>
         {% endrenderTemplate %}
-    </p>
-    <p>
-        <input type="checkbox" id="obambo-tracker__state-change-audio-option" x-model="playStateChangeSound" />
-        <label for="obambo-tracker__state-change-audio-option">Play sound on state change</label>
-        <audio x-ref="statechangeaudio" id="obambo-tracker__state-change-audio" src="/sounds/obambo-tracker__state-change.m4a"></audio>
-    </p>
+        <label for="obambo-tracker__state-change-audio-option">
+           <input type="checkbox" id="obambo-tracker__state-change-audio-option" x-model="playStateChangeSound" /><span>Play sound on state change</span>
+        </label>
+        <audio x-ref="stateChangeAudioCalm" id="obambo-tracker__state-change-audio--calm" src="/sounds/obambo-tracker__state-change--calm.m4a"></audio>
+        <audio x-ref="stateChangeAudioAggressive" id="obambo-tracker__state-change-audio--aggressive" src="/sounds/obambo-tracker__state-change--aggressive.m4a"></audio>
+    </fieldset>
     <section class="obambo-tracker">
         <div class="obambo-tracker__time">
             <div class="obambo-tracker__time--time-adders">

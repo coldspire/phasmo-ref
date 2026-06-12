@@ -1,2 +1,3 @@
-<input id="wake-lock" type="checkbox">
-<label for="wake-lock" id="wake-lock__label">Prevent device from sleeping</label>
+<label for="wake-lock" id="wake-lock__label">
+<input id="wake-lock" type="checkbox"><span>Prevent device from sleeping</span>
+</label>

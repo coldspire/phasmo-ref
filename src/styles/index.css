@@ -55,6 +55,16 @@ footer {
   max-width: 800px;
 }
 
+fieldset {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  & > label > * + * {
+    margin-inline-start: 0.25rem;
+  }
+}
+
 footer {
   border-top: 2px solid #ccc;
 
