@@ -7,6 +7,7 @@
 @import url("cursed-possessions.css");
 @import url("ghosts.css");
 @import url("media.css");
+@import url("obambo-tracker.css");
 @import url("sanity-checker.css");
 @import url("tarot-cards.css");
 @import url("timers.css");
@@ -37,6 +38,10 @@
     93px 93px 148px -2.5px hsl(var(--card-shadow-color) / 0.31);
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 body {
   padding: var(--body-padding);
 }
@@ -48,6 +53,16 @@ body > * + * {
 main,
 footer {
   max-width: 800px;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  & > label > * + * {
+    margin-inline-start: 0.25rem;
+  }
 }
 
 footer {

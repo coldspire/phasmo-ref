@@ -29,6 +29,7 @@ export default function (eleventyConfig) {
     "src/styles": "styles",
     "src/scripts": "scripts",
     "src/fonts": "fonts",
+    "src/sounds": "sounds",
   });
 
   eleventyConfig.addWatchTarget(componentsDir);
