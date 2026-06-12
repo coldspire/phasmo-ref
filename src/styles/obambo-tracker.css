@@ -31,6 +31,8 @@
   grid-template-columns: 1fr 3fr 1fr;
 
   font-family: sans-serif;
+
+  touch-action: manipulation; /* Prevent double tap zoom on iOS */
 }
 
 .obambo-tracker__time-title {
