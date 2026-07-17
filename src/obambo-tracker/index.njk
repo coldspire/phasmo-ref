@@ -1,0 +1,118 @@
+---
+layout: baseLayout
+---
+<script defer src="/scripts/safari-audio-fix.js"></script>
+<script defer src="/scripts/alpinejs.min.js"></script>
+<h2 class="spooky-text">Obambo Tracker</h2>
+<div x-data="{
+             timeRaw: -60,
+             timeIntervalHandle: 0,
+             playStateChangeSound: false,
+             previousState: 'calm',
+
+             get timeNormalized() {
+                 return this.timeRaw + 60;
+             },
+
+             get timeDisplay() {
+                 const minutes = Math.floor(this.timeNormalized / 60);
+                 const seconds = this.timeNormalized % 60;
+                 return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2,'0')}`;
+             },
+             get isTimeRunning() {
+                 return this.timeIntervalHandle > 0;
+             },
+
+             get obamboState() {
+                 if (this.timeRaw < 0) {
+                     return 'calm';
+                 }
+
+                const twoMinuteTracker = Math.floor(this.timeRaw / 120);
+                const currentState = twoMinuteTracker % 2 === 0 ? 'aggressive' : 'calm';
+
+                if (currentState !== this.previousState) {
+                    this.previousState = currentState;
+                    if (this.playStateChangeSound && this.isTimeRunning) {
+                        if (this.isObamboCalm) {
+                            $refs.stateChangeAudioCalm.play();
+                        } else {
+                            $refs.stateChangeAudioAggressive.play();
+                        }
+                    }
+                }
+
+                 return currentState;
+             },
+
+             get isObamboCalm() {
+                 return this.obamboState === 'calm';
+             },
+
+             addTimeMinute() {
+                 this.timeRaw += 60;
+             },
+             addTimeSecond(addAmount) {
+                 this.timeRaw += addAmount;
+             },
+             resetTime() {
+                 this.timeRaw = -60;
+                 this.currentState = 'calm';
+                 this.previousState = 'calm';
+                 if (this.timeIntervalHandle) {
+                     clearInterval(this.timeIntervalHandle);
+                     this.timeIntervalHandle = 0;
+                 }
+             },
+             startTime() {
+                 this.timeIntervalHandle = setInterval(() => {
+                     this.timeRaw += 1;
+                 }, 1000);
+             }
+         }"
+>
+    <p>
+        The <a href="/ghosts/obambo.html">Obambo</a> alternates between "calm" and "aggressive" states every two minutes,
+        starting halfway through the calm state upon location entry. This regular interval allows calculating the Obambo's state from the elapsed time of the contract.
+    </p>
+    <fieldset>
+        <legend>Settings</legend>
+        {% renderTemplate "webc" %}
+        <wake-lock></wake-lock>
+        {% endrenderTemplate %}
+        <label for="obambo-tracker__state-change-audio-option">
+           <input type="checkbox" id="obambo-tracker__state-change-audio-option" x-model="playStateChangeSound" /><span>Play sound on state change</span>
+        </label>
+        <audio x-ref="stateChangeAudioCalm" id="obambo-tracker__state-change-audio--calm" preload="metadata" src="/sounds/obambo-tracker__state-change--calm.m4a" type="audio/aac"></audio>
+        <audio x-ref="stateChangeAudioAggressive" id="obambo-tracker__state-change-audio--aggressive" preload="metadata" src="/sounds/obambo-tracker__state-change--aggressive.m4a" type="audio/aac"></audio>
+    </fieldset>
+    <section class="obambo-tracker">
+        <div class="obambo-tracker__time">
+            <h3 class="obambo-tracker__time-title">Contract time</h3>
+            <div class="obambo-tracker__time--time-adders">
+                <button class="time__control" x-on:click="addTimeMinute()" x-bind:disabled="isTimeRunning">+1m</button>
+                <button class="time__control" x-on:click="addTimeSecond(5)" x-bind:disabled="isTimeRunning">+5s</button>
+                <button class="time__control" x-on:click="addTimeSecond(1)" x-bind:disabled="isTimeRunning">+1s</button>
+            </div>
+            <div class="obambo-tracker__time--time-display">
+                <span class="time-display__time" x-text="timeDisplay"></span>
+            </div>
+            <div class="obambo-tracker__time-controls">
+                <button class="time__control" x-on:click="startTime()" x-bind:disabled="isTimeRunning">Start</button>
+                <button class="time__control" x-on:click="resetTime()">Reset</button>
+            </div>
+        </div>
+        <p class="obambo-tracker__state" x-bind:style="isObamboCalm ? '--state-bg-color: skyblue' : '--state-bg-color: darkred'">
+            <span class="obambo-tracker__state--label">The Obambo is currently...</span>
+            <span class="obambo-tracker__state--live spooky-text"
+                x-text="obamboState"
+                x-bind:class="{ 'obambo-state--calm': obamboState === 'calm', 'obambo-state--aggressive': obamboState === 'aggressive' }"
+            >
+            </span>
+            <span x-cloak class="obambo-tracker__state--notes">
+                <span x-show="isObamboCalm">Hunts at 10%; slower hunt speed</span>
+                <span x-show="!isObamboCalm">Hunts at 60%; faster hunt speed; shorter hunt</span>
+            </span>
+        </p>
+    </section>
+</div>
